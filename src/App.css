@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+.sticky-header {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section-wrapper {
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.section-content {
+  opacity: 1;
+  transform: translateY();
+  transition-duration: 2s;
+  transition-timing-function: ease-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.section-content-out {
+  opacity: 0;
+  transform: translate3d(0, 2em, 0);
+}
+
+.section-content-full-width {
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.section-content-no-full-width {
+  width: 70%;
+  max-width: 1200px;
+  align-items: center;
+  display: flex;
+}
+
+.section-cell {
+  width: auto;
+  height: auto;
+
+}
+
+.text-text {
+  font-weight: 400;
+  font-size: 1em;
+
+  text-decoration: none;
+  color: black;
+}
+
+.text-quote {
+  font-weight: 300;
+  font-size: 0.8em;
+
+  text-decoration: none;
+  color: black;
+}
+
+.text-brief {
+  font-weight: 600;
+  font-size: 1.25em;
+
+  text-decoration: none;
+  color: black;
+}
+
+.text-bond {
+  font-weight: 500;
+  font-size: 1.25em;
+  cursor: pointer;
+
+  text-decoration: none;
+  color: black;
+}
+
+.text-logo {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 2em;
+  cursor: pointer;
+
+  text-decoration: none;
+  color: black;
+}
+
+.title-page {
+  font-family: serif;
+  font-size: 4em;
+  font-weight: 200;
+}
+
+.title-section {
+  font-family: serif;
+  font-size: 2.25em;
+}
+
+.title-section-sub {
+  font-family: serif;
+  font-size: 1.75em;
+}
+
+.section-grid {
+  display: grid;
+  justify-content: space-between;
+  flex: 1 1 100%;
+}
+
+.card-cell {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  display: inline-block;
+  padding: 10%;
+
+  border-radius: 0.5em;
+  background-color: white;
+  border: 0.5px rgb(200, 200, 200) solid;
+  box-sizing: border-box;
+}
+
+
+.card-image-cell {
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  padding: 0;
+  display: inline-block;
+
+  border-radius: 0.5em;
+  background-color: white;
+  box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.2);
+}
+
+.card-image-cell>img {
+  width: 100%;
+  display: block;
 }

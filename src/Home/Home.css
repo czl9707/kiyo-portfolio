@@ -1,0 +1,42 @@
+.home-card-image {
+    width: 100%;
+    border-radius: 0.5em;
+    box-shadow: 0.1em 0.1em 0.5em rgb(1, 1, 1, 0.1);
+}
+
+.home-card-image:hover {
+    box-shadow: 0.2em 0.2em 0.5em rgb(1, 1, 1, 0.2);
+}
+
+#home-hello-text {
+    font-weight: 400;
+    font-size: 5em;
+}
+
+#home-intro-text {
+    font-weight: 200;
+    font-size: 2.5em;
+}
+
+.home-card-title {
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+.home-card-tag {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.07);
+    border-radius: 3em;
+    padding: 0.2em 1.5em;
+    margin: 0.25em 0.5em 0.25em 0;
+}
+
+.home-card-tag p {
+    font-weight: 300;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+}
