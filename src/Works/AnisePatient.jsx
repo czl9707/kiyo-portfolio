@@ -45,6 +45,8 @@ function AnisePatient() {
                 title="Design Question 2"
                 statement="How might we improve the usability of self-service tools to encourage patients’ utilization outside of sessions?" />
             <DesignQuestion2 />
+            <Impact />
+            <DesignSystem />
         </>
     )
 }
@@ -108,6 +110,7 @@ function QuoteAndImg({ children, img, annotation, hasLeftBorder = true }) {
     );
 }
 
+
 function Overview() {
     return (
         <SectionGrid gridMinColumn={1} gridMaxColumn={2}
@@ -136,6 +139,7 @@ function Overview() {
         </SectionGrid>
     );
 }
+
 
 function Intro() {
     return (
@@ -187,6 +191,7 @@ function Intro() {
     );
 }
 
+
 function Journey() {
     return (
         <>
@@ -209,6 +214,7 @@ function Journey() {
         </>
     )
 }
+
 
 function Solution() {
     function ImageCard({ img }) {
@@ -248,6 +254,7 @@ function Solution() {
 
     )
 }
+
 
 function FinalResults() {
     function Card({ img, text }) {
@@ -307,6 +314,7 @@ function FinalResults() {
     );
 }
 
+
 function DefineScope() {
     function Card({ img, title, text }) {
         return (
@@ -354,7 +362,8 @@ function DefineScope() {
                 </p>
                 <p className="text-text">
                     <br />
-                    Kicking off the project, I emphazised with Anise's target users, understood how Anise service works and identified <b>two primary use cases</b> in the services, which shape the design focus: Anise offers monthly subscribed care palns (with 4 online sessions) and self-services tools for patients to support their long-term well-being.                </p>
+                    Kicking off the project, I emphazised with Anise's target users, understood how Anise service works and identified <b>two primary use cases</b> in the services, which shape the design focus: Anise offers monthly subscribed care palns (with 4 online sessions) and self-services tools for patients to support their long-term well-being.
+                </p>
             </GridCell>
             <Card img="AnisePatientScopeIllustration1.png"
                 title={<p> Online sessions in <br /> subscribed care plans </p>}
@@ -365,6 +374,7 @@ function DefineScope() {
         </SectionGrid>
     );
 }
+
 
 function ResearchIdeation() {
     return (
@@ -452,6 +462,7 @@ function KeyFinding1() {
 
     );
 }
+
 
 function DesignQuestion1() {
     return (
@@ -574,6 +585,7 @@ function KeyFinding2() {
     );
 }
 
+
 function DesignQuestion2() {
     return (
         <SectionGrid
@@ -675,6 +687,133 @@ function DesignQuestion2() {
     );
 }
 
+
+function Impact() {
+    function Card({ title, text }) {
+        return (
+            <CardCell>
+                <FullWidthSection fadedIn={false} >
+                    <GrowSectionCell>
+                        <p className="text-brief"
+                            style={{ textAlign: "center" }}>
+                            {title}
+                            <br />
+                        </p>
+                    </GrowSectionCell>
+                </FullWidthSection>
+                <FullWidthSection vertical_padding="0.25em" />
+                <FullWidthSection fadedIn={false}>
+                    <p className="text-text"
+                        style={{ textAlign: "center" }}>
+                        {text}
+                    </p>
+                </FullWidthSection>
+            </CardCell>
+        );
+    }
+
+    return (
+        <SectionGrid
+            backgroundColor={COLOR.vanilla}
+            gridMaxColumn={3} gridMinColumn={2}
+            vertical_padding="3em"
+            gridColumnGap={1} gridRowGap={2}>
+            <GridCell>
+                <p className="title-section">
+                    Impact 🎉
+                </p>
+            </GridCell>
+            <GridCell startPosition={2} endPosition={-1}>
+                <p className="text-text">
+                    <b>Within 2 months of launching</b>, the Patient Portal Beta 2.0 portal has had a positive impact on patient experience!
+                </p>
+            </GridCell>
+            <Card
+                title="Usability improved"
+                text="Leading to minimal complaints and inquiries since launched" />
+            <Card
+                title="User satisfaction improved"
+                text="NPS (Net Promoter Score) increased by 7%" />
+            <Card
+                title="Renewal rate improved"
+                text="Monthly renewal rate at EO month1 increased by 11%" />
+        </SectionGrid>
+    );
+}
+
+
+function DesignSystem() {
+    return (
+        <>
+            <NotFullWidthSection vertical_padding="3em">
+                <GrowSectionCell takeWholeLine={true}>
+                    <p className="text-brief" style={{ color: COLOR.chai }}>
+                        Design System<br />
+                    </p>
+                    <p className="title-section">
+                        Facilitate colloboration between dev & des.
+                    </p>
+                    <p className="text-text">
+                        <br />
+                        In our agile team, collaboration is vital. To enhance efficiency, I've integrated beta 2.0 launch components and design tokens into a design system aligned with the engineering team's framework. I've also introduced a streamlined hand-off process for greater efficiency.
+                    </p>
+                </GrowSectionCell>
+            </NotFullWidthSection >
+            <NotFullWidthSection >
+                <img style={{ width: "100%" }}
+                    src="/Works/AnisePatient/AnisePatientDesignSystem.png"
+                    alt="AnisePatientDesignSystem.png" />
+            </NotFullWidthSection>
+
+            <SectionGrid
+                gridMaxColumn={3} gridMinColumn={2}
+                vertical_padding="3em"
+                gridColumnGap={1} gridRowGap={3}>
+                <GridCell startPosition="1">
+                    <p className="title-section">
+                        Futrue Steps<br />
+                    </p>
+                </GridCell>
+                <GridCell startPosition="span 2">
+                    <p className="text-brief">
+                        Responsive design in multi-device
+                    </p><div style={{ height: "0.5em" }} />
+                    <p className="text-text">
+                        Our next step is to design responsibly for mobile and tablet devices, enhancing accessibility and encouraging patient engagement in mood recording and weekly check-ins.
+                    </p><br />
+                    <p className="text-brief">
+                        Content optimization
+                    </p><div style={{ height: "0.5em" }} />
+                    <p className="text-text">
+                        Patients embrace our product due to its distinctive focus on culturally responsive mental health. The quality and relevance of the resources significantly impact patients' involvement in utilizing them.
+                    </p><br />
+                    <p className="text-brief">
+                        Data visibility in new feature
+                    </p><div style={{ height: "0.5em" }} />
+                    <p className="text-text">
+                        The new feature "mood-recording" currently collects user data, but patients can't view their historical mood records yet. Our next goal is to make this data visible to patients and help them establish a recording habit.
+                    </p>
+                </GridCell>
+
+                <GridCell startPosition="1">
+                    <p className="title-section">
+                        Multi-portal quick MVP<br />
+                    </p>
+                </GridCell>
+                <GridCell startPosition="span 2">
+                    <p className="text-brief">
+                        Speedily adapted the Provider Portal Beta 2.0 by leveraging the Patient Portal Beta 2.0
+                    </p><div style={{ height: "0.5em" }} />
+                    <p className="text-text">
+                        After concluding the design of the patient portal, we had less than two months left until the release date. Constrained by time, resources, and prioritization factors, we swiftly built the MVP for Provider Portal Beta 2.0 based on the existing design elements of the patient portal.
+                        <br /><br />
+                        Due to NDA, I am unable to share details about the provider portal's design. If you're interested in learning more about my approach to the multi-portal design, please feel free to reach out to me!
+                    </p>
+                </GridCell>
+            </SectionGrid>
+        </>
+    );
+}
 
 
 export { AnisePatient };

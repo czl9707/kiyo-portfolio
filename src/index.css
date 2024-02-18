@@ -8,6 +8,7 @@ body {
 
   --header-height: 4em;
   margin-top: var(--header-height);
+  overflow-x: hidden;
 }
 
 p {
