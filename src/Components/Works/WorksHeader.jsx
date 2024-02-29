@@ -21,9 +21,11 @@ function WorksHeader({
                     {title}
                 </p>
             </NotFullWidthSection>
-            <NotFullWidthSection vertical_padding="1em">
+            <NotFullWidthSection verticalPadding="1em">
                 <GrowSectionCell />
-                {tags.map((t, _) => <Tag text={t} color={color} fontColor={fontColor} />)}
+                <div style={{ width: "100%", height: "100%", display: "inline", textAlign: "center" }}>
+                    {tags.map((t, _) => <Tag text={t} color={color} fontColor={fontColor} />)}
+                </div>
                 <GrowSectionCell />
             </NotFullWidthSection >
         </>
@@ -47,4 +49,4 @@ function Tag({
     );
 }
 
-export { WorksHeader };
+export default WorksHeader;

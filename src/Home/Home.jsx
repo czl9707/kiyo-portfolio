@@ -35,7 +35,7 @@ function Welcome() {
     return (
         <>
             <NotFullWidthSection height="8em" />
-            <NotFullWidthSection vertical_padding="1.5em">
+            <NotFullWidthSection verticalPadding="1.5em">
                 <p id='home-hello-text'>
                     Hi, I'm Kiyo :)
                 </p>
@@ -53,7 +53,7 @@ function ViewMyWork() {
     return (
         <>
             <NotFullWidthSection height="3em" />
-            <NotFullWidthSection vertical_padding="7em">
+            <NotFullWidthSection verticalPadding="7em">
                 <Link className='text-text' to={`/Home#${WORKS}`}>
                     View my work ↓
                 </Link>

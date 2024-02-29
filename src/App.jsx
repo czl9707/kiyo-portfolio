@@ -6,7 +6,8 @@ import './App.css';
 import { Home } from './Home/Home.jsx';
 import { Header } from './Components/Header.jsx';
 import { Footer } from './Components/Footer.jsx';
-import { AnisePatient } from './Works/AnisePatient.jsx'
+import AnisePatient from './Works/AnisePatient.jsx'
+import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.jsx'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function Content() {
       <Routes>
         <Route path='/Home' element={<Home />} />
         <Route path='/Works/AnisePatient' element={<AnisePatient />} />
+        <Route path='/Works/MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
         <Route path="/*" element={<Navigate to="/Home" />} />
       </Routes>
     </div>

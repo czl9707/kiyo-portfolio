@@ -7,7 +7,7 @@ import { WORKS } from "../Home/Home.jsx"
 function Header() {
     return (
         <div className="sticky-header">
-            <NotFullWidthSection backgroundColor={"white"} vertical_padding="1.5em" fadedIn={false}>
+            <NotFullWidthSection backgroundColor={"white"} verticalPadding="1.5em" fadedIn={false}>
                 <Logo />
                 <GrowSectionCell />
                 <Links />

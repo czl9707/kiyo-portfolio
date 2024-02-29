@@ -1,11 +1,17 @@
 import React from "react";
 import { useInView } from 'react-intersection-observer';
 
+const SECTION_PADDING = {
+    DEFAULT: "3em",
+    MINOR: "1em",
+    NONE: "0",
+}
+
 function Section({
     children,
     fullWidth,
     backgroundColor = 'rgb(0, 0, 0, 0)',
-    vertical_padding = "0",
+    verticalPadding = SECTION_PADDING.NONE,
     fadedIn = true,
     height = 'auto',
 }) {
@@ -39,8 +45,8 @@ function Section({
             style={{
                 backgroundColor: backgroundColor,
                 height: height,
-                paddingTop: vertical_padding,
-                paddingBottom: vertical_padding,
+                paddingTop: verticalPadding,
+                paddingBottom: verticalPadding,
             }}>
             <div className={content_classes.join(" ")} ref={ref}>
                 {children}
@@ -53,13 +59,13 @@ function Section({
 function FullWidthSection({
     children,
     backgroundColor,
-    vertical_padding,
+    verticalPadding,
     height,
     fadedIn,
 }) {
     return (
         <Section backgroundColor={backgroundColor}
-            vertical_padding={vertical_padding}
+            verticalPadding={verticalPadding}
             fullWidth={true}
             height={height}
             fadedIn={fadedIn}>
@@ -71,13 +77,13 @@ function FullWidthSection({
 function NotFullWidthSection({
     children,
     backgroundColor,
-    vertical_padding,
+    verticalPadding,
     height,
     fadedIn,
 }) {
     return (
         <Section backgroundColor={backgroundColor}
-            vertical_padding={vertical_padding}
+            verticalPadding={verticalPadding}
             fullWidth={false}
             height={height}
             fadedIn={fadedIn}>
@@ -129,4 +135,4 @@ function GrowSectionCell({ children, backgroundColor, takeWholeLine }) {
     )
 }
 
-export { FullWidthSection, NotFullWidthSection, FixedSectionCell, GrowSectionCell };
+export { FullWidthSection, NotFullWidthSection, FixedSectionCell, GrowSectionCell, SECTION_PADDING };

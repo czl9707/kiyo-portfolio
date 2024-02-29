@@ -9,10 +9,10 @@ function SectionGrid({
     alignItem = 'start',
     children,
     backgroundColor,
-    vertical_padding,
+    verticalPadding,
 }) {
     return (
-        <NotFullWidthSection backgroundColor={backgroundColor} vertical_padding={vertical_padding}>
+        <NotFullWidthSection backgroundColor={backgroundColor} verticalPadding={verticalPadding}>
             <div className='section-grid'
                 style={{
                     gridTemplateColumns:

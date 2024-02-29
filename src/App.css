@@ -19,7 +19,7 @@
 .section-content {
   opacity: 1;
   transform: translateY();
-  transition-duration: 2s;
+  transition-duration: 1.5s;
   transition-timing-function: ease-out;
 }
 
@@ -43,8 +43,8 @@
 
 .section-cell {
   width: auto;
+  max-width: 100%;
   height: auto;
-
 }
 
 .text-text {
@@ -132,10 +132,12 @@
   object-fit: cover;
   overflow: hidden;
   padding: 0;
-  display: inline-block;
 
   border-radius: 0.5em;
-  background-color: white;
+  border: none;
+}
+
+.card-image-cell.shadow {
   box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.2);
 }
 

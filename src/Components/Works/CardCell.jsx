@@ -23,25 +23,31 @@ function CardImageCell({
     startPosition = "auto",
     endPosition = "auto",
     annotation,
+    shadow = true,
+    width = "auto",
 }) {
-    let classes = ["card-image-cell", "section-cell"];
+    let classes = ["card-image-cell"];
+    if (shadow) classes.push("shadow");
 
-    console.log(img)
     return (
         <div className="section-cell"
             style={{
                 gridColumn: `${startPosition}/${endPosition}`,
+                width: width,
             }}>
-            <div className="card-image-cell"
+            <div className={classes.join(" ")}
             >
                 <img src={img} alt={img.split("/").pop()} />
             </div>
             {
                 annotation &&
-                <p className="text-quote"
-                    style={{ textAlign: "center" }}>
-                    {annotation}
-                </p>
+                <>
+                    <div style={{ height: "0.4em" }} />
+                    <p className="text-quote"
+                        style={{ textAlign: "center" }}>
+                        {annotation}
+                    </p>
+                </>
             }
         </div>
     );
