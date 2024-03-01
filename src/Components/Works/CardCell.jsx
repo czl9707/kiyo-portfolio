@@ -4,14 +4,18 @@ function CardCell({
     children,
     startPosition = "auto",
     endPosition = "auto",
+    backgroundColor = 'white',
     annotation,
+    width = "auto",
 }) {
     let classes = ["card-cell", "section-cell"];
 
     return (
         <div className={classes.join(" ")}
             style={{
+                backgroundColor: backgroundColor,
                 gridColumn: `${startPosition}/${endPosition}`,
+                width: width,
             }}>
             {children}
         </div>

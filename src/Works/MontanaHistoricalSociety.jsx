@@ -12,6 +12,7 @@ const COLOR = {
     jade: "#567582",
     cream: "#FFF4DA",
     skin: "#F7F7F1",
+    juice: "#F7DDA4",
 }
 
 function MontanaHistoricalSociety() {
@@ -227,6 +228,42 @@ function Methods() {
 }
 
 function FindingsAndRecommendations() {
+    const GAP_WIDTH = "10%";
+    const SIDE_WIDTH = "45%";
+    function Row({ findings, recommendation }) {
+        return (
+            <FullWidthSection verticalPadding={SECTION_PADDING.MINOR}
+                fadedIn={false} height={"5em"}>
+                <div className={"card-cell section-cell"}
+                    style={{
+                        width: SIDE_WIDTH, padding: "1em 2em",
+                        display: "flex", alignItems: "center",
+                    }}>
+                    <p className="text-bond" style={{ fontSize: "1em" }}>{findings}</p>
+                </div>
+                <FixedSectionCell width={GAP_WIDTH}>
+                    <div style={{ width: "100%" }}>
+                        <div style={{
+                            width: "100%", height: "2px", backgroundColor: COLOR.juice
+                        }} />
+                        <div style={{
+                            width: "0px", height: "0px", zIndex: "1", backgroundColor: COLOR.juice, float: "right",
+                            borderRadius: "6px", border: `6px ${COLOR.juice} solid`,
+                            transform: "translateX(6px) translateY(-6px)"
+                        }} />
+                    </div>
+                </FixedSectionCell>
+                <div className={"card-cell section-cell"}
+                    style={{
+                        width: SIDE_WIDTH, padding: "1em 2em",
+                        backgroundColor: COLOR.cream,
+                        display: "flex", alignItems: "center",
+                    }}>
+                    <p className="text-bond" style={{ fontSize: "1em" }}>{recommendation}</p>
+                </div>
+            </FullWidthSection>
+        );
+    }
     return (
         <>
             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}
@@ -241,8 +278,32 @@ function FindingsAndRecommendations() {
                         Local users predominantly used desktop devices during weekdays, while non-local users, who discovered the site mostly through organic search, showed a preference for mobile devices. <br />
                         Furthermore, our SEO research led us to believe that addressing some shortcomings such as inadequate meta descriptions and sitemap issues could help users discover MHS easier when searching for keywords.
                     </p>
+                    <br />
                 </GrowSectionCell>
             </NotFullWidthSection>
+            <NotFullWidthSection backgroundColor={COLOR.jade}>
+                <GrowSectionCell>
+                    <FullWidthSection verticalPadding={SECTION_PADDING.MINOR}>
+                        <FixedSectionCell width={SIDE_WIDTH}>
+                            <p className="text-brief" style={{ color: "white" }}>Findings</p>
+                        </FixedSectionCell>
+                        <FixedSectionCell width={GAP_WIDTH} />
+                        <FixedSectionCell width={SIDE_WIDTH}>
+                            <p className="text-brief" style={{ color: COLOR.cream }}>Recomandation</p>
+                        </FixedSectionCell>
+                    </FullWidthSection>
+                    <Row findings="Non-local users favor mobile devices for accessing the web compared to local users."
+                        recommendation="Improve mobile responsiveness, prioritizing specific pages." />
+                    <Row findings="Local users prioritize education resources."
+                        recommendation="Increasing presence in education sector by optimizing page slugs." />
+                    <Row findings="Lack of meta description in critical pages resulted in low traffic."
+                        recommendation="Increasing presence in education sector." />
+                    <Row findings="Accessibility failed in image URLs."
+                        recommendation="Fill missing Alt text in image URLs with concise content under 100 characters." />
+                </GrowSectionCell>
+            </NotFullWidthSection>
+            <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.jade} />
+
         </>
     );
 }
