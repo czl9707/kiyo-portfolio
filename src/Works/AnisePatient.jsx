@@ -248,15 +248,17 @@ function FinalResults() {
                     </FixedSectionCell>
                     <GrowSectionCell />
                 </NotFullWidthSection>
-                <NotFullWidthSection>
-                    <p className="text-text"
-                        style={{
-                            textAlign: "center",
-                            fontSize: "1.25em"
-                        }}>
-                        {text}
-                    </p>
-                </NotFullWidthSection>
+                <FullWidthSection>
+                    <GrowSectionCell>
+                        <p className="text-text"
+                            style={{
+                                textAlign: "center",
+                                fontSize: "1.25em"
+                            }}>
+                            {text}
+                        </p>
+                    </GrowSectionCell>
+                </FullWidthSection>
             </CardCell>
         );
     }

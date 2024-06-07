@@ -192,7 +192,7 @@ function Methods() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={4}
+                gridColumnGap={4} gridRowGap={4}
                 alignItem="center">
                 <GridCell>
                     <p className="text-text">
@@ -324,7 +324,7 @@ function Findings1() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={4}
+                gridColumnGap={4} gridRowGap={4}
                 alignItem="center">
                 <GridCell>
                     <p className="text-text">
@@ -410,7 +410,7 @@ function Findings2() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={2}>
+                gridColumnGap={2} gridRowGap={4}>
                 <div style={{ height: "100%", width: "100%", display: "flex", flexDirection: "column" }}>
                     <p className="text-text">
                         Compared to non-local users, local users frequently use the website for education-related content. (Fig.2.2) Also, education-related pages show a higher engagement rate (80%+) than other pages.
@@ -446,7 +446,7 @@ function Recommendation2() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={2}
+                gridColumnGap={2} gridRowGap={4}
                 alignItem="center" backgroundColor={COLOR.skin}
                 verticalPadding={SECTION_PADDING.MINOR}>
                 <GridCell>
@@ -479,7 +479,7 @@ function Findings3() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={2} gridRowGap={2}
+                gridColumnGap={2} gridRowGap={4}
                 alignItem="center">
                 <CardImageCell img="Findings3_1.png" shadow={false}
                     annotation="Fig.3.1  Top Page views: Local users" />
@@ -519,7 +519,7 @@ function Recommendation3() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={2}
+                gridColumnGap={2} gridRowGap={4}
                 alignItem="center" backgroundColor={COLOR.skin}
                 verticalPadding={SECTION_PADDING.MINOR}>
                 <GridCell>
@@ -550,7 +550,7 @@ function Findings4() {
             </NotFullWidthSection>
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={2}
+                gridColumnGap={2} gridRowGap={4}
                 alignItem="center"
                 verticalPadding={SECTION_PADDING.MINOR}>
                 <GridCell>
@@ -587,7 +587,7 @@ function Recommendation4() {
             </NotFullWidthSection >
             <SectionGrid
                 gridMaxColumn={2} gridMinColumn={1}
-                gridColumnGap={2}
+                gridColumnGap={2} gridRowGap={4}
                 alignItem="center" backgroundColor={COLOR.skin}
                 verticalPadding={SECTION_PADDING.MINOR}>
                 <GridCell>
@@ -622,6 +622,7 @@ function TakeAways() {
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
             <SectionGrid
                 gridMaxColumn={3} gridMinColumn={2}
+                gridColumnGap={2}
                 verticalPadding={SECTION_PADDING.DEFAULT}>
                 <GridCell>
                     <p className="title-section">Takeaways</p>

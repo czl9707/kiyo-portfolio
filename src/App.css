@@ -127,6 +127,9 @@
   box-sizing: border-box;
 }
 
+.card-cell.shadow {
+  box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.2);
+}
 
 .card-image-cell {
   width: 100%;

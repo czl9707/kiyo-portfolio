@@ -8,6 +8,8 @@ import { Header } from './Components/Header.jsx';
 import { Footer } from './Components/Footer.jsx';
 import AnisePatient from './Works/AnisePatient.jsx'
 import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.jsx'
+import Knowunity from './Works/Knowunity.jsx';
+import AboutMe from './Home/AboutMe.jsx'
 
 function App() {
   return (
@@ -27,8 +29,10 @@ function Content() {
     <div id='content_div'>
       <Routes>
         <Route path='/Home' element={<Home />} />
+        <Route path='/AboutMe' element={<AboutMe />} />
         <Route path='/Works/AnisePatient' element={<AnisePatient />} />
         <Route path='/Works/MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
+        <Route path='/Works/Knowunity' element={<Knowunity />} />
         <Route path="/*" element={<Navigate to="/Home" />} />
       </Routes>
     </div>

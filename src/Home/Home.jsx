@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import {
     FullWidthSection,
     NotFullWidthSection,
-    GrowSectionCell,
     FixedSectionCell,
 } from '../Components/Section';
 import { SectionGrid, GridCell } from '../Components/SectionGrid';
