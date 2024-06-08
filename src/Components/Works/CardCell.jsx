@@ -7,6 +7,7 @@ function CardCell({
     backgroundColor = 'white',
     annotation,
     width = "auto",
+    border = true,
 }) {
     let classes = ["card-cell", "section-cell"];
 
@@ -16,6 +17,7 @@ function CardCell({
                 backgroundColor: backgroundColor,
                 gridColumn: `${startPosition}/${endPosition}`,
                 width: width,
+                borderStyle: border ? "solid" : "none"
             }}>
             {children}
         </div>
@@ -46,7 +48,7 @@ function CardImageCell({
             {
                 annotation &&
                 <>
-                    <div style={{ height: "0.4em" }} />
+                    <div style={{ height: "0.6em" }} />
                     <p className="text-quote"
                         style={{ textAlign: "center" }}>
                         {annotation}

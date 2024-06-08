@@ -335,27 +335,27 @@ function Findings1() {
                 </GridCell>
                 <GridCell>
                     <FullWidthSection>
-                        <CardImageCell img="Findings1_Graph1.png"
+                        <CardImageCell img={ImageFullPath("Findings1_Graph1.png")}
                             shadow={false} width="40%"
                             annotation="Fig.1.1 Device category All users" />
                         <FixedSectionCell width="30%" />
-                        <CardImageCell img="Findings1_Legend.png"
+                        <CardImageCell img={ImageFullPath("Findings1_Legend.png")}
                             shadow={false} width="18%" />
                     </FullWidthSection>
                     <FullWidthSection height={SECTION_PADDING.DEFAULT} />
                     <FullWidthSection>
-                        <CardImageCell img="Findings1_Graph2.png"
+                        <CardImageCell img={ImageFullPath("Findings1_Graph2.png")}
                             shadow={false} width="40%"
                             annotation="Fig.1.2 Device category Montana local users" />
                         <FixedSectionCell width="20%" />
-                        <CardImageCell img="Findings1_Graph3.png"
+                        <CardImageCell img={ImageFullPath("Findings1_Graph3.png")}
                             shadow={false} width="40%"
                             annotation="Fig.1.3 Device category Non-local users" />
                     </FullWidthSection>
                 </GridCell>
             </SectionGrid>
             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-                <CardImageCell img="Findings1_Breakdown.png"
+                <CardImageCell img={ImageFullPath("Findings1_Breakdown.png")}
                     shadow={false}
                     annotation="Fig.1.4 Users Device Usage Breakdown" />
             </NotFullWidthSection>
@@ -386,8 +386,8 @@ function Recommendation1() {
                 gridColumnGap={2}
                 alignItem="center" backgroundColor={COLOR.skin}
                 verticalPadding={SECTION_PADDING.MINOR}>
-                <CardImageCell img="Recomandation1_1.png" shadow={false} />
-                <CardImageCell img="Recomandation1_2.png" shadow={false} />
+                <CardImageCell img={ImageFullPath("Recomandation1_1.png")} shadow={false} />
+                <CardImageCell img={ImageFullPath("Recomandation1_2.png")} shadow={false} />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
         </>
@@ -419,10 +419,10 @@ function Findings2() {
                         <br /><br />
                     </p>
                     <div style={{ flex: "1 1" }}></div>
-                    <CardImageCell img="Findings2_1.png" shadow={false}
+                    <CardImageCell img={ImageFullPath("Findings2_1.png")} shadow={false}
                         annotation="Fig. 2.1: Breakdown of traffic by source" />
                 </div>
-                <CardImageCell img="Findings2_2.png" shadow={false}
+                <CardImageCell img={ImageFullPath("Findings2_2.png")} shadow={false}
                     annotation="Fig. 2.2: Breakdown of traffic by source" />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
@@ -456,7 +456,7 @@ function Recommendation2() {
                         Additionally, we recommend seeking partnership with Education Officials, such as the State Superintendent, to make Stories of the Land the predominant free education resource for Montana-based schools.
                     </p>
                 </GridCell>
-                <CardImageCell img="Recomandation2_1.png" shadow={false} />
+                <CardImageCell img={ImageFullPath("Recomandation2_1.png")} shadow={false} />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
         </>
@@ -481,9 +481,9 @@ function Findings3() {
                 gridMaxColumn={2} gridMinColumn={1}
                 gridColumnGap={2} gridRowGap={4}
                 alignItem="center">
-                <CardImageCell img="Findings3_1.png" shadow={false}
+                <CardImageCell img={ImageFullPath("Findings3_1.png")} shadow={false}
                     annotation="Fig.3.1  Top Page views: Local users" />
-                <CardImageCell img="Findings3_2.png" shadow={false}
+                <CardImageCell img={ImageFullPath("Findings3_2.png")} shadow={false}
                     annotation="Fig.3.2  Top Page views: Local users" />
                 <GridCell>
                     <p className="text-text">
@@ -495,7 +495,7 @@ function Findings3() {
                     </p>
                 </GridCell>
 
-                <CardImageCell img="Findings3_3.png" shadow={false}
+                <CardImageCell img={ImageFullPath("Findings3_3.png")} shadow={false}
                     annotation="Fig.3.3  Comparison of Magazine page (without meta description) and a unrelated page with meta descriptions." />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
@@ -527,7 +527,7 @@ function Recommendation3() {
                         Ensure important pages with high reach have meta descriptions, prioritizing the “Montana The Magazine of Western History”  page.
                     </p>
                 </GridCell>
-                <CardImageCell img="Recomandation3_1.png" shadow={false} />
+                <CardImageCell img={ImageFullPath("Recomandation3_1.png")} shadow={false} />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
         </>
@@ -563,7 +563,7 @@ function Findings4() {
                         </ul>
                     </p>
                 </GridCell>
-                <CardImageCell img="Findings4_1.png" shadow={false}
+                <CardImageCell img={ImageFullPath("Findings4_1.png")} shadow={false}
                     annotation="Fig.4 SEO analysis by Screaming Frog under Image Sector" />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
@@ -595,7 +595,7 @@ function Recommendation4() {
                         Ensuring each image URLs contains useful alt text and keep the length of alt text below 100 characters to enhance the overall quality and efficiency of online experiences for users of screen readers, and other special accommodations.
                     </p>
                 </GridCell>
-                <CardImageCell img="Recomandation4_1.png" shadow={false} />
+                <CardImageCell img={ImageFullPath("Recomandation4_1.png")} shadow={false} />
             </SectionGrid>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
         </>
