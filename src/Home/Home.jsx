@@ -71,17 +71,38 @@ function Works({ scrollRef }) {
                 gridColumnGap={1} gridRowGap={3}
             >
                 <ContentCard
+                    url="/Works/EdgemereFarm"
+                    image="CoverEdgemereFarm.png"
+                    title="Edgemere Farm"
+                    subTitle="Boost Edgemere Farm's community engagment in the digital landscape."
+                    tags={["0 to 1", "Website Design",]} />
+
+                <ContentCard
+                    url="/Works/Knowunity"
+                    image="CoverKnowunity.png"
+                    title="Knowunity"
+                    subTitle="Expand lighthouse creator pool by connecting better with regular users."
+                    tags={["User Interview", "Usability", "Online Community",]} />
+
+                <ContentCard
                     url="/Works/AnisePatient"
-                    image="CoverAniseOnboarding.png"
+                    image="CoverAnisePatientPortal.png"
                     title="Anise Health: Patient Portal Beta 2.0"
                     subTitle="Creating immersive mental health experience: from session to beyond."
                     tags={["UX Design", "End-to-End", "Usability Improvement", "Renewal Rate",]} />
 
                 <ContentCard
-                    image="CoverAnisePatientPortal.png"
+                    image="CoverAniseOnboarding.png"
                     title="Anise Health: Patient Onboarding"
                     subTitle="Improve conversion rates by eliminating client onboarding friction."
                     tags={["UX Design", "Conversion Rate", "Coming Soon :)",]} />
+
+                <ContentCard
+                    url="/Works/MontanaHistoricalSociety"
+                    image="CoverMontanaHistoricalSociety.png"
+                    title="Montana Historical Society"
+                    subTitle="Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy."
+                    tags={["Web Analytics", "SEO Audit", "Data Visualization",]} />
             </SectionGrid>
         </>
     )

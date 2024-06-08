@@ -47,7 +47,7 @@ function Knowunity() {
         <>
             <WorksHeader
                 title="Expand lighthouse creator pool by connecting better with regular users"
-                tags={["User Interview", "Usability Improvement", "App Community",]}
+                tags={["User Interview", "Usability", "Online Community",]}
                 color={COLOR.baby} />
             <Overview
                 backgroundColor={COLOR.baby}
