@@ -1,13 +1,22 @@
 import React from "react";
 
+const CELL_PADDING = {
+    MAJOR: "3em",
+    NORMAL: "2em",
+    MINOR: "1em",
+    NONE: "0",
+}
+
 function CardCell({
     children,
     startPosition = "auto",
     endPosition = "auto",
     backgroundColor = 'white',
     annotation,
-    width = "auto",
+    width,
+    height,
     border = true,
+    padding = CELL_PADDING.NORMAL
 }) {
     let classes = ["card-cell", "section-cell"];
 
@@ -17,7 +26,9 @@ function CardCell({
                 backgroundColor: backgroundColor,
                 gridColumn: `${startPosition}/${endPosition}`,
                 width: width,
-                borderStyle: border ? "solid" : "none"
+                height: height,
+                borderStyle: border ? "solid" : "none",
+                padding: padding
             }}>
             {children}
         </div>
@@ -59,4 +70,4 @@ function CardImageCell({
     );
 }
 
-export { CardCell, CardImageCell }
+export { CardCell, CardImageCell, CELL_PADDING }

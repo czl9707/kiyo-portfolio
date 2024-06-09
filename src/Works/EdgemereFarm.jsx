@@ -8,7 +8,7 @@ const ImageFullPath = (p) => `/Works/EdgemereFarm/${p}`;
 
 const COLOR = {
     mint: "#EEF5EE",
-    racing: "#F0F0F0",
+    racing: "#F7F7F7",
     seeweed: "#C0CD8C",
     dark: "#004B32",
     yogurt: "#FCECC3",
@@ -20,6 +20,21 @@ const DOCLINK = "https://www.figma.com/proto/QcqFyd52RajavhEKPW07TQ/Edgemere-Far
 const NavigateToPrototype = () => window.open(PROTOTYPELINK, '_blank', 'noopener,noreferrer');
 const NavigateToDoc = () => window.open(DOCLINK, '_blank', 'noopener,noreferrer');
 
+function ProtoTypesButton() {
+    return (
+        <div onClick={NavigateToPrototype}
+            style={{
+                backgroundColor: COLOR.dark,
+                borderRadius: "0.5em",
+                padding: "0.4em 1em",
+                display: "inline-block",
+            }}>
+            <p className="text-text" style={{ color: "white" }}><b>
+                View Clickable Prototypes
+            </b></p>
+        </div>
+    );
+}
 
 function Quote({ children }) {
     return (
@@ -69,7 +84,7 @@ function EdgemereFarm() {
 function Intro() {
     function GoalCard({ title, text }) {
         return (
-            <CardCell backgroundColor={COLOR.mint} border={false}>
+            <CardCell backgroundColor={COLOR.mint} border={false} height="100%">
                 <p className="text-brief" style={{ fontWeight: 500 }}>
                     {title} <br />
                 </p>
@@ -265,7 +280,7 @@ function ProblemStatement() {
 function ResearchOverview() {
     function MetricCard({ num, title, text }) {
         return (
-            <CardCell backgroundColor={COLOR.mint} border={false} >
+            <CardCell backgroundColor={COLOR.mint} border={false} height="100%">
                 <p className="title-page" style={{ textAlign: "center" }} >
                     {num}
                 </p>
@@ -367,6 +382,25 @@ function EcosystemMapAndTargetAudience() {
 }
 
 function KeyInsightsAndDesignStrategy() {
+    function Pointer() {
+        return (
+            <div style={{
+                width: "100%", height: "100%",
+                display: "inline-flex", alignItems: "center"
+            }}>
+                <div style={{
+                    minWidth: "100%", height: "2px",
+                    backgroundColor: COLOR.dark,
+                }} />
+                <div style={{
+                    width: "0px", height: "0px", backgroundColor: COLOR.dark, zIndex: 1,
+                    borderRadius: "6px", border: `6px ${COLOR.dark} solid`,
+                    transform: "translateX(-50%)"
+                }} />
+            </div>
+        );
+    }
+
     return (
         <>
             <NotFullWidthSection >
@@ -384,13 +418,9 @@ function KeyInsightsAndDesignStrategy() {
                     <br />
                 </GrowSectionCell>
             </NotFullWidthSection>
-            <SectionGrid
-                gridMaxColumn={3} gridMinColumn={3}
-                gridColumnGap={3}
-                verticalPadding={SECTION_PADDING.DEFAULT}
-                alignItem="center">
-                <CardCell startPosition="span 2" border={false}
-                    backgroundColor={COLOR.mint}>
+
+            <NotFullWidthSection stretch={true}>
+                <CardCell width="62%" backgroundColor={COLOR.mint} border={false}>
                     <FullWidthSection fadedIn={false}>
                         <FixedSectionCell width="3em">
                             <img src={ImageFullPath("Stars.png")} alt="Stars.png"
@@ -412,7 +442,10 @@ function KeyInsightsAndDesignStrategy() {
                         </Quote>
                     </FullWidthSection>
                 </CardCell>
-                <CardCell backgroundColor={COLOR.yogurt}>
+                <FixedSectionCell width="6%">
+                    <Pointer />
+                </FixedSectionCell>
+                <CardCell width="32%" backgroundColor={COLOR.yogurt} border={false}>
                     <p className="title-section-sub" style={{ color: COLOR.dark }}>
                         Design Strategy 1
                     </p>
@@ -421,9 +454,12 @@ function KeyInsightsAndDesignStrategy() {
                         Crafting a delightful browsing experience for easy comprehension of EF's mission, story and impact.
                     </p>
                 </CardCell>
+            </NotFullWidthSection>
 
-                <CardCell startPosition="span 2" border={false}
-                    backgroundColor={COLOR.mint}>
+            <NotFullWidthSection height={SECTION_PADDING.MINOR} />
+
+            <NotFullWidthSection stretch={true}>
+                <CardCell width="62%" backgroundColor={COLOR.mint} border={false}>
                     <FullWidthSection fadedIn={false}>
                         <FixedSectionCell width="3em">
                             <img src={ImageFullPath("Friends.png")} alt="Friends.png"
@@ -444,7 +480,10 @@ function KeyInsightsAndDesignStrategy() {
                         </Quote>
                     </FullWidthSection>
                 </CardCell>
-                <CardCell backgroundColor={COLOR.yogurt}>
+                <FixedSectionCell width="6%">
+                    <Pointer />
+                </FixedSectionCell>
+                <CardCell width="32%" backgroundColor={COLOR.yogurt} border={false}>
                     <p className="title-section-sub" style={{ color: COLOR.dark }}>
                         Design Strategy 2
                     </p>
@@ -453,7 +492,7 @@ function KeyInsightsAndDesignStrategy() {
                         Building an engaging platform that strengthens community bonding - to facilitate participation and support.
                     </p>
                 </CardCell>
-            </SectionGrid>
+            </NotFullWidthSection>
         </>
     );
 }
@@ -536,6 +575,89 @@ function DesignSketchAndUserTesting() {
 function HiFiDesign() {
     return (
         <>
+            <SectionGrid backgroundColor={COLOR.mint}
+                verticalPadding={SECTION_PADDING.DEFAULT}
+                gridMaxColumn={3} gridMinColumn={2}>
+                <GridCell>
+                    <p className="title-section">View Clickable Prototypes</p>
+                    <br />
+                    <ProtoTypesButton />
+                </GridCell>
+                <GridCell startPosition="span 2">
+                    <p className="text-text">
+                        We iterated the wireframes into hi-fi prototypes corresponding to the insights we gained from the user testing. Feel free to explore the clickable prototypes to see the full scope of our design work :)
+                        <br /><br />
+                        <b>Below are 3 representative pages in a typical user journey:</b>
+                        <ul>
+                            <li>Homepage</li>
+                            <li>Our Mission</li>
+                            <li>Volunteer</li>
+                        </ul>
+                    </p>
+                </GridCell>
+            </SectionGrid>
+
+            <NotFullWidthSection backgroundColor={COLOR.mint}>
+                <CardCell border={false}>
+                    <p className="title-section-sub">
+                        Homepage
+                    </p>
+                    <br />
+                    <p className="text-text">
+                        Homepage provides new users with the first impression and offering community members easy access to get involved into multiple actions.
+                    </p>
+                </CardCell>
+            </NotFullWidthSection>
+            <NotFullWidthSection backgroundColor={COLOR.mint}
+                verticalPadding={SECTION_PADDING.MINOR}>
+                <img style={{ width: "110%", transform: "translateX(-4%)" }}
+                    src={ImageFullPath("HomepagePage.png")} alt="HomepagePage.png" />
+            </NotFullWidthSection>
+
+            <NotFullWidthSection backgroundColor={COLOR.mint}>
+                <CardCell border={false}>
+                    <p className="title-section-sub">
+                        Our Mission
+                    </p>
+                    <br />
+                    <p className="text-text">
+                        Our Mission page offers users an in-depth exploration of Edgemere Farm's story and philosophy, designed to both enlighten and inspire.                    </p>
+                </CardCell>
+            </NotFullWidthSection>
+            <NotFullWidthSection backgroundColor={COLOR.mint}
+                verticalPadding={SECTION_PADDING.MINOR}>
+                <img style={{ width: "110%", transform: "translateX(-4%)" }}
+                    src={ImageFullPath("OurMissionPage.png")} alt="OurMissionPage.png" />
+            </NotFullWidthSection>
+
+            <NotFullWidthSection backgroundColor={COLOR.mint}>
+                <CardCell border={false}>
+                    <p className="title-section-sub">
+                        Volunteer
+                    </p>
+                    <br />
+                    <p className="text-text">
+                        Volunteer page serves as an inspiring platform to motivate user engagement in this volunteer-run farm.                    </p>
+                </CardCell>
+            </NotFullWidthSection>
+            <NotFullWidthSection backgroundColor={COLOR.mint}
+                verticalPadding={SECTION_PADDING.MINOR}>
+                <img style={{ width: "110%", transform: "translateX(-4%)" }}
+                    src={ImageFullPath("VolunteerPage.png")} alt="VolunteerPage.png" />
+            </NotFullWidthSection>
+
+            <NotFullWidthSection backgroundColor={COLOR.mint}>
+                <CardCell border={false} width="100%">
+                    <p className="title-section-sub" style={{ textAlign: "center" }}>
+                        To learn more about other pages...
+                    </p>
+                    <br />
+                    <div style={{ textAlign: "center", width: "100%" }}>
+                        <ProtoTypesButton />
+                    </div>
+                </CardCell>
+            </NotFullWidthSection>
+            <NotFullWidthSection backgroundColor={COLOR.mint} height={SECTION_PADDING.DEFAULT} />
         </>
     )
 }

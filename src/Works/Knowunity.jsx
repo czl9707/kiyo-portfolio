@@ -146,7 +146,7 @@ function Intro() {
 function Context() {
     function Card({ img, text }) {
         return (
-            <CardCell>
+            <CardCell width="100%" height="100%">
                 <NotFullWidthSection verticalPadding={SECTION_PADDING.MINOR}>
                     <GrowSectionCell />
                     <FixedSectionCell>
@@ -269,8 +269,15 @@ function ResearchQuestion() {
                     <Cell height={2} text="How do they promote their own contents?" />
                     <Cell height={2} text="What are challenges in engaging with their audience?" />
                 </FixedSectionCell>
-                <CardImageCell width={IMAGE_WIDTH} shadow={false}
-                    img={ImageFullPath("QuestionSpider.png")} />
+                <FixedSectionCell width={IMAGE_WIDTH}>
+                    <div style={{
+                        width: "100%", height: "100%",
+                        display: "inline-flex", alignItems: "center"
+                    }}>
+                        <img src={ImageFullPath("QuestionSpider.png")} alt="QuestionSpider.png"
+                            width="100%" />
+                    </div>
+                </FixedSectionCell>
                 <FixedSectionCell width={SIDE_WIDTH}>
                     <Cell height={2} text="What motivates connection with content creators?" />
                     <Cell height={1} text="Can they find desire contents?" />
@@ -374,7 +381,7 @@ function AudienceRecruitment() {
 function FindingAndRecommendations() {
     function CardWithBulletPoints({ title, bullets = [] }) {
         return (
-            <CardCell>
+            <CardCell height="100%">
                 <p className="text-bond">
                     {title}
                 </p>
@@ -390,7 +397,6 @@ function FindingAndRecommendations() {
     return (
         <SectionGrid
             gridMaxColumn={2} gridMinColumn={1}
-            gridRowGap={4}
             verticalPadding={SECTION_PADDING.DEFAULT}
             backgroundColor={COLOR.prussia} >
             <GridCell startPosition={1} endPosition={-1}>

@@ -91,7 +91,7 @@ function BulletPoints({ bullets = [] }) {
 
 function CardWithBulletPoints({ title, bullets = [] }) {
     return (
-        <CardCell>
+        <CardCell height="100%">
             <p className="text-bond">
                 {title}<br />
             </p>
@@ -237,7 +237,7 @@ function Solution() {
 function FinalResults() {
     function Card({ img, text }) {
         return (
-            <CardCell>
+            <CardCell height="100%">
                 <NotFullWidthSection verticalPadding={SECTION_PADDING.MINOR}>
                     <GrowSectionCell />
                     <FixedSectionCell>
@@ -295,7 +295,7 @@ function FinalResults() {
 function DefineScope() {
     function Card({ img, title, text }) {
         return (
-            <CardCell>
+            <CardCell height="100%">
                 <NotFullWidthSection fadedIn={false}>
                     <GrowSectionCell />
                     <FixedSectionCell>
@@ -460,6 +460,7 @@ function DesignQuestion1() {
                 </GrowSectionCell>
             </NotFullWidthSection>
             <SectionGrid
+                verticalPadding={SECTION_PADDING.MINOR}
                 backgroundColor={COLOR.cream}
                 gridMaxColumn={3} gridMinColumn={2}
                 alignItem="center">
@@ -682,7 +683,7 @@ function DesignQuestion2() {
 function Impact() {
     function Card({ title, text }) {
         return (
-            <CardCell>
+            <CardCell height="100%">
                 <FullWidthSection fadedIn={false} >
                     <GrowSectionCell>
                         <p className="text-brief"
@@ -758,6 +759,7 @@ function DesignSystem() {
 
             <SectionGrid
                 gridMaxColumn={3} gridMinColumn={2}
+                gridRowGap={3}
                 verticalPadding={SECTION_PADDING.DEFAULT}>
                 <GridCell startPosition="1">
                     <p className="title-section">

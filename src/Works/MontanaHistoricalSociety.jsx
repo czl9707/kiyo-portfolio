@@ -3,7 +3,7 @@ import WorksHeader from '../Components/Works/WorksHeader';
 import Overview from "../Components/Works/Overview";
 import { FullWidthSection, NotFullWidthSection, GrowSectionCell, FixedSectionCell, SECTION_PADDING } from "../Components/Section";
 import { SectionGrid, GridCell } from "../Components/SectionGrid";
-import { CardCell, CardImageCell } from "../Components/Works/CardCell";
+import { CELL_PADDING, CardCell, CardImageCell } from "../Components/Works/CardCell";
 
 const ImageFullPath = (p) => `/Works/MontanaHistoricalSociety/${p}`;
 
@@ -125,6 +125,20 @@ function Intro() {
 
 
 function ResearchQuestion() {
+    function Card({ num, text }) {
+        return (
+            <CardCell height="100%">
+                <p className="text-brief" style={{ color: COLOR.jade }}>
+                    {num}<br />
+                </p>
+                <br />
+                <p className="text-text">
+                    {text}
+                </p>
+            </CardCell>
+        );
+    }
+
     return (
         <>
             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
@@ -143,33 +157,9 @@ function ResearchQuestion() {
             <SectionGrid backgroundColor={COLOR.skin}
                 gridMaxColumn={3} gridMinColumn={3}
                 verticalPadding={SECTION_PADDING.DEFAULT}>
-                <CardCell>
-                    <p className="text-brief" style={{ color: COLOR.jade }}>
-                        01<br />
-                    </p>
-                    <br />
-                    <p className="text-text">
-                        How do the behavior of local vs non-local audiences compare?
-                    </p>
-                </CardCell>
-                <CardCell>
-                    <p className="text-brief" style={{ color: COLOR.jade }}>
-                        02<br />
-                    </p>
-                    <br />
-                    <p className="text-text">
-                        What types of content are audiences viewing?
-                    </p>
-                </CardCell>
-                <CardCell>
-                    <p className="text-brief" style={{ color: COLOR.jade }}>
-                        03<br />
-                    </p>
-                    <br />
-                    <p className="text-text">
-                        How is the current SEO performing?
-                    </p>
-                </CardCell>
+                <Card num="01" text="How do the behavior of local vs non-local audiences compare?" />
+                <Card num="02" text="What types of content are audiences viewing?" />
+                <Card num="03" text="How is the current SEO performing?" />
             </SectionGrid>
         </>
     );
@@ -233,34 +223,30 @@ function FindingsAndRecommendations() {
     function Row({ findings, recommendation }) {
         return (
             <FullWidthSection verticalPadding={SECTION_PADDING.MINOR}
-                fadedIn={false} height={"5em"}>
-                <div className={"card-cell section-cell"}
-                    style={{
-                        width: SIDE_WIDTH, padding: "1em 2em",
-                        display: "flex", alignItems: "center",
-                    }}>
+                fadedIn={false} stretch={true}>
+                <CardCell width={SIDE_WIDTH} padding={CELL_PADDING.NORMAL}>
                     <p className="text-bond" style={{ fontSize: "1em" }}>{findings}</p>
-                </div>
+                </CardCell>
                 <FixedSectionCell width={GAP_WIDTH}>
-                    <div style={{ width: "100%" }}>
+                    <div style={{
+                        width: "100%", height: "100%",
+                        display: "inline-flex", alignItems: "center"
+                    }}>
                         <div style={{
-                            width: "100%", height: "2px", backgroundColor: COLOR.juice
+                            minWidth: "100%", height: "2px",
+                            backgroundColor: COLOR.juice,
                         }} />
                         <div style={{
-                            width: "0px", height: "0px", zIndex: "1", backgroundColor: COLOR.juice, float: "right",
+                            width: "0px", height: "0px", backgroundColor: COLOR.juice, zIndex: 1,
                             borderRadius: "6px", border: `6px ${COLOR.juice} solid`,
-                            transform: "translateX(6px) translateY(-6px)"
+                            transform: "translateX(-50%)"
                         }} />
                     </div>
                 </FixedSectionCell>
-                <div className={"card-cell section-cell"}
-                    style={{
-                        width: SIDE_WIDTH, padding: "1em 2em",
-                        backgroundColor: COLOR.cream,
-                        display: "flex", alignItems: "center",
-                    }}>
+                <CardCell width={SIDE_WIDTH} padding={CELL_PADDING.NORMAL}
+                    backgroundColor={COLOR.cream}>
                     <p className="text-bond" style={{ fontSize: "1em" }}>{recommendation}</p>
-                </div>
+                </CardCell>
             </FullWidthSection>
         );
     }

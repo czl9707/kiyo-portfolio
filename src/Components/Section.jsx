@@ -14,6 +14,7 @@ function Section({
     verticalPadding = SECTION_PADDING.NONE,
     fadedIn = true,
     height = 'auto',
+    stretch = false,
 }) {
     const { ref, inView } = useInView({
         triggerOnce: false,
@@ -48,7 +49,8 @@ function Section({
                 paddingTop: verticalPadding,
                 paddingBottom: verticalPadding,
             }}>
-            <div className={content_classes.join(" ")} ref={ref}>
+            <div className={content_classes.join(" ")} ref={ref}
+                style={{ alignItems: stretch ? "stretch" : "center" }}>
                 {children}
             </div>
         </div>
@@ -62,13 +64,15 @@ function FullWidthSection({
     verticalPadding,
     height,
     fadedIn,
+    stretch,
 }) {
     return (
         <Section backgroundColor={backgroundColor}
             verticalPadding={verticalPadding}
             fullWidth={true}
             height={height}
-            fadedIn={fadedIn}>
+            fadedIn={fadedIn}
+            stretch={stretch}>
             {children}
         </Section>
     )
@@ -80,13 +84,15 @@ function NotFullWidthSection({
     verticalPadding,
     height,
     fadedIn,
+    stretch,
 }) {
     return (
         <Section backgroundColor={backgroundColor}
             verticalPadding={verticalPadding}
             fullWidth={false}
             height={height}
-            fadedIn={fadedIn}>
+            fadedIn={fadedIn}
+            stretch={stretch}>
             {children}
         </Section>
     )
