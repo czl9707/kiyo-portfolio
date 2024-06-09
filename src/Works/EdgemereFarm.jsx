@@ -21,13 +21,16 @@ const NavigateToPrototype = () => window.open(PROTOTYPELINK, '_blank', 'noopener
 const NavigateToDoc = () => window.open(DOCLINK, '_blank', 'noopener,noreferrer');
 
 function ProtoTypesButton() {
+
+
     return (
-        <div onClick={NavigateToPrototype}
+        <div onClick={NavigateToPrototype} className="button"
             style={{
                 backgroundColor: COLOR.dark,
                 borderRadius: "0.5em",
                 padding: "0.4em 1em",
                 display: "inline-block",
+                cursor: "pointer",
             }}>
             <p className="text-text" style={{ color: "white" }}><b>
                 View Clickable Prototypes
@@ -56,7 +59,12 @@ function EdgemereFarm() {
     return (
         <>
             <style>
-                {"u {cursor: pointer}"}
+                {
+                    `
+                        u {cursor: pointer;}
+                        .button:hover {box-shadow: 0.2em 0.2em 0.5em rgb(1, 1, 1, 0.2);}
+                    `
+                }
             </style>
             <WorksHeader
                 title="Boost Edgemere Farm's community engagment in the digital landscape"

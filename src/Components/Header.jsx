@@ -32,7 +32,9 @@ function Links() {
             <FixedSectionCell width="1.5em" />
             <Link className="text-text" style={{ fontSize: "1.25em" }} to={'/AboutMe'}> About</Link>
             <FixedSectionCell width="1.5em" />
-            <Link className="text-text" style={{ fontSize: "1.25em" }} to={'/'}> Resume</Link>
+            <Link className="text-text" style={{ fontSize: "1.25em" }} target="_blank" rel="noopener noreferrer" to={
+                `${process.env.PUBLIC_URL}/ResumeKiyo.pdf`
+            }> Resume</Link>
         </>
     )
 }
