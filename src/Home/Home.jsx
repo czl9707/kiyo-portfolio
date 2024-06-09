@@ -9,15 +9,18 @@ import { SectionGrid, GridCell } from '../Components/SectionGrid';
 
 import "./Home.css";
 
-const WORKS = 'Works';
+const WORKSHASH = 'Works';
 
 function Home() {
     const location = useLocation();
     const ref = useRef();
 
+    const scrollHandler = () => ref.current.scrollIntoView({ behavior: 'smooth' });
+
     useEffect(() => {
-        if (location.hash.slice(1,) === WORKS && ref.current) {
-            ref.current.scrollIntoView({ behavior: 'smooth' })
+        if (location.hash === `#${WORKSHASH}`) {
+            console.log(ref.current);
+            scrollHandler();
         }
     });
 
@@ -25,7 +28,8 @@ function Home() {
         <>
             <Welcome />
             <ViewMyWork />
-            <Works scrollRef={ref} />
+            <div ref={ref} id={WORKSHASH} />
+            <Works />
         </>
     );
 }
@@ -52,20 +56,19 @@ function ViewMyWork() {
     return (
         <>
             <NotFullWidthSection height="3em" />
-            <NotFullWidthSection verticalPadding="7em">
-                <Link className='text-text' to={`/Home#${WORKS}`}>
+            <NotFullWidthSection verticalPadding="4em">
+                <Link className='text-text' to={`/Home#${WORKSHASH}`}>
                     View my work ↓
                 </Link>
             </NotFullWidthSection>
-            <NotFullWidthSection height="10em" />
+            <NotFullWidthSection height="5em" />
         </>
     )
 }
 
-function Works({ scrollRef }) {
+function Works() {
     return (
         <>
-            <div ref={scrollRef} />
             <SectionGrid
                 gridMinColumn={1} gridMaxColumn={2}
                 gridColumnGap={1} gridRowGap={3}
@@ -133,7 +136,7 @@ function ContentCard({ image, title, subTitle, url, tags = [] }) {
                 <FullWidthSection height="0.5em" />
                 <FullWidthSection>
                     <div style={{ display: "inline", width: "100%" }}>
-                        {[...tags].map((t, _) => <CardTag text={t} />)}
+                        {[...tags].map((t, i) => <CardTag text={t} key={i} />)}
                     </div>
                 </FullWidthSection>
             </Link>
@@ -152,4 +155,4 @@ function CardTag({ text }) {
         </FixedSectionCell>
     )
 }
-export { Home, WORKS };
+export { Home, WORKSHASH };

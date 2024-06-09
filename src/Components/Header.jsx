@@ -2,7 +2,7 @@ import React from "react";
 
 import { NotFullWidthSection, GrowSectionCell, FixedSectionCell } from "./Section";
 import { Link } from "react-router-dom";
-import { WORKS } from "../Home/Home.jsx"
+import { WORKSHASH } from "../Home/Home.jsx"
 
 function Header() {
     return (
@@ -28,9 +28,9 @@ function Logo() {
 function Links() {
     return (
         <>
-            <Link className="text-text" style={{ fontSize: "1.25em" }} to={`/Home#${WORKS}`}> Work </Link>
+            <Link className="text-text" style={{ fontSize: "1.25em" }} to={`/Home#${WORKSHASH}`}> Work </Link>
             <FixedSectionCell width="1.5em" />
-            <Link className="text-text" style={{ fontSize: "1.25em" }} to={'/'}> About</Link>
+            <Link className="text-text" style={{ fontSize: "1.25em" }} to={'/AboutMe'}> About</Link>
             <FixedSectionCell width="1.5em" />
             <Link className="text-text" style={{ fontSize: "1.25em" }} to={'/'}> Resume</Link>
         </>

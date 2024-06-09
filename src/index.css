@@ -16,3 +16,7 @@ p {
   margin-block-end: 0;
   font-family: 'Poppins';
 }
+
+a {
+  color: black;
+}

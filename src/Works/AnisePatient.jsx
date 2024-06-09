@@ -184,13 +184,11 @@ function Journey() {
     return (
         <>
             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-                <GrowSectionCell />
-                <FixedSectionCell>
-                    <p className="text-brief" style={{ color: COLOR.chai }}>
+                <GrowSectionCell>
+                    <p className="text-brief" style={{ color: COLOR.chai, textAlign: "center" }}>
                         Agile UX Journey
                     </p>
-                </FixedSectionCell>
-                <GrowSectionCell />
+                </GrowSectionCell>
             </NotFullWidthSection>
             <FullWidthSection>
                 <div style={{ width: "100%", height: "100%", justifyContent: "center", display: "flex" }}>
@@ -763,7 +761,7 @@ function DesignSystem() {
                 verticalPadding={SECTION_PADDING.DEFAULT}>
                 <GridCell startPosition="1">
                     <p className="title-section">
-                        Futrue Steps<br />
+                        Future Steps<br />
                     </p>
                 </GridCell>
                 <GridCell startPosition="span 2">

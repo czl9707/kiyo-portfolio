@@ -607,11 +607,9 @@ function FinalThoughts() {
         <NotFullWidthSection
             verticalPadding={SECTION_PADDING.DEFAULT}
             backgroundColor={COLOR.jade} >
-            <GrowSectionCell />
-            <FixedSectionCell>
-                <p className="title-section" style={{ color: "white" }}>Final Thoughts</p>
-            </FixedSectionCell >
-            <GrowSectionCell />
+            <GrowSectionCell>
+                <p className="title-section" style={{ color: "white", textAlign: "center" }}>Final Thoughts</p>
+            </GrowSectionCell >
         </NotFullWidthSection >
     );
 }

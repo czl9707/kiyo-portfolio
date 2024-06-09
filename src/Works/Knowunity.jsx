@@ -190,13 +190,13 @@ function Context() {
                             <li>Get 100 members in their group chat</li>
                             <li>Gain 100 followers (knows)</li>
                         </ul>
-                        <br />
                     </p>
                 </GrowSectionCell>
             </NotFullWidthSection>
             <SectionGrid
                 backgroundColor={COLOR.dim}
-                gridMaxColumn={3} gridMinColumn={3}>
+                gridMaxColumn={3} gridMinColumn={3}
+                verticalPadding={SECTION_PADDING.DEFAULT}>
                 <Card img="IconNote.png"
                     text="Publish 15 notes" />
                 <Card img="IconTask.png"
@@ -204,6 +204,7 @@ function Context() {
                 <Card img="IconUser.png"
                     text="Gain 100 followers" />
             </SectionGrid>
+
             <NotFullWidthSection backgroundColor={COLOR.dim}>
                 <GrowSectionCell>
                     <p className="text-text">
@@ -212,7 +213,7 @@ function Context() {
                 </GrowSectionCell>
             </NotFullWidthSection>
             <NotFullWidthSection backgroundColor={COLOR.dim}>
-                <CardImageCell img="Context.png" shadow={false}
+                <CardImageCell img={ImageFullPath("Context.png")} shadow={false}
                     annotation={
                         <>
                             Path to become a Lighthouse creator: <br />
