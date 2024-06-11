@@ -82,7 +82,7 @@ function EdgemereFarm() {
             <KeyInsightsAndDesignStrategy />
             <UserJourney />
             <DesignSketchAndUserTesting />
-            <HiFiDesign />
+            <FinalDesign />
             <FinalThoughts />
             <Reflections />
         </>
@@ -580,14 +580,14 @@ function DesignSketchAndUserTesting() {
     )
 }
 
-function HiFiDesign() {
+function FinalDesign() {
     return (
         <>
             <SectionGrid backgroundColor={COLOR.mint}
                 verticalPadding={SECTION_PADDING.DEFAULT}
                 gridMaxColumn={3} gridMinColumn={2}>
                 <GridCell>
-                    <p className="title-section">View Clickable Prototypes</p>
+                    <p className="title-section">Final Design</p>
                     <br />
                     <ProtoTypesButton />
                 </GridCell>
