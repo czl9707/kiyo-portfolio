@@ -31,10 +31,13 @@ function Content() {
       <Routes>
         <Route path='/Home' element={<Home />} />
         <Route path='/AboutMe' element={<AboutMe />} />
-        <Route path='/Works/AnisePatient' element={<AnisePatient />} />
-        <Route path='/Works/MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
-        <Route path='/Works/Knowunity' element={<Knowunity />} />
-        <Route path='/Works/EdgemereFarm' element={<EdgemereFarm />} />
+        <Route path='/Works'>
+          <Route path='AnisePatient' element={<AnisePatient />} />
+          <Route path='MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
+          <Route path='Knowunity' element={<Knowunity />} />
+          <Route path='EdgemereFarm' element={<EdgemereFarm />} />
+          <Route path="*" element={<Navigate to="/Home" />} />
+        </Route>
         <Route path="/*" element={<Navigate to="/Home" />} />
       </Routes>
     </div>

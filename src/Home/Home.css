@@ -4,8 +4,27 @@
     box-shadow: 0.1em 0.1em 0.5em rgb(1, 1, 1, 0.1);
 }
 
-.home-card-image:hover {
+.home-card-image-hover {
     box-shadow: 0.2em 0.2em 0.5em rgb(1, 1, 1, 0.2);
+}
+
+.home-card-image-comming-soon-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    opacity: 0.4;
+    transform: translateY(-50%) translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 4em;
+    text-align: center;
+
+    color: gray;
+    background-color: white;
 }
 
 #home-hello-text {

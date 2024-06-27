@@ -110,7 +110,6 @@ function SectionCell({
             style={{
                 backgroundColor: backgroundColor,
                 flex: grow ? `1 1 ${width}` : `0 0 ${width}`,
-                display: "inline-block",
                 gridColumn: takeWholeLine ? '1/-1' : 'auto',
             }}>
             {children}

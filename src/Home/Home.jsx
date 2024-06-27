@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import {
     FullWidthSection,
     NotFullWidthSection,
     FixedSectionCell,
+    GrowSectionCell,
 } from '../Components/Section';
 import { SectionGrid, GridCell } from '../Components/SectionGrid';
 
@@ -15,12 +16,12 @@ function Home() {
     const location = useLocation();
     const ref = useRef();
 
-    const scrollHandler = () => ref.current.scrollIntoView({ behavior: 'smooth' });
-
     useEffect(() => {
         if (location.hash === `#${WORKSHASH}`) {
-            console.log(ref.current);
-            scrollHandler();
+            // setTimeout to avoid ref is not there when loading
+            setTimeout(() => {
+                ref.current.scrollIntoView({ behavior: 'smooth' });
+            }, 1);
         }
     });
 
@@ -45,7 +46,7 @@ function Welcome() {
             </NotFullWidthSection>
             <NotFullWidthSection >
                 <p id='home-intro-text'>
-                    A UX designer loving warm hugs!!! ⛄<br />
+                    A research-driven UI/UX designer, adept in diverse methods to create intuitive design and boost user engagement. ⛄<br />
                 </p>
             </NotFullWidthSection>
         </>
@@ -88,6 +89,20 @@ function Works() {
                     tags={["User Interview", "Usability", "Online Community",]} />
 
                 <ContentCard
+                    url="/Works/MontanaHistoricalSociety"
+                    image="CoverMontanaHistoricalSociety.png"
+                    title="Montana Historical Society"
+                    subTitle="Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy."
+                    tags={["Web Analytics", "SEO Audit", "Data Visualization",]} />
+
+                <ContentCard
+                    // url="/Works/100DesignChallenge"
+                    image="Cover100DesignChallenge.png"
+                    title="100 Days Design Challange"
+                    subTitle="UI Design Challenge."
+                    tags={["On Going",]} />
+
+                <ContentCard
                     url="/Works/AnisePatient"
                     image="CoverAnisePatientPortal.png"
                     title="Anise Health: Patient Portal Beta 2.0"
@@ -98,28 +113,40 @@ function Works() {
                     image="CoverAniseOnboarding.png"
                     title="Anise Health: Patient Onboarding"
                     subTitle="Improve conversion rates by eliminating client onboarding friction."
-                    tags={["UX Design", "Conversion Rate", "Coming Soon :)",]} />
+                    tags={["UX Design", "Conversion Rate",]} />
 
                 <ContentCard
-                    url="/Works/MontanaHistoricalSociety"
-                    image="CoverMontanaHistoricalSociety.png"
-                    title="Montana Historical Society"
-                    subTitle="Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy."
-                    tags={["Web Analytics", "SEO Audit", "Data Visualization",]} />
+                    image="CoverKaiFineJewelry.png"
+                    title="Kai Fine Jewelry"
+                    subTitle="Fancy Jewelrys :)."
+                    tags={["UX Design", "End-to-End", "Usability Improvement",]} />
+
             </SectionGrid>
         </>
     )
 }
 
 function ContentCard({ image, title, subTitle, url, tags = [] }) {
+    let [isHovering, setIsHovered] = useState(false);
+
+
     return (
         <GridCell>
             <Link style={{ color: "black", textDecoration: "none" }}
+                onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
                 to={url}>
                 <FullWidthSection>
-                    <img className='home-card-image'
-                        src={`/Home/${image}`} alt={title}
-                    />
+                    <GrowSectionCell>
+                        <img className={isHovering ? 'home-card-image home-card-image-hover' : 'home-card-image'}
+                            src={`/Home/${image}`} alt={title}
+                        />
+                        {
+                            !url && isHovering &&
+                            <div className='home-card-image-comming-soon-mask'>
+                                <p>Comming Soon</p>
+                            </div>
+                        }
+                    </GrowSectionCell>
                 </FullWidthSection>
                 <FullWidthSection height="1em" />
                 <FullWidthSection>
