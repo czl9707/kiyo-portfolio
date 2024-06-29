@@ -7,7 +7,7 @@ import { WORKSHASH } from "../Home/Home.jsx"
 function Header() {
     return (
         <div className="sticky-header">
-            <NotFullWidthSection backgroundColor={"white"} verticalPadding="1.5em" fadedIn={false}>
+            <NotFullWidthSection backgroundColor={"var(--primary-background)"} verticalPadding="1.5em" fadedIn={false}>
                 <Logo />
                 <GrowSectionCell />
                 <Links />
@@ -33,7 +33,7 @@ function Links() {
             <Link className="text-text" style={{ fontSize: "1.25em" }} to={'/AboutMe'}> About</Link>
             <FixedSectionCell width="1.5em" />
             <Link className="text-text" style={{ fontSize: "1.25em" }} target="_blank" rel="noopener noreferrer" to={
-                `${process.env.PUBLIC_URL}/ResumeKiyo.pdf`
+                `https://drive.google.com/file/d/1fRxv_PRcMMl88VN4TpWCalqxGoVQfd5n/view?usp=drive_link`
             }> Resume</Link>
         </>
     )

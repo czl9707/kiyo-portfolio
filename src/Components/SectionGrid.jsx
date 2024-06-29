@@ -35,7 +35,7 @@ function SectionGrid({
 
 function GridCell({
     children,
-    backgroundColor = 'rgb(0, 0, 0, 0)',
+    backgroundColor = 'transparent',
     startPosition = "auto",
     endPosition = "auto",
     takeWholeLine = false,

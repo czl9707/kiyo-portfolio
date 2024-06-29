@@ -9,14 +9,17 @@ body {
   --header-height: 4em;
   margin-top: var(--header-height);
   overflow-x: hidden;
+
+  background-color: var(--primary-background);
 }
 
 p {
   margin-block-start: 0;
   margin-block-end: 0;
   font-family: 'Poppins';
+  color: var(--primary-text);
 }
 
 a {
-  color: black;
+  color: var(--primary-text);
 }

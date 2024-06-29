@@ -11,7 +11,7 @@ const COLOR = {
     prussia: "#3947BE",
     baby: "#EAF1F6",
     ocean: "#CCC1F0",
-    dim: "#F6F6F6",
+    dim: "var(--secondary-background)",
 }
 
 const PROFILE_SIZE = {
@@ -235,7 +235,7 @@ function ResearchQuestion() {
             <div className="card-cell"
                 style={{
                     width: "100%", padding: "0 10%", height: `${height * 5 + 5}vh`,
-                    boxShadow: "0 0 1em rgb(0, 0, 0, 0.05)", margin: "0.5em 0",
+                    boxShadow: "0 0 1em var(--secondary-shadow)", margin: "0.5em 0",
                     display: "flex", alignItems: "center"
                 }
                 }>

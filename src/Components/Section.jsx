@@ -10,7 +10,7 @@ const SECTION_PADDING = {
 function Section({
     children,
     fullWidth,
-    backgroundColor = 'rgb(0, 0, 0, 0)',
+    backgroundColor = "transparent",
     verticalPadding = SECTION_PADDING.NONE,
     fadedIn = true,
     height = 'auto',
@@ -44,8 +44,8 @@ function Section({
     return (
         <div className={wrapper_classes.join(" ")}
             style={{
-                backgroundColor: backgroundColor,
-                height: height,
+                backgroundColor,
+                height,
                 paddingTop: verticalPadding,
                 paddingBottom: verticalPadding,
             }}>
@@ -100,7 +100,7 @@ function NotFullWidthSection({
 
 function SectionCell({
     children,
-    backgroundColor = 'rgb(0, 0, 0, 0)',
+    backgroundColor = 'transparent',
     width = 'auto',
     grow,
     takeWholeLine = false,

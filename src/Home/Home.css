@@ -1,11 +1,11 @@
 .home-card-image {
     width: 100%;
     border-radius: 0.5em;
-    box-shadow: 0.1em 0.1em 0.5em rgb(1, 1, 1, 0.1);
+    box-shadow: 0.1em 0.1em 0.5em var(--secondary-shadow);
 }
 
 .home-card-image-hover {
-    box-shadow: 0.2em 0.2em 0.5em rgb(1, 1, 1, 0.2);
+    box-shadow: 0.2em 0.2em 0.5em var(--primary-shadow);
 }
 
 .home-card-image-comming-soon-mask {
@@ -47,7 +47,7 @@
     align-items: center;
     box-sizing: border-box;
 
-    background-color: rgba(0, 0, 0, 0.07);
+    background-color: var(--secondary-background);
     border-radius: 3em;
     padding: 0.2em 1.5em;
     margin: 0.25em 0.5em 0.25em 0;
@@ -62,7 +62,7 @@
 
 .works-tag {
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.07);
+    background-color: var(--secondary-background);
     border-radius: .3em;
     box-sizing: border-box;
     display: inline-flex;

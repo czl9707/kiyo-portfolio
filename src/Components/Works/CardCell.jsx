@@ -11,7 +11,7 @@ function CardCell({
     children,
     startPosition = "auto",
     endPosition = "auto",
-    backgroundColor = 'white',
+    backgroundColor = 'var(--primary-background)',
     annotation,
     width,
     height,

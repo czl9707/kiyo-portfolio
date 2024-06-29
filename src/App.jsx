@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter, Navigate, useLocation } from "react-router-dom";
 
 import './App.css';
@@ -9,16 +9,49 @@ import { Footer } from './Components/Footer.jsx';
 import AnisePatient from './Works/AnisePatient.jsx'
 import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.jsx'
 import Knowunity from './Works/Knowunity.jsx';
-import EdgemereFarm from './Works/EdgemereFarm.jsx'
-import AboutMe from './Home/AboutMe.jsx'
+import EdgemereFarm from './Works/EdgemereFarm.jsx';
+import DesignChallenge from './Works/DesignChallenge.jsx'
+import AboutMe from './Home/AboutMe.jsx';
+
+const THEME = {
+  LIGHT: `
+  * {
+    --primary-background: white;
+    --secondary-background: rgb(235, 235, 235);
+    --primary-text: black;
+    --secondary-text: rgb(20, 20, 20); 
+    --primary-shadow: rgba(0, 0, 0, 0.2);
+    --secondary-shadow: rgba(0, 0, 0, 0.07);
+  }
+  `,
+  DARK: `
+  * {
+    --primary-background: rgb(42, 42, 42);
+    --secondary-background: rgb(53, 53, 53);
+    --primary-text: white;
+    --secondary-text: rgb(235, 235, 235); 
+    --primary-shadow: rgba(255, 255, 255, 0.2);
+    --secondary-shadow: rgba(255, 255, 255, 0.07);
+  }
+  `,
+}
+
+const ThemeContext = React.createContext({ themeText: "LIGHT", setThemeText: undefined });
 
 function App() {
+  const [theme, setTheme] = useState("LIGHT");
+
   return (
-    <BrowserRouter>
-      <Header />
-      <Content />
-      <Footer />
-    </BrowserRouter>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <BrowserRouter>
+        <style>
+          {THEME[theme]}
+        </style>
+        <Header />
+        <Content />
+        <Footer />
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
 
@@ -36,6 +69,7 @@ function Content() {
           <Route path='MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
           <Route path='Knowunity' element={<Knowunity />} />
           <Route path='EdgemereFarm' element={<EdgemereFarm />} />
+          <Route path='DesignChallenge' element={<DesignChallenge />} />
           <Route path="*" element={<Navigate to="/Home" />} />
         </Route>
         <Route path="/*" element={<Navigate to="/Home" />} />
@@ -44,4 +78,4 @@ function Content() {
   );
 }
 
-export { App };
+export { App, ThemeContext };

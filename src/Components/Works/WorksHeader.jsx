@@ -3,6 +3,7 @@ import {
     NotFullWidthSection,
     GrowSectionCell,
     FixedSectionCell,
+    SECTION_PADDING,
 } from '../../Components/Section';
 
 import "./Works.css"
@@ -15,9 +16,9 @@ function WorksHeader({
 }) {
     return (
         <>
-            <NotFullWidthSection height="3em" />
+            <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
             <NotFullWidthSection>
-                <p className="title-page" style={{ "textAlign": "center" }}>
+                <p className="title-page" style={{ textAlign: "center", width: "100%" }}>
                     {title}
                 </p>
             </NotFullWidthSection>
@@ -28,14 +29,15 @@ function WorksHeader({
                 </div>
                 <GrowSectionCell />
             </NotFullWidthSection >
+            <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
         </>
     );
 }
 
 function Tag({
     text,
-    color = "grey",
-    fontColor = "black",
+    color = "var(--secondary-background)",
+    fontColor = "var(--primary-text)",
 }) {
     return (
         <FixedSectionCell>

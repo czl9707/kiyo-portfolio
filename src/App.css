@@ -53,7 +53,7 @@
   font-size: 1em;
 
   text-decoration: none;
-  color: black;
+  color: var(--primary-text);
 }
 
 .text-quote {
@@ -61,7 +61,7 @@
   font-size: 0.8em;
 
   text-decoration: none;
-  color: black;
+  color: var(--primary-text);
 }
 
 .text-brief {
@@ -69,7 +69,7 @@
   font-size: 1.25em;
 
   text-decoration: none;
-  color: black;
+  color: var(--primary-text);
 }
 
 .text-bond {
@@ -78,7 +78,7 @@
   cursor: pointer;
 
   text-decoration: none;
-  color: black;
+  color: var(--primary-text);
 }
 
 .text-logo {
@@ -88,7 +88,7 @@
   cursor: pointer;
 
   text-decoration: none;
-  color: black;
+  color: var(--primary-text);
 }
 
 .title-page {
@@ -125,7 +125,7 @@
   display: inline-block;
 
   border-radius: 0.5em;
-  background-color: white;
+  background-color: var(--primary-background);
   border: 0.5px rgb(200, 200, 200) solid;
   box-sizing: border-box;
 }

@@ -96,11 +96,11 @@ function Works() {
                     tags={["Web Analytics", "SEO Audit", "Data Visualization",]} />
 
                 <ContentCard
-                    // url="/Works/100DesignChallenge"
+                    url="/Works/DesignChallenge"
                     image="Cover100DesignChallenge.png"
                     title="100 Days Design Challange"
                     subTitle="UI Design Challenge."
-                    tags={["On Going",]} />
+                    tags={["On Going", "User Interface Design", "Visual Design",]} />
 
                 <ContentCard
                     url="/Works/AnisePatient"
