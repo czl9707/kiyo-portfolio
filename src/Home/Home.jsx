@@ -99,8 +99,8 @@ function Works() {
                     url="/Works/DesignChallenge"
                     image="Cover100DesignChallenge.png"
                     title="100 Days Design Challange"
-                    subTitle="UI Design Challenge."
-                    tags={["On Going", "User Interface Design", "Visual Design",]} />
+                    subTitle="Ongoing practices on UI design theory."
+                    tags={["On Going", "UI Design", "Visual Design",]} />
 
                 <ContentCard
                     url="/Works/AnisePatient"
