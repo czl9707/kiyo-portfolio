@@ -10,7 +10,7 @@ const ImageFullPath = (p) => `/Works/DesignChallenge/${p}`;
 
 
 function DesignChallenge() {
-    const { theme, setTheme } = useContext(ThemeContext)
+    const { setTheme } = useContext(ThemeContext)
     useEffect(() => {
         setTheme("DARK");
         return () => setTheme("LIGHT");

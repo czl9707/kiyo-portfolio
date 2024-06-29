@@ -16,7 +16,7 @@ function Section({
     height = 'auto',
     stretch = false,
 }) {
-    const { ref, inView } = useInView({
+    const { ref } = useInView({
         triggerOnce: false,
         initialInView: false,
         threshold: 0.1,

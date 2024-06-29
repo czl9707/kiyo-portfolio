@@ -1,9 +1,6 @@
 import React from 'react';
 import {
-    FullWidthSection,
     NotFullWidthSection,
-    GrowSectionCell,
-    FixedSectionCell,
     SECTION_PADDING,
 } from '../Components/Section';
 import { SectionGrid, GridCell } from '../Components/SectionGrid';
