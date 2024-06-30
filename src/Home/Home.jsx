@@ -82,6 +82,13 @@ function Works() {
                     tags={["0 to 1", "Website Design",]} />
 
                 <ContentCard
+                    url="/Works/AnisePatient"
+                    image="CoverAnisePatientPortal.png"
+                    title="Anise Health: Patient Portal Beta 2.0"
+                    subTitle="Creating immersive mental health experience: from session to beyond."
+                    tags={["UX Design", "End-to-End", "Usability Improvement", "Renewal Rate",]} />
+
+                <ContentCard
                     url="/Works/Knowunity"
                     image="CoverKnowunity.png"
                     title="Knowunity"
@@ -101,13 +108,6 @@ function Works() {
                     title="100 Days Design Challange"
                     subTitle="Ongoing practices on UI design theory."
                     tags={["On Going", "UI Design", "Visual Design",]} />
-
-                <ContentCard
-                    url="/Works/AnisePatient"
-                    image="CoverAnisePatientPortal.png"
-                    title="Anise Health: Patient Portal Beta 2.0"
-                    subTitle="Creating immersive mental health experience: from session to beyond."
-                    tags={["UX Design", "End-to-End", "Usability Improvement", "Renewal Rate",]} />
 
                 <ContentCard
                     image="CoverAniseOnboarding.png"
