@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import WorksHeader from '../Components/Works/WorksHeader';
 import { SECTION_PADDING } from "../Components/Section";
 import { SectionGrid, GridCell } from "../Components/SectionGrid";
-import { CardImageCell } from "../Components/Works/CardCell";
 import { ThemeContext } from "../App"
 
 
