@@ -46,7 +46,7 @@ function Welcome() {
             </NotFullWidthSection>
             <NotFullWidthSection >
                 <p id='home-intro-text'>
-                    A research-driven UI/UX designer, adept in diverse methods to create intuitive design and boost user engagement. ⛄<br />
+                    A research-driven UX designer with 3 years of work experience, adept in diverse methods to create intuitive design and boost user engagement. ⛄<br />
                 </p>
             </NotFullWidthSection>
         </>
