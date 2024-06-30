@@ -68,7 +68,7 @@ function DesignChallenge() {
 
 function Overview() {
     return (
-        <SectionGrid gridMinColumn={1} gridMaxColumn={2}
+        <SectionGrid gridMinColumn={2} gridMaxColumn={2}
             gridColumnGap={6} gridRowGap={2}
             verticalPadding={SECTION_PADDING.DEFAULT}
             backgroundColor={"var(--secondary-background)"}
@@ -82,14 +82,17 @@ function Overview() {
                     Updated regularly, this collection showcases my continuous growth and creativity. Check back often for new and exciting projects!
                 </p>
             </GridCell>
-            <CardImageCell img={ImageFullPath("Overview.png")} shadow={false} />
+            <GridCell>
+                <img src={ImageFullPath("Overview.png")} alt={ImageFullPath("Overview.png")}
+                    style={{ width: "100%" }} />
+            </GridCell>
         </SectionGrid>
     );
 }
 
 function Day({ title, content, image }) {
     return (
-        <SectionGrid gridMinColumn={1} gridMaxColumn={2}
+        <SectionGrid gridMinColumn={2} gridMaxColumn={2}
             gridColumnGap={6} gridRowGap={2}
             verticalPadding={SECTION_PADDING.DEFAULT}>
             <GridCell>
@@ -101,7 +104,10 @@ function Day({ title, content, image }) {
                     {content}
                 </p>
             </GridCell>
-            <CardImageCell img={ImageFullPath(image)} shadow={false} />
+            <GridCell>
+                <img src={ImageFullPath(image)} alt={ImageFullPath(image)}
+                    style={{ width: "100%" }} />
+            </GridCell>
         </SectionGrid>
     );
 }
