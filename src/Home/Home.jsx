@@ -99,7 +99,7 @@ function Works() {
                 subTitle="Improving online store revenue by revamping website browsing experience."
                 tags={["Website Design", "Fashion",]}
                 shippingTag="Shipped in 2024"
-                isLinkPrototype={true} />
+                isLinkPrototype />
 
             <ContentCard
                 url="/Works/Knowunity"
@@ -148,7 +148,7 @@ function ContentCard({ image, title, subTitle, url, shippingTag, isLinkPrototype
             <Link
                 style={{ color: "black", textDecoration: "none" }}
                 onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
-                to={url} rel={isLinkPrototype ? "noopener noreferrer" : undefined}>
+                to={url} rel={isLinkPrototype ? "noopener noreferrer" : undefined} target={isLinkPrototype ? "_blank" : undefined}>
                 <FullWidthSection fadedIn={false}>
                     <GrowSectionCell>
                         <img style={{ width: "100%" }}
