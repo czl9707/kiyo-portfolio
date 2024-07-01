@@ -20,7 +20,7 @@ function Logo() {
     return (
         <FixedSectionCell>
             <Link className="text-logo"
-                to={'/Home'} >KIYO</Link>
+                to={'/Home'} >KIYO YANG</Link>
         </FixedSectionCell >
     )
 }
