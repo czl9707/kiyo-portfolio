@@ -6,7 +6,7 @@ function SectionGrid({
     gridMaxColumn,
     gridColumnGap = 1,
     gridRowGap = 1,
-    alignItem = 'start',
+    alignItem = 'stretch',
     children,
     backgroundColor,
     verticalPadding,

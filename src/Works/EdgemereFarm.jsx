@@ -62,7 +62,7 @@ function EdgemereFarm() {
                 {
                     `
                         u {cursor: pointer;}
-                        .button:hover {box-shadow: 0.2em 0.2em 0.5em var(--primary-shadow);}
+                        .button:hover {box-shadow: var(--primary-shadow);}
                     `
                 }
             </style>

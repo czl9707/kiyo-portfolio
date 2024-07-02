@@ -7,7 +7,7 @@ import {
     GrowSectionCell,
     SECTION_PADDING,
 } from '../Components/Section';
-import { SectionGrid } from '../Components/SectionGrid';
+import { SectionGrid, GridCell } from '../Components/SectionGrid';
 
 import "./Home.css";
 
@@ -74,23 +74,21 @@ function Works() {
             gridMinColumn={1} gridMaxColumn={2}
             gridColumnGap={1} gridRowGap={3}
         >
-            <ContentCard
-                url="/Works/EdgemereFarm"
-                image="CoverEdgemereFarm.png"
-                title="Edgemere Farm Website"
-                subTitle="Boosting NGO engagement and increase audience awareness: enhancing the information experience from new user to active supporter."
-                tags={["Website", "NGO", "0 to 1",]}
-                shippingTag="Shipped in 2023"
-                featured />
-
-            <ContentCard
+            <FeaturedContentCard
                 url="/Works/AnisePatient"
                 image="CoverAnisePatientPortal.png"
                 title="AN Health Client Portal"
                 subTitle="Creating immersive mental health experience: from session to beyond."
                 tags={["Web App", "Healthcare", "End to End",]}
-                shippingTag="Shipped in 2023"
-                featured />
+                shippingTag="Shipped in 2023" />
+
+            <FeaturedContentCard
+                url="/Works/EdgemereFarm"
+                image="CoverEdgemereFarm.png"
+                title="Edgemere Farm Website"
+                subTitle="Boosting NGO engagement and increase audience awareness: enhancing the information experience from new user to active supporter."
+                tags={["Website", "NGO", "0 to 1",]}
+                shippingTag="Shipped in 2023" />
 
             <ContentCard
                 url="https://www.figma.com/proto/tAGAEa0Fvk0mFnT5TXys1T/KFJ-Web-Design-_-Kiyo?page-id=2%3A2&node-id=2528-23279&viewport=3182%2C-5385%2C0.3&t=ZjuksPYBreaQNDx0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2528%3A23279"
@@ -136,60 +134,113 @@ function Works() {
     );
 }
 
-function ContentCard({ image, title, subTitle, url, shippingTag, isLinkPrototype = false, featured = false, tags = [] }) {
+function ContentCard({ image, title, subTitle, url, shippingTag, isLinkPrototype = false, tags = [] }) {
     let [isHovering, setIsHovered] = useState(false);
 
-    let classes = ["card-cell", "section-cell", "home-card"];
+    let classes = ["home-card"];
     if (isHovering) classes.push("home-card-hover");
 
     return (
-        <div className={classes.join(" ")}
-            style={{ height: "100%", border: "none", borderRadius: "0", gridColumn: featured ? "1/-1" : undefined }}>
-            <Link
-                style={{ color: "black", textDecoration: "none" }}
-                onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
-                to={url} rel={isLinkPrototype ? "noopener noreferrer" : undefined} target={isLinkPrototype ? "_blank" : undefined}>
-                <FullWidthSection fadedIn={false}>
-                    <GrowSectionCell>
-                        <img style={{ width: "100%" }}
+        <>
+            <GridCell >
+                <Link
+                    style={{ color: "black", textDecoration: "none", height: "100%" }}
+                    onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+                    to={url} rel={isLinkPrototype ? "noopener noreferrer" : undefined} target={isLinkPrototype ? "_blank" : undefined}>
+                    <FullWidthSection height="100%" stretch>
+                        <GrowSectionCell>
+                            <div style={{ width: "100%", height: "100%" }}
+                                className={classes.join(" ")}>
+                                <FullWidthSection fadedIn={false}>
+                                    <img style={{ width: "100%" }}
+                                        src={`/Home/${image}`} alt={title}
+                                    />
+                                    {
+                                        !url && isHovering &&
+                                        <div className='home-card-image-comming-soon-mask'>
+                                            <p>Comming Soon</p>
+                                        </div>
+                                    }
+                                    {
+                                        !!shippingTag &&
+                                        <ShippingTag text={shippingTag} />
+                                    }
+                                </FullWidthSection>
+                                <CardTextContent title={title} subTitle={subTitle} isLinkPrototype={isLinkPrototype} tags={tags} />
+                            </div>
+                        </GrowSectionCell>
+                    </FullWidthSection>
+                </Link>
+            </GridCell>
+        </>
+
+    )
+}
+
+function FeaturedContentCard({ image, title, subTitle, url, shippingTag, isLinkPrototype = false, tags = [] }) {
+    let [isHovering, setIsHovered] = useState(false);
+
+    let classes = ["section-cell", "home-card"];
+    if (isHovering) classes.push("home-card-hover");
+
+    return (
+        <>
+            <GridCell takeWholeLine={true}>
+                <Link
+                    style={{ color: "black", textDecoration: "none" }}
+                    onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
+                    to={url} rel={isLinkPrototype ? "noopener noreferrer" : undefined} target={isLinkPrototype ? "_blank" : undefined}>
+
+                    <FullWidthSection height="13em" >
+                        <img style={{ width: "100%", top: "0", position: "absolute", boxShadow: "var(--secondary-shadow)" }}
                             src={`/Home/${image}`} alt={title}
                         />
-                        {
-                            !url && isHovering &&
-                            <div className='home-card-image-comming-soon-mask'>
-                                <p>Comming Soon</p>
-                            </div>
-                        }
                         {
                             !!shippingTag &&
                             <ShippingTag text={shippingTag} />
                         }
-                    </GrowSectionCell>
-                </FullWidthSection>
-                <FullWidthSection verticalPadding={SECTION_PADDING.MINOR} fadedIn={false} />
-                <FullWidthSection fadedIn={false}>
-                    <FixedSectionCell width="7.5%" />
-                    <GrowSectionCell>
-                        <p className='home-card-title'>
-                            {title} <br />
-                        </p>
-                        <div style={{ height: ".4em" }} />
-                        <div style={{ display: "inline", width: "100%" }}>
-                            {[...tags].map((t, i) => <CardTag text={t} key={i} />)}
+                    </FullWidthSection>
+                    <FullWidthSection>
+                        <GrowSectionCell />
+                        <div className={classes.join(" ")}
+                            style={{
+                                backgroundColor: "var(--primary-background)",
+                                width: "500px", maxWidth: "80%", zIndex: "1"
+                            }}>
+                            <CardTextContent title={title} subTitle={subTitle} isLinkPrototype={isLinkPrototype} tags={tags} />
                         </div>
-                        <div style={{ height: ".4em" }} />
-                        <p className='text-quote' style={{ fontSize: "1em" }}>
-                            {subTitle}
-                        </p>
-                    </GrowSectionCell>
-                    <FixedSectionCell width="7.5%" />
-                </FullWidthSection>
-                <FullWidthSection verticalPadding={SECTION_PADDING.DEFAULT} fadedIn={false} />
+                    </FullWidthSection>
+                </Link >
+            </GridCell>
+        </>
+    );
+}
 
-                <ViewProject isLinkPrototype={isLinkPrototype} url={url} />
-            </Link>
-        </div >
-    )
+function CardTextContent({ title, subTitle, isLinkPrototype = false, tags = [] }) {
+    return (
+        <>
+            <FullWidthSection verticalPadding={SECTION_PADDING.MINOR} fadedIn={false} />
+            <FullWidthSection fadedIn={false}>
+                <FixedSectionCell width="7.5%" />
+                <GrowSectionCell>
+                    <p className='home-card-title'>
+                        {title} <br />
+                    </p>
+                    <div style={{ height: ".5em" }} />
+                    <div style={{ display: "inline", width: "100%" }}>
+                        {[...tags].map((t, i) => <CardTag text={t} key={i} />)}
+                    </div>
+                    <div style={{ height: ".5em" }} />
+                    <p className='text-quote' style={{ fontSize: "1em" }}>
+                        {subTitle}
+                    </p>
+                </GrowSectionCell>
+                <FixedSectionCell width="7.5%" />
+            </FullWidthSection>
+            <FullWidthSection verticalPadding={SECTION_PADDING.DEFAULT} fadedIn={false} />
+            <ViewProject isLinkPrototype={isLinkPrototype} />
+        </>
+    );
 }
 
 function CardTag({ text }) {
@@ -204,7 +255,7 @@ function CardTag({ text }) {
     )
 }
 
-function ViewProject({ isLinkPrototype = false, url }) {
+function ViewProject({ isLinkPrototype = false }) {
     return (
         <p className='text-brief' style={{
             color: "#3947BE",

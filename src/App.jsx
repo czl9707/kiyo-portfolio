@@ -20,8 +20,8 @@ const THEME = {
     --secondary-background: rgb(235, 235, 235);
     --primary-text: black;
     --secondary-text: rgb(20, 20, 20); 
-    --primary-shadow: rgba(0, 0, 0, 0.2);
-    --secondary-shadow: rgba(0, 0, 0, 0.07);
+    --primary-shadow: 0 0 1.5em rgb(0, 0, 0, 0.25);
+    --secondary-shadow: 0 0 1.5em rgb(0, 0, 0, 0.15);
   }
   `,
   DARK: `
@@ -30,8 +30,8 @@ const THEME = {
     --secondary-background: rgb(53, 53, 53);
     --primary-text: white;
     --secondary-text: rgb(235, 235, 235); 
-    --primary-shadow: rgba(255, 255, 255, 0.2);
-    --secondary-shadow: rgba(255, 255, 255, 0.07);
+    --primary-shadow: 0 0 1.5em rgb(255, 255, 255, 0.25);
+    --secondary-shadow: 0 0 1.5em rgb(255, 255, 255, 0.15);
   }
   `,
 }

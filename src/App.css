@@ -36,7 +36,7 @@
 
 .section-content-no-full-width {
   width: 70%;
-  max-width: 940px;
+  max-width: var(--content-width);
   display: flex;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .card-cell.shadow {
-  box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.2);
+  box-shadow: var(--secondary-shadow);
 }
 
 .card-image-cell {
@@ -145,7 +145,7 @@
 }
 
 .card-image-cell.shadow {
-  box-shadow: 0 0 0.5em rgb(0, 0, 0, 0.2);
+  box-shadow: var(--secondary-shadow);
 }
 
 .card-image-cell>img {
