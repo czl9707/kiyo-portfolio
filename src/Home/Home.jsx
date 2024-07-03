@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import {
     FullWidthSection,
@@ -13,15 +13,18 @@ import "./Home.css";
 
 const WORKSHASH = 'Works';
 
+const ImageFullPath = (p) => `/Home/${p}`;
+
 function Home() {
     const location = useLocation();
-    const ref = useRef();
 
     useEffect(() => {
-        if (location.hash === `#${WORKSHASH}`) {
+        if (location.hash) {
             // setTimeout to avoid ref is not there when loading
             setTimeout(() => {
-                ref.current.scrollIntoView({ behavior: 'smooth' });
+                let element = document.getElementById(location.hash.substring(1))
+                let y = element.getBoundingClientRect().top - 100;
+                window.scrollTo({ behavior: 'smooth', top: y });
             }, 1);
         }
     });
@@ -30,7 +33,7 @@ function Home() {
         <>
             <Welcome />
             <ViewMyWork />
-            <div ref={ref} id={WORKSHASH} />
+            <div id={WORKSHASH} />
             <Works />
         </>
     );
@@ -40,16 +43,26 @@ function Welcome() {
     return (
         <>
             <NotFullWidthSection height="8em" />
-            <NotFullWidthSection verticalPadding="1.5em">
-                <p id='home-hello-text'>
-                    Hi, I'm Kiyo :)
-                </p>
-            </NotFullWidthSection>
-            <NotFullWidthSection >
-                <p id='home-intro-text'>
-                    A research-driven UX designer with 3 years of work experience, adept in diverse methods to create intuitive design and boost user engagement. ⛄<br />
-                </p>
-            </NotFullWidthSection>
+            <SectionGrid
+                gridMinColumn={1} gridMaxColumn={2}
+                gridColumnGap={1} gridRowGap={6}
+                alignItem='center'
+            >
+                <GridCell>
+                    <p id='home-hello-text'>
+                        ✍️ Problem-solver, Critical Thinker ⛄, <br />
+                        🧠 Life-long Learner, <br />
+                        Architect-turned UX Designer 🏛️
+                    </p>
+                </GridCell>
+                <GridCell>
+                    <div style={{ width: "100%", textAlign: "center" }}>
+                        <img src={ImageFullPath("HomeProfile.png")} alt="HomeProfile.png"
+                            style={{ width: "75%" }} />
+                    </div>
+                </GridCell>
+            </SectionGrid>
+            <NotFullWidthSection height="8em" />
         </>
     )
 }
@@ -59,8 +72,9 @@ function ViewMyWork() {
         <>
             <NotFullWidthSection height="3em" />
             <NotFullWidthSection verticalPadding="4em">
-                <Link className='text-text' to={`/Home#${WORKSHASH}`}>
-                    View my work ↓
+                <Link className='text-text' to={`/Home#${WORKSHASH}`}
+                    style={{ textAlign: 'center', width: "100%" }}>
+                    ↓ View my work ↓
                 </Link>
             </NotFullWidthSection>
             <NotFullWidthSection height="5em" />
@@ -153,7 +167,7 @@ function ContentCard({ image, title, subTitle, url, shippingTag, isLinkPrototype
                                 className={classes.join(" ")}>
                                 <FullWidthSection fadedIn={false}>
                                     <img style={{ width: "100%" }}
-                                        src={`/Home/${image}`} alt={title}
+                                        src={ImageFullPath(image)} alt={title}
                                     />
                                     {
                                         !url && isHovering &&
@@ -193,7 +207,7 @@ function FeaturedContentCard({ image, title, subTitle, url, shippingTag, isLinkP
 
                     <FullWidthSection height="13em" >
                         <img style={{ width: "100%", top: "0", position: "absolute", boxShadow: "var(--secondary-shadow)" }}
-                            src={`/Home/${image}`} alt={title}
+                            src={ImageFullPath(image)} alt={title}
                         />
                         {
                             !!shippingTag &&
