@@ -1,20 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import WorksHeader from '../Components/Works/WorksHeader';
-import { SECTION_PADDING } from "../Components/Section";
+import { SECTION_PADDING } from "../Components/Section.tsx";
 import { SectionGrid, GridCell } from "../Components/SectionGrid";
-import { ThemeContext } from "../App"
 
 
 const ImageFullPath = (p) => `/Works/DesignChallenge/${p}`;
 
 
 function DesignChallenge() {
-    const { setTheme } = useContext(ThemeContext)
-    useEffect(() => {
-        setTheme("DARK");
-        return () => setTheme("LIGHT");
-    });
-
     return (
         <>
             <WorksHeader

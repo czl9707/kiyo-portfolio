@@ -6,12 +6,10 @@ import {
     FixedSectionCell,
     GrowSectionCell,
     SECTION_PADDING,
-} from '../Components/Section';
+} from '../Components/Section.tsx';
 import { SectionGrid, GridCell } from '../Components/SectionGrid';
 
 import "./Home.css";
-
-const WORKSHASH = 'Works';
 
 const ImageFullPath = (p) => `/Home/${p}`;
 
@@ -33,7 +31,7 @@ function Home() {
         <>
             <Welcome />
             <ViewMyWork />
-            <div id={WORKSHASH} />
+            <div id="Works" />
             <Works />
         </>
     );
@@ -72,7 +70,7 @@ function ViewMyWork() {
         <>
             <NotFullWidthSection height="3em" />
             <NotFullWidthSection verticalPadding="4em">
-                <Link className='text-text' to={`/Home#${WORKSHASH}`}
+                <Link className='text-text' to={`/Home#Works`}
                     style={{ textAlign: 'center', width: "100%" }}>
                     ↓ View my work ↓
                 </Link>
@@ -294,4 +292,4 @@ function ShippingTag({ text }) {
 }
 
 
-export { Home, WORKSHASH };
+export { Home };

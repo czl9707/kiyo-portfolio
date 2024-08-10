@@ -1,5 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { useInView } from 'react-intersection-observer';
+
+import Container from '@mui/material/Container';
 
 const SECTION_PADDING = {
     DEFAULT: "3em",
@@ -7,7 +9,7 @@ const SECTION_PADDING = {
     NONE: "0",
 }
 
-function Section({
+function DeprecatedSection({
     children,
     fullWidth,
     backgroundColor = "transparent",
@@ -67,14 +69,14 @@ function FullWidthSection({
     stretch,
 }) {
     return (
-        <Section backgroundColor={backgroundColor}
+        <DeprecatedSection backgroundColor={backgroundColor}
             verticalPadding={verticalPadding}
             fullWidth={true}
             height={height}
             fadedIn={fadedIn}
             stretch={stretch}>
             {children}
-        </Section>
+        </DeprecatedSection>
     )
 }
 
@@ -87,14 +89,14 @@ function NotFullWidthSection({
     stretch,
 }) {
     return (
-        <Section backgroundColor={backgroundColor}
+        <DeprecatedSection backgroundColor={backgroundColor}
             verticalPadding={verticalPadding}
             fullWidth={false}
             height={height}
             fadedIn={fadedIn}
             stretch={stretch}>
             {children}
-        </Section>
+        </DeprecatedSection>
     )
 }
 
@@ -140,4 +142,19 @@ function GrowSectionCell({ children, backgroundColor, takeWholeLine }) {
     )
 }
 
-export { FullWidthSection, NotFullWidthSection, FixedSectionCell, GrowSectionCell, SECTION_PADDING };
+interface SectionProperties {
+    children?: React.ReactNode,
+    ref?: ((instance: HTMLDivElement | null) => void) | null | undefined,
+    id?: string,
+};
+function Section({ children, ref }: SectionProperties) {
+    return (
+        <Container maxWidth="md" disableGutters sx={{ px: 6 }} ref={ref}>
+            {children}
+        </Container>
+    );
+}
+
+
+
+export { Section, FullWidthSection, NotFullWidthSection, FixedSectionCell, GrowSectionCell, SECTION_PADDING };

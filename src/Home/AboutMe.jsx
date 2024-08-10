@@ -2,7 +2,7 @@ import React from 'react';
 import {
     NotFullWidthSection,
     SECTION_PADDING,
-} from '../Components/Section';
+} from '../Components/Section.tsx';
 import { SectionGrid, GridCell } from '../Components/SectionGrid';
 import { CardImageCell } from '../Components/Works/CardCell'
 

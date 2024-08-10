@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FullWidthSection } from "./Section";
+import { FullWidthSection } from "./Section.tsx";
 
 function Footer() {
     return (

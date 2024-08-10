@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, BrowserRouter, Navigate, useLocation } from "react-router-dom";
 
 import './App.css';
 
+import { APPLIGHTTHEME, APPDARKTHEME } from './Theme.tsx';
 import { Home } from './Home/Home.jsx';
-import { Header } from './Components/Header.jsx';
+import { Header } from './Components/Header.tsx';
 import { Footer } from './Components/Footer.jsx';
 import AnisePatient from './Works/AnisePatient.jsx'
 import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.jsx'
@@ -12,6 +13,9 @@ import Knowunity from './Works/Knowunity.jsx';
 import EdgemereFarm from './Works/EdgemereFarm.jsx';
 import DesignChallenge from './Works/DesignChallenge.jsx'
 import AboutMe from './Home/AboutMe.jsx';
+
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+
 
 const THEME = {
   LIGHT: `
@@ -36,22 +40,20 @@ const THEME = {
   `,
 }
 
-const ThemeContext = React.createContext({ themeText: "LIGHT", setThemeText: undefined });
+
 
 function App() {
-  const [theme, setTheme] = useState("LIGHT");
-
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BrowserRouter>
-        <style>
-          {THEME[theme]}
-        </style>
+    <BrowserRouter>
+      <style>
+        {THEME['LIGHT']}
+      </style>
+      <ThemeProvider theme={APPLIGHTTHEME}>
         <Header />
         <Content />
         <Footer />
-      </BrowserRouter>
-    </ThemeContext.Provider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
@@ -78,4 +80,4 @@ function Content() {
   );
 }
 
-export { App, ThemeContext };
+export { App };

@@ -1,5 +1,5 @@
 import React from "react"
-import { NotFullWidthSection } from "./Section";
+import { NotFullWidthSection } from "./Section.tsx";
 
 function SectionGrid({
     gridMinColumn = 1,

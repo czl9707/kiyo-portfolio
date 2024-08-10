@@ -1,7 +1,7 @@
 import React from "react";
 import WorksHeader from '../Components/Works/WorksHeader';
 import Overview from "../Components/Works/Overview";
-import { FullWidthSection, NotFullWidthSection, GrowSectionCell, FixedSectionCell, SECTION_PADDING } from "../Components/Section";
+import { FullWidthSection, NotFullWidthSection, GrowSectionCell, FixedSectionCell, SECTION_PADDING } from "../Components/Section.tsx";
 import { SectionGrid, GridCell } from "../Components/SectionGrid";
 import { CardCell, CardImageCell } from "../Components/Works/CardCell";
 
