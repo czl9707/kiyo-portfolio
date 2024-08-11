@@ -2,6 +2,7 @@ import * as React from "react";
 import { useInView } from 'react-intersection-observer';
 
 import Container from '@mui/material/Container';
+import { Box } from "@mui/material";
 
 const SECTION_PADDING = {
     DEFAULT: "3em",
@@ -147,14 +148,31 @@ interface SectionProperties {
     ref?: ((instance: HTMLDivElement | null) => void) | null | undefined,
     id?: string,
 };
-function Section({ children, ref }: SectionProperties) {
+
+function Section({ children, ref, id }: SectionProperties) {
     return (
-        <Container maxWidth="md" disableGutters sx={{ px: 6 }} ref={ref}>
+        <Container maxWidth="lg" disableGutters sx={{ px: 6 }} ref={ref} id={id}>
             {children}
         </Container>
     );
 }
 
+const SizeMap = {
+    'sm': '1rem',
+    'md': '4rem',
+    'lg': '8rem',
+    'xl': '16rem',
+}
 
+interface SpacerProperties {
+    size?: keyof typeof SizeMap
+}
 
-export { Section, FullWidthSection, NotFullWidthSection, FixedSectionCell, GrowSectionCell, SECTION_PADDING };
+function Spacer({ size = 'md' }: SpacerProperties) {
+    return (
+        <Box component="section" sx={{ height: SizeMap[size] }} />
+    );
+}
+
+export default Section;
+export { Spacer, FullWidthSection, NotFullWidthSection, FixedSectionCell, GrowSectionCell, SECTION_PADDING };

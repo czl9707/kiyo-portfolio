@@ -1,16 +1,9 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem, Link } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
 
-import { Section } from './Section.tsx'
-import { FadeIn } from './Effect.tsx'
+import Section from './Section.tsx'
+import { handleNavigation } from './Utils.tsx';
 
 
 const pages = [
@@ -42,94 +35,77 @@ function Header() {
     setAnchorElNav(null);
   };
 
-  function handlenavigation(uri: string, external: boolean): () => void {
-    return () => {
-      window.open(uri, external ? "_blank" : "_self");
-    }
-  }
-
   return (
-    <FadeIn>
-      <AppBar position="sticky" enableColorOnDark sx={{ boxShadow: 0 }}>
-        <Section>
-          <Toolbar disableGutters>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              sx={{
-                display: 'block',
-                textDecoration: 'none',
-              }}
-              href='/Home'
+    <AppBar position="sticky" color='info' sx={{ boxShadow: 0 }}>
+      <Section>
+        <Toolbar disableGutters>
+          <Link noWrap variant='h4' href='/Home' color="inherit" underline="none">
+            KIYO YANG
+          </Link>
+
+          <Box sx={{ flexGrow: 1 }} />
+
+          <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
             >
-              KIYO YANG
-            </Typography>
-
-            <Box sx={{ flexGrow: 1 }} />
-
-            <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', sm: 'none' },
-                }}
-              >
-                {pages.map(item => (
-                  <MenuItem
-                    onClick={() => {
-                      handleCloseNavMenu();
-                      handlenavigation(item.uri, item.external)();
-                    }}
-                    key={item.name}
-                    dense={true}
-                  >
-                    <Typography variant='button'>
-                      {item.name}
-                    </Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-
-            <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', sm: 'none' },
+              }}
+            >
               {pages.map(item => (
-                <Button
-                  variant='text'
-                  color="inherit"
+                <MenuItem
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    handleNavigation(item.uri, item.external)();
+                  }}
                   key={item.name}
-                  onClick={handlenavigation(item.uri, item.external)}
+                  dense={true}
                 >
-                  {item.name}
-                </Button>
+                  <Typography variant='button'>
+                    {item.name}
+                  </Typography>
+                </MenuItem>
               ))}
-            </Box>
-          </Toolbar>
-        </Section>
-      </AppBar>
-    </FadeIn>
+            </Menu>
+          </Box>
+
+          <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+            {pages.map(item => (
+              <Button
+                variant='text'
+                color="inherit"
+                key={item.name}
+                onClick={handleNavigation(item.uri, item.external)}
+              >
+                {item.name}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </Section>
+    </AppBar>
   );
 }
 

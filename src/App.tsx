@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter, Navigate, useLocation } from "react-route
 import './App.css';
 
 import { APPLIGHTTHEME, APPDARKTHEME } from './Theme.tsx';
-import { Home } from './Home/Home.jsx';
+import { Home } from './Home/Home.js';
 import { Header } from './Components/Header.tsx';
 import { Footer } from './Components/Footer.jsx';
 import AnisePatient from './Works/AnisePatient.jsx'
