@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem, Link } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import Brightness4Icon from '@mui/icons-material/Brightness4Outlined';
+import Brightness7Icon from '@mui/icons-material/Brightness7Outlined';
 
 import Section from './Section.tsx'
 import { handleNavigation } from './Utils.tsx';
+import { IsDarkContext } from '../App.tsx';
 
 
 const pages = [
@@ -25,6 +28,7 @@ const pages = [
 ];
 
 function Header() {
+  const { isDark, setIsDark } = React.useContext(IsDarkContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -36,12 +40,13 @@ function Header() {
   };
 
   return (
-    <AppBar position="sticky" color='info' sx={{ boxShadow: 0 }}>
-      <Section>
+    <AppBar position="sticky" color='info' sx={{ boxShadow: 3 }} elevation={0} enableColorOnDark>
+      <Section disableGutters>
         <Toolbar disableGutters>
-          <Link noWrap variant='h4' href='/Home' color="inherit" underline="none">
+          <Typography noWrap variant='button' color="inherit" fontSize="1.5rem"
+            onClick={handleNavigation("/Home#")}>
             KIYO YANG
-          </Link>
+          </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
 
@@ -103,6 +108,14 @@ function Header() {
               </Button>
             ))}
           </Box>
+
+          <IconButton
+            size="small"
+            onClick={() => setIsDark(!isDark)}
+            color="inherit"
+          >
+            {isDark ? <Brightness4Icon /> : <Brightness7Icon />}
+          </IconButton>
         </Toolbar>
       </Section>
     </AppBar>

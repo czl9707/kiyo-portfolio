@@ -50,7 +50,6 @@ const FadeSlide = React.forwardRef<unknown, { children: React.ReactElement, dela
             appear
         >
             {(state, childProps) => {
-                console.log(state)
                 return React.cloneElement(children, {
                     ref: handleRef,
                     style: {

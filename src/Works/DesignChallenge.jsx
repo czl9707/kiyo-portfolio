@@ -1,7 +1,7 @@
 import React from "react";
-import WorksHeader from '../Components/Works/WorksHeader';
+import WorksHeader from '../Components/Works/WorksHeader.jsx';
 import { SECTION_PADDING } from "../Components/Section.tsx";
-import { SectionGrid, GridCell } from "../Components/SectionGrid";
+import { SectionGrid, GridCell } from "../Components/SectionGrid.jsx";
 
 
 const ImageFullPath = (p) => `/Works/DesignChallenge/${p}`;

@@ -3,8 +3,8 @@ import {
     NotFullWidthSection,
     SECTION_PADDING,
 } from '../Components/Section.tsx';
-import { SectionGrid, GridCell } from '../Components/SectionGrid';
-import { CardImageCell } from '../Components/Works/CardCell'
+import { SectionGrid, GridCell } from '../Components/SectionGrid.jsx';
+import { CardImageCell } from '../Components/Works/CardCell.jsx'
 
 function AboutMe() {
     return (

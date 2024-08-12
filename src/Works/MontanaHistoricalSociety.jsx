@@ -1,9 +1,9 @@
 import React from "react";
-import WorksHeader from '../Components/Works/WorksHeader';
-import Overview from "../Components/Works/Overview";
+import WorksHeader from '../Components/Works/WorksHeader.jsx';
+import Overview from "../Components/Works/Overview.jsx";
 import { FullWidthSection, NotFullWidthSection, GrowSectionCell, FixedSectionCell, SECTION_PADDING } from "../Components/Section.tsx";
-import { SectionGrid, GridCell } from "../Components/SectionGrid";
-import { CELL_PADDING, CardCell, CardImageCell } from "../Components/Works/CardCell";
+import { SectionGrid, GridCell } from "../Components/SectionGrid.jsx";
+import { CELL_PADDING, CardCell, CardImageCell } from "../Components/Works/CardCell.jsx";
 
 const ImageFullPath = (p) => `/Works/MontanaHistoricalSociety/${p}`;
 

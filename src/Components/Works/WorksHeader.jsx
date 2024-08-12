@@ -4,7 +4,7 @@ import {
     GrowSectionCell,
     FixedSectionCell,
     SECTION_PADDING,
-} from '../../Components/Section.tsx';
+} from '../Section.tsx';
 
 import "./Works.css"
 

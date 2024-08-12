@@ -2,11 +2,12 @@ import { useEffect, useMemo } from 'react';
 import { useLocation } from "react-router-dom";
 import Section, { Spacer } from '../Components/Section.tsx';
 
-import { Box, Stack, Link, Typography, Grid, styled } from '@mui/material';
+import { Box, Stack, Typography, Grid, styled } from '@mui/material';
 import { SquareChip } from '../Components/SquareChip.tsx';
 import FadeSlide from '../Components/FadeSlideEffect.tsx';
-import SliderButton from './SliderButton.tsx';
-import zIndex from '@mui/material/styles/zIndex';
+import SliderButton from './Components/SliderButton.tsx';
+import React from 'react';
+import { handleNavigation } from '../Components/Utils.tsx';
 
 const ImageFullPath = (p: string) => `/Home/${p}`;
 
@@ -144,32 +145,32 @@ function Welcome() {
 function Works() {
     return (
         <Section id="Works">
-            <Grid container columns={{ md: 4, lg: 6 }} columnSpacing={6} rowSpacing={12} alignItems="center">
-                {
-                    featuredProjects.map(
-                        (proj, i) => (
-                            <>
-                                {!!(i % 2) &&
-                                    <Grid item md={4} lg={4}>
-                                        {ProjectImage(proj)}
-                                    </Grid>
-                                }
-                                <Grid item md={4} lg={2}>
+            {
+                featuredProjects.map(
+                    (proj, i) => (
+                        <React.Fragment key={i}>
+                            <Grid container direction={(i % 2) ? "row" : "row-reverse"} columns={3}
+                                rowSpacing={12} alignItems="center">
+
+                                <Grid item md={3} lg={2}>
+                                    {ProjectImage({ ...proj, chipOnRight: !(i % 2) })}
+                                </Grid>
+
+                                <Grid item md={3} lg={1}>
                                     {ProjectInfo(proj)}
                                 </Grid>
-                                {!(i % 2) &&
-                                    <Grid item md={4} lg={4}>
-                                        {ProjectImage({ ...proj, chipOnRight: true })}
-                                    </Grid>
-                                }
-                            </>
-                        )
+
+                            </Grid>
+                            <Spacer size="lg" />
+                        </React.Fragment>
                     )
-                }
+                )
+            }
+            <Grid container columns={{ sm: 1, md: 2 }} rowSpacing={12} alignItems="top">
                 {
                     projects.map(
-                        (proj) => (
-                            <Grid item md={4} lg={3}>
+                        (proj, i) => (
+                            <Grid item xs={1} key={i}>
                                 <Stack spacing={3}>
                                     {ProjectImage(proj)}
                                     {ProjectInfo(proj)}
@@ -194,14 +195,16 @@ function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps
     const HoverScalingBox = useMemo(
         () => styled(Box)(({ theme }) => ({
             '&': {
+                boxShadow: "none",
                 'img': {
-                    display: "block", maxWidth: "100%", objectFit: "fill",
+                    display: "block", width: "100%", height: "100%", objectFit: "fill",
                     transitionDuration: `${theme.transitions.duration.complex}ms`,
                     transitionTimingFunction: theme.transitions.easing.easeIn,
                     transform: 'none',
                 },
             },
             '&:hover': {
+                boxShadow: theme.shadows[10],
                 'img': {
                     transform: 'scale(1.2)',
                 },
@@ -211,19 +214,17 @@ function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps
     )
 
     return (
-        <Link href={href}>
-            <FadeSlide>
-                <HoverScalingBox position='relative' overflow="hidden" >
-                    <img src={ImageFullPath(imgSrc)} alt={imgSrc} />
-                    <SquareChip label={chipText}
-                        sx={{
-                            zIndex: 2, position: "absolute",
-                            right: (chipOnRight ? "1rem" : undefined), left: (chipOnRight ? undefined : "1rem"), top: "1rem",
-                            backgroundColor: 'rgba(255, 255, 255, .7)', color: 'black',
-                        }} />
-                </HoverScalingBox>
-            </FadeSlide>
-        </Link>
+        <FadeSlide>
+            <HoverScalingBox position='relative' overflow="hidden" onClick={handleNavigation(href)}>
+                <img src={ImageFullPath(imgSrc)} alt={imgSrc} />
+                <SquareChip label={chipText}
+                    sx={{
+                        zIndex: 2, position: "absolute",
+                        right: (chipOnRight ? "1rem" : undefined), left: (chipOnRight ? undefined : "1rem"), top: "1rem",
+                        backgroundColor: 'rgba(255, 255, 255, .7)', color: 'black',
+                    }} />
+            </HoverScalingBox>
+        </FadeSlide>
     )
 }
 

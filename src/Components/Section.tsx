@@ -2,7 +2,7 @@ import * as React from "react";
 import { useInView } from 'react-intersection-observer';
 
 import Container from '@mui/material/Container';
-import { Box } from "@mui/material";
+import { Box, PropTypes, styled, useTheme } from "@mui/material";
 
 const SECTION_PADDING = {
     DEFAULT: "3em",
@@ -147,13 +147,27 @@ interface SectionProperties {
     children?: React.ReactNode,
     ref?: ((instance: HTMLDivElement | null) => void) | null | undefined,
     id?: string,
+    disableGutters?: boolean,
+    color?: Exclude<PropTypes.Color | 'error' | 'info' | 'success' | 'warning', 'inherit' | 'default'>,
 };
 
-function Section({ children, ref, id }: SectionProperties) {
+function Section({ children, ref, id, color, disableGutters = false }: SectionProperties) {
+    const ColoredBox = React.useMemo(() => styled(Box)(({ theme }) => ({
+        width: "100%", padding: '4rem',
+        paddingTop: disableGutters ? 0 : undefined,
+        paddingBottom: disableGutters ? 0 : undefined,
+        color: color ? theme.palette[color].contrastText : undefined,
+        backgroundColor: color ? theme.palette[color].main : undefined
+    })),
+        [color, disableGutters]
+    )
+
     return (
-        <Container maxWidth="lg" disableGutters sx={{ px: 6 }} ref={ref} id={id}>
-            {children}
-        </Container>
+        <ColoredBox component="section">
+            <Container maxWidth="md" disableGutters ref={ref} id={id}>
+                {children}
+            </Container>
+        </ColoredBox>
     );
 }
 
