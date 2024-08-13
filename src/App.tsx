@@ -15,11 +15,11 @@ import AboutMe from './Home/AboutMe.jsx';
 
 
 const IsDarkContext = React.createContext<{ isDark: boolean, setIsDark: (isDark: boolean) => void }>(
-  { isDark: true, setIsDark: () => { } }
+  { isDark: false, setIsDark: () => { } }
 )
 
 function Layout() {
-  const [isDark, setIsDark] = React.useState<boolean>(true)
+  const [isDark, setIsDark] = React.useState<boolean>(false)
   return (
     <ThemeProvider theme={isDark ? APPDARKTHEME : APPLIGHTTHEME} >
       <IsDarkContext.Provider value={{ isDark: isDark, setIsDark: setIsDark }}>
