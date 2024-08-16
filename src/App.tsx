@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Routes, Route, BrowserRouter, Navigate, Outlet } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate, Outlet, useLocation } from "react-router-dom";
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { CssBaseline } from '@mui/material';
 
@@ -9,9 +9,9 @@ import { APPLIGHTTHEME, APPDARKTHEME } from './Theme.tsx';
 import { Home } from './Home/Home.js';
 import { Header } from './Components/Header.tsx';
 import { Footer } from './Components/Footer.tsx';
-import AnisePatient from './Works/AnisePatient.tsx'
-import EdgemereFarm from './Works/EdgemereFarm.jsx';
-import AboutMe from './Home/AboutMe.jsx';
+import AnisePatient from './Works/AnisePatient.tsx';
+import EdgemereFarm from './Works/EdgemereFarm.tsx';
+import AboutMe from './Home/AboutMe.tsx';
 
 
 const IsDarkContext = React.createContext<{ isDark: boolean, setIsDark: (isDark: boolean) => void }>(
@@ -19,7 +19,19 @@ const IsDarkContext = React.createContext<{ isDark: boolean, setIsDark: (isDark:
 )
 
 function Layout() {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1))
+      if (element) {
+        window.scrollTo({ top: element.getBoundingClientRect().top, behavior: 'smooth' });
+      }
+    }
+  });
+
   const [isDark, setIsDark] = React.useState<boolean>(false)
+
   return (
     <ThemeProvider theme={isDark ? APPDARKTHEME : APPLIGHTTHEME} >
       <IsDarkContext.Provider value={{ isDark: isDark, setIsDark: setIsDark }}>

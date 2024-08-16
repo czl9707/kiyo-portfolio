@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Paper, Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
+import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -7,6 +7,7 @@ import Section, { Spacer } from "../Components/Section.tsx";
 import { PrimaryTypography, WarningTypography } from "./Components/Typography.tsx";
 import FadeSlide from "../Components/FadeSlideEffect.tsx";
 import ImageWithAnnotation from "./Components/ImageWithAnnotation.tsx";
+import ThemedPaper from "../Components/ThemedPaper.tsx";
 
 const ImageFullPath = (p: string) => `/Works/AnisePatient/${p}`;
 
@@ -33,12 +34,6 @@ function AnisePatient() {
                     dark: "#FEF9EC",
                     contrastText: common.black,
                 },
-                warning: {
-                    main: "#5F8D4E",
-                    light: "#5F8D4E",
-                    dark: "#5F8D4E",
-                    contrastText: common.white,
-                }
             }
         }
     ), [globalTheme]);
@@ -111,11 +106,9 @@ function Overview() {
 
                     <Grid item xs={1}>
                         <PrimaryTypography variant="h5">Role & Contribution</PrimaryTypography>
-                        <Typography variant="body1">
+                        <Typography variant="body1" component="span">
                             As a UX Designer, I: <br />
-                        </Typography>
-                        <ul>
-                            <Typography variant="body1">
+                            <ul>
                                 <li>Conducted user research and data synthesis</li>
                                 <li>Facilitated design sprint with cross-functional team</li>
                                 <li>Ideated based on findings and insights</li>
@@ -123,8 +116,8 @@ function Overview() {
                                 <li>Set up design system</li>
                                 <li>Evaluated accessibility and improved UI</li>
                                 <li>Proposed the design-to-dev hand-off process</li>
-                            </Typography>
-                        </ul>
+                            </ul>
+                        </Typography>
                     </Grid>
                 </Grid>
             </FadeSlide>
@@ -174,13 +167,13 @@ function BussinessGoal() {
                     </Typography>
                     <Spacer />
                     <PrimaryTypography variant="h5">Constrains</PrimaryTypography>
-                    <ul>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ul>
                             <li>Tight timeline</li>
                             <li>Limited developer capacity</li>
                             <li>Limited service resources</li>
-                        </Typography>
-                    </ul>
+                        </ul>
+                    </Typography>
                 </Box>
             </FadeSlide>
         </Section>
@@ -296,11 +289,11 @@ const impactRound2Content = [
 
 function Impact() {
     const ContentCard = ({ title, content }: { title: string, content: string }) => (
-        <Paper variant="outlined"
+        <ThemedPaper variant="outlined" color="info"
             sx={{ p: "2rem", height: "100%" }}>
             <Typography variant="h5">{title}</Typography>
             <Typography variant="body1">{content}</Typography>
-        </Paper>
+        </ThemedPaper>
     );
 
     return (
@@ -342,8 +335,8 @@ function Impact() {
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" spacing={3}>
                     {
                         impactRound2Content.map((item, i) => (
-                            <Grid item xs={1}>
-                                <ContentCard {...item} key={i} />
+                            <Grid item xs={1} key={i}>
+                                <ContentCard {...item} />
                             </Grid>
                         ))
                     }
@@ -491,16 +484,16 @@ function Design2() {
                         Problems: <br />
                         The current Beta's insufficient clarity and poor transparency hinder users' confidence and decision-making in moving to the next steps.
                     </Typography>
-                    <ol>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ol>
                             <li><b>Insufficient info in therapist profiles:</b> Participants needed more details about therapist profiles to ensure a good fit.</li>
                             <li><b>Lack of clear guidance on the therapist-selection page:</b> 5/7 participants needed prompts to complete the flow.</li>
                             <li><b>Single-trial hinders user confidence:</b> Concerns about what to do if the trial therapist isn't a good fit, as 4/7 participants were unsure about alternatives.</li>
                             <li><b>Detailed service info missed before payment:</b> 3/7 participants wanted more service details before payment.</li>
                             <li><b>Lack of explanation about the care team collaboration:</b> leading to dissatisfaction when users realized there were two providers (therapist and coach) only after subscription.</li>
-                        </Typography>
-                    </ol>
-                    <br />
+                        </ol>
+                        <br />
+                    </Typography>
                     <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Design2Problems.png")}
                         annotation="From view match to subscribe (Before Design)" />
                 </Box>
@@ -521,16 +514,15 @@ function Design2() {
 
             <TextImagePair
                 content={<>
-                    {/* the isolated quote break vscode... doing this in a weird way */}
-                    <Typography variant="body1" children="To build users' confidence in our services, I implemented the following design changes:" />
-                    <br />
-                    <ul>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        To build users' confidence in our services, I implemented the following design changes:
+                        <br />
+                        <ul>
                             <li><b>Display matched therapist information in the invitation email:</b> Provide details about matched therapists in the initial email to entice users to log into the portal, rather than requiring them to log in first.</li>
                             <br />
                             <li><b>Informative therapist profiles:</b> Offer sufficient and relevant information in therapist profiles to help users understand and select their therapist.</li>
-                        </Typography>
-                    </ul>
+                        </ul>
+                    </Typography>
                 </>}
                 imgSrc={ImageFullPath("Design2Solution1.gif")} annotation="Receive email - Review matchs therapists"
             />
@@ -539,13 +531,13 @@ function Design2() {
 
             <TextImagePair
                 content={
-                    <ul>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ul>
                             <li><b>Flexible Therapist Selection:</b> Although limited by budget that we can only offer one free trial, users can view other therapist profiles and select a new therapist for their subscription even after the trial. Also, we offer an option to skip the trial and directly start the subscription for more flexibility.</li>
                             <br />
                             <li><b>Clear Guidance on each step:</b> Use clear prompts to guide users through each step.</li>
-                        </Typography>
-                    </ul>
+                        </ul>
+                    </Typography>
                 }
                 imgSrc={ImageFullPath("Design2Solution2.gif")} annotation="Trial - Select therapist - Start care plan"
             />
@@ -553,13 +545,13 @@ function Design2() {
             <Spacer />
 
             <TextImagePair
-                content={<>
-                    <ul>
-                        <Typography variant="body1">
+                content={
+                    <Typography variant="body1" component="span">
+                        <ul>
                             <li><b>Access to "Our Care Services" Page:</b> Throughout the trial-to-subscription process, provide access to a detailed "View Care Services" page so users can fully understand the subscription care plans and care model.</li>
-                        </Typography>
-                    </ul>
-                </>}
+                        </ul>
+                    </Typography>
+                }
                 imgSrc={ImageFullPath("Design2Solution3.gif")} annotation="View details about care services"
             />
         </Section>
@@ -589,8 +581,8 @@ function Design3() {
 
             <TextImagePair
                 content={
-                    <ol>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ol>
                             <li>
                                 <b>User flow gap:</b> Users must schedule sessions on the homepage and attend them on the appointment page. Provider and session info is cluttered, causing confusion for 5/7 participants.
                             </li>
@@ -602,8 +594,8 @@ function Design3() {
                             <li>
                                 <b>Difficulty in tracking session:</b> Sessions are not intuitively categorized by status or type, making it difficult to track progress and adhere to the care plan.
                             </li>
-                        </Typography>
-                    </ol>
+                        </ol>
+                    </Typography>
                 }
                 imgSrc={ImageFullPath("Design3Solution.gif")} annotation="Trial - Select therapist - Start care plan"
             />
@@ -611,27 +603,21 @@ function Design3() {
             <FadeSlide>
                 <Box>
                     <Spacer />
-                    <ol>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ol>
                             <b>Optimized Schedule-to-Attend Flow:</b>
-                        </Typography>
-                        <ul>
-                            <Typography variant="body1">
+                            <ul>
                                 <li>Integrated all actions related to sessions into the Homepage.</li>
                                 <li>Removed less relevant and infrequently used info from the homepage to reduce clutter.</li>
-                            </Typography>
-                        </ul>
-                        <Typography variant="body1">
+                            </ul>
                             <b>Enhanced Session Management:</b>
-                        </Typography>
-                        <ul>
-                            <Typography variant="body1">
+                            <ul>
                                 <li>Visualized care plan progress for scannable track.</li>
                                 <li>Users can now schedule upcoming sessions without manually checking the care plan.</li>
                                 <li>Provided access to the next month plan, offering more flexibility and transiting to next month smoothly.</li>
-                            </Typography>
-                        </ul>
-                    </ol>
+                            </ul>
+                        </ol>
+                    </Typography>
                     <br />
                 </Box>
             </FadeSlide>
@@ -678,13 +664,12 @@ function Round1Impact() {
 
 
 function Round2() {
-    const StyledPaper = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.secondary.main,
+    const StyledPaper = styled(ThemedPaper)({
         padding: "1.5rem", height: "100%",
         "ul": { margin: "0" }
-    }));
+    });
     const SecondaryPaper = ({ children }: { children: React.ReactNode }) => (
-        <StyledPaper children={children} elevation={0} variant="elevation" />
+        <StyledPaper children={children} color="secondary" elevation={0} variant="elevation" />
     )
 
     return (
@@ -739,49 +724,37 @@ function Round2() {
                         <SecondaryPaper>
                             <Box component="img" src={ImageFullPath("Round2InsightFigure1.png")} width="6rem" />
                             <Typography variant="h4">Quick Deision-maker</Typography>
-                            <Typography variant="body1">
+                            <Typography variant="body1" component="span">
                                 Needs:
-                            </Typography>
-                            <ul>
-                                <Typography variant="body1">
+                                <ul>
                                     <li>Finding a therapist who matches their preferred demographics and traits.</li>
                                     <li>Concise information in one place with easy readability.</li>
-                                </Typography>
-                            </ul>
-                            <Typography variant="body1">
+                                </ul>
                                 Behaviors:
-                            </Typography>
-                            <ul>
-                                <Typography variant="body1">
+                                <ul>
                                     <li>Avoids reading lengthy texts and relies on initial impressions.</li>
                                     <li>Makes quick decisions and evaluates outcomes later.</li>
-                                </Typography>
-                            </ul>
+                                </ul>
+                            </Typography>
                         </SecondaryPaper>
                     </Grid>
                     <Grid item xs={1}>
                         <SecondaryPaper>
                             <Box component="img" src={ImageFullPath("Round2InsightFigure2.png")} width="6rem" />
                             <Typography variant="h4">Detailed Deision-maker</Typography>
-                            <Typography variant="body1">
+                            <Typography variant="body1" component="span">
                                 Needs:
-                            </Typography>
-                            <ul>
-                                <Typography variant="body1">
+                                <ul>
                                     <li>Finding a therapist who shares the same values and understands them.</li>
                                     <li>Being well-informed before making decisions to mitigate potential risks.</li>
                                     <li>Transparency and in-depth information about service details.</li>
-                                </Typography>
-                            </ul>
-                            <Typography variant="body1">
+                                </ul>
                                 Behaviors:
-                            </Typography>
-                            <ul>
-                                <Typography variant="body1">
+                                <ul>
                                     <li>Takes time to thoroughly research and gather as much information as possible.</li>
                                     <li>Does not rush the decision-making process.</li>
-                                </Typography>
-                            </ul>
+                                </ul>
+                            </Typography>
                         </SecondaryPaper>
                     </Grid>
                 </Grid>
@@ -810,8 +783,8 @@ function DesignIteration1() {
                             Problems: <br />
                             Cluttered information and separate scheduling pages confuse users and hinder care plan adherence
                         </Typography>
-                        <ol>
-                            <Typography variant="body1">
+                        <Typography variant="body1" component="span">
+                            <ol>
                                 <li>
                                     <b>Low Interest in Free Resources:</b> Testers showed weak interest in the free resources provided on the current landing page since it's not high relevant.
                                 </li>
@@ -823,8 +796,8 @@ function DesignIteration1() {
                                 <li>
                                     <b>Insufficient In-depth Introducation:</b> The care services introduction currently lacks enough detailed information for users who need in-depth knowledge to make decisions.
                                 </li>
-                            </Typography>
-                        </ol>
+                            </ol>
+                        </Typography>
                     </>
                 }
                 imgSrc={ImageFullPath("DesignIteration1Problem1.png")} annotation="Post-Register Landing Page in Round 1 Design"
@@ -841,8 +814,8 @@ function DesignIteration1() {
             <FadeSlide>
                 <Box>
                     <Typography variant="h4">Solution</Typography>
-                    <ol>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ol>
                             <li>
                                 <b>Early User Education:</b> Provide in-depth user education immediately after the client application, giving users the necessary information upfront.
                             </li>
@@ -850,8 +823,8 @@ function DesignIteration1() {
                             <li>
                                 <b>Accommodate Different Audience Needs:</b> Keep information on the landing page concise and provide access to deeper details on sub-pages. Ensure these information pages are well-clarified and scannable to enhance readability.
                             </li>
-                        </Typography>
-                    </ol>
+                        </ol>
+                    </Typography>
                 </Box>
             </FadeSlide>
 
@@ -906,8 +879,8 @@ function DesignIteration2() {
             <FadeSlide>
                 <Box>
                     <Typography variant="h4">Problems</Typography>
-                    <ol>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ol>
                             <li>
                                 <b>Users' Frustration with Limited Trial Booking Options:</b> Users were upset to find that 'book a trial' buttons were unavailable for other therapists after scheduling their first trial session, leaving them unsure about what to do next if the trial didn't work well.
                             </li>
@@ -915,8 +888,8 @@ function DesignIteration2() {
                             <li>
                                 <b>Preference for Video Trial Sessions:</b> 9/10 test users preferred video trials over phone calls, as face-to-face communication helps build trust and assess compatibility. The lack of video options hinders the user experience and decision-making process.
                             </li>
-                        </Typography>
-                    </ol>
+                        </ol>
+                    </Typography>
                 </Box>
             </FadeSlide>
 
@@ -931,8 +904,8 @@ function DesignIteration2() {
             <FadeSlide>
                 <Box>
                     <Typography variant="h4">Problems</Typography>
-                    <ol>
-                        <Typography variant="body1">
+                    <Typography variant="body1" component="span">
+                        <ol>
                             <li>
                                 <b>Focusing on the Chosen Therapist for a Clearer Experience:</b> Since we are currently unable to offer users more than one free trial consultation, we simplified the user path by removing other providers once a trial is booked, helping users focus on their chosen provider and enhancing their personalized experience.
                             </li>
@@ -944,8 +917,8 @@ function DesignIteration2() {
                             <li>
                                 <b>Providing a back-up plan if the trial doesn't work well:</b> Provided instructions for requesting additional trial consultations with other providers if the initial provider isn't suitable. While limiting users to one free trial session through the portal may cause some friction, this approach balances our budget constraints while offering clarity and reducing confusion for clients
                             </li>
-                        </Typography>
-                    </ol>
+                        </ol>
+                    </Typography>
                 </Box>
             </FadeSlide>
 
@@ -968,16 +941,14 @@ function Round2Result() {
                         <Typography variant="h3">Round 2 Result</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                        <Typography variant="body1">
+                        <Typography variant="body1" component="span">
                             The iterated design was launched after I left AnHealth. To measure its impact, I personally conducted user testing with 5 participants:
-                        </Typography>
-                        <ul>
-                            <Typography variant="body1">
+                            <ul>
                                 <li>5/5 participants reported high satisfaction with their understanding of service details and upcoming steps before subscribing. </li>
                                 <li>4/5 participants completed each step of the process without assistance. </li>
                                 <li>5/5 participants reported knowing what to do if the trial didn't work well. </li>
-                            </Typography>
-                        </ul>
+                            </ul>
+                        </Typography>
                     </Grid>
                 </Grid>
             </FadeSlide>
@@ -989,7 +960,7 @@ function Round2Result() {
 function FinalThoughts() {
     return (
         <Section color="primary">
-            <Typography variant="h3" textAlign="center">FinalThoughts</Typography>
+            <Typography variant="h3" textAlign="center">Final Thoughts</Typography>
         </Section>
     )
 }

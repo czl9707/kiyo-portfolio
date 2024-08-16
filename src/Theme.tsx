@@ -10,7 +10,7 @@ const APPTYPOGRAPHY: TypographyVariantsOptions = {
     fontWeightBold: 900,
     body1: { fontWeight: 400, fontSize: "1.125rem", lineHeight: 1.4, },
     body2: { fontWeight: 400, fontSize: "1rem", lineHeight: 1.4, },
-    button: { fontWeight: 700, fontSize: "1rem", lineHeight: 1.4, },
+    button: { fontWeight: 700, fontSize: "1rem", lineHeight: 1.4, textTransform: "capitalize" },
     h1: { fontWeight: 700, fontSize: '4rem', lineHeight: 1.2, marginBlockEnd: ".5em", },
     h2: { fontWeight: 700, fontSize: '3.75rem', lineHeight: 1.2, marginBlockEnd: ".5em", textTransform: "uppercase" },
     h3: { fontWeight: 700, fontSize: '2.25rem', lineHeight: 1.4, marginBlockEnd: ".5em", },
@@ -79,12 +79,6 @@ const APPSHADOWS = (dark: boolean): Shadows => {
 const APPLIGHTTHEME = createTheme({
     palette: {
         mode: "light",
-        primary: {
-            main: "#FBE9BE",
-            light: "#FCF3DE",
-            dark: "#F5B827",
-            contrastText: common.black,
-        },
         info: {
             main: common.white,
             light: common.white,
@@ -104,22 +98,12 @@ const APPDARKTHEME = createTheme(
     {
         palette: {
             mode: "dark",
-            primary: {
-                main: "#F5B827",
-                light: "#F5B827",
-                dark: "#F5B827",
-                contrastText: common.black,
-            },
             info: {
                 main: common.black,
                 light: grey[900],
                 dark: common.black,
                 contrastText: common.white,
             },
-            background: {
-                default: common.black,
-                paper: common.black,
-            }
         },
         breakpoints: APPBREAKPOINTS,
         typography: APPTYPOGRAPHY,

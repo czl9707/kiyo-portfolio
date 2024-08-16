@@ -24,7 +24,7 @@ const SliderButtonWrap = styled(ButtonBase)(({ theme }) => ({
 
 
 interface SliderButtonProps {
-    href: string,
+    href?: string,
     text: string,
     externalLink?: boolean
 }

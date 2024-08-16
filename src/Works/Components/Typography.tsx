@@ -1,20 +1,46 @@
-import { Typography, styled } from "@mui/material";
+import { Typography, TypographyProps } from "@mui/material";
+import * as React from 'react';
 
-const PrimaryTypography = styled(Typography)(({ theme }) => ({
-    color: theme.palette.primary.main,
-}));
+const PrimaryTypography = React.forwardRef<HTMLSpanElement, TypographyProps>(
+    function PrimaryTypography(props, ref) {
+        return (
+            <Typography {...props} color={
+                (theme) => ({ color: theme.palette.primary.main, })
+            } ref={ref} />
+        );
+    }
+)
 
-const SecondaryTypography = styled(Typography)(({ theme }) => ({
-    color: theme.palette.secondary.main,
-}));
 
-const SuccessTypography = styled(Typography)(({ theme }) => ({
-    color: theme.palette.success.main,
-}));
+const SecondaryTypography = React.forwardRef<HTMLSpanElement, TypographyProps>(
+    function SecondaryTypography(props, ref) {
+        return (
+            <Typography {...props} color={
+                (theme) => ({ color: theme.palette.secondary.main, })
+            } ref={ref} />
+        );
+    }
+)
 
-const WarningTypography = styled(Typography)(({ theme }) => ({
-    color: theme.palette.warning.main,
-}));
+const SuccessTypography = React.forwardRef<HTMLSpanElement, TypographyProps>(
+    function SuccessTypography(props, ref) {
+        return (
+            <Typography {...props} color={
+                (theme) => ({ color: theme.palette.success.main, })
+            } ref={ref} />
+        );
+    }
+)
+
+const WarningTypography = React.forwardRef<HTMLSpanElement, TypographyProps>(
+    function WarningTypography(props, ref) {
+        return (
+            <Typography {...props} color={
+                (theme) => ({ color: theme.palette.warning.main, })
+            } ref={ref} />
+        );
+    }
+)
 
 export {
     PrimaryTypography,

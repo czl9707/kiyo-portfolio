@@ -1,35 +1,36 @@
-import { useEffect, useMemo } from 'react';
-import { useLocation } from "react-router-dom";
+import { useMemo } from 'react';
 import Section, { Spacer } from '../Components/Section.tsx';
 
-import { Box, Stack, Typography, Grid, styled } from '@mui/material';
+import { Box, Stack, Typography, Grid, styled, useTheme, createTheme, ThemeProvider } from '@mui/material';
 import { SquareChip } from '../Components/SquareChip.tsx';
 import FadeSlide from '../Components/FadeSlideEffect.tsx';
 import SliderButton from './Components/SliderButton.tsx';
 import React from 'react';
 import { handleNavigation } from '../Components/Utils.tsx';
+import { common } from '@mui/material/colors';
 
 const ImageFullPath = (p: string) => `/Home/${p}`;
 
 function Home() {
-    const location = useLocation();
-
-    useEffect(() => {
-        if (location.hash) {
-            // setTimeout to avoid ref is not there when loading
-            setTimeout(() => {
-                const element = document.getElementById(location.hash.substring(1))
-                const y = element!.getBoundingClientRect().top - 100;
-                window.scrollTo({ behavior: 'smooth', top: y });
-            }, 1);
+    const globalTheme = useTheme();
+    const localTheme = React.useMemo(() => createTheme(globalTheme,
+        {
+            palette: {
+                primary: {
+                    main: globalTheme.palette.mode === "light" ? "#FBE9BE" : "#F5B827",
+                    light: globalTheme.palette.mode === "light" ? "#FBE9BE" : "#F5B827",
+                    dark: globalTheme.palette.mode === "light" ? "#FBE9BE" : "#F5B827",
+                    contrastText: common.black,
+                },
+            }
         }
-    });
+    ), [globalTheme]);
 
     return (
-        <>
+        <ThemeProvider theme={localTheme}>
             <Welcome />
             <Works />
-        </>
+        </ThemeProvider>
     );
 }
 
@@ -56,7 +57,7 @@ const featuredProjects = [
 
 const projects = [
     {
-        href: "/Works/Knowunity",
+        // href: "/Works/Knowunity",
         imgSrc: "CoverKnowunity.png",
         tags: ["User Research", "K-12 Education",],
         title: "Learning Community Growth",
@@ -65,7 +66,7 @@ const projects = [
         chipText: "Shipped in 2023",
     },
     {
-        href: "/Works/MontanaHistoricalSociety",
+        // href: "/Works/MontanaHistoricalSociety",
         imgSrc: "CoverMontanaHistoricalSociety.png",
         tags: ["Web Analytics", "SEO", "Dashboard"],
         title: "Digital Strategy Optimization",
@@ -83,7 +84,7 @@ const projects = [
         chipText: "Shipped in 2023",
     },
     {
-        href: "/Works/DesignChallenge",
+        // href: "/Works/DesignChallenge",
         imgSrc: "Cover100DesignChallenge.png",
         tags: ["UI Design Practice"],
         title: "100-day UI Design Practice",
@@ -185,7 +186,7 @@ function Works() {
 }
 
 interface ProjectImageProps {
-    href: string,
+    href?: string,
     imgSrc: string,
     chipText: string,
     chipOnRight?: boolean
@@ -196,18 +197,26 @@ function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps
         () => styled(Box)(({ theme }) => ({
             '&': {
                 boxShadow: "none",
+                position: 'relative', overflow: "hidden",
+                transitionDuration: `${theme.transitions.duration.complex}ms`,
+                transitionTimingFunction: theme.transitions.easing.easeIn,
                 'img': {
+                    transitionDuration: "inherit", transitionTimingFunction: "inherit",
                     display: "block", width: "100%", height: "100%", objectFit: "fill",
-                    transitionDuration: `${theme.transitions.duration.complex}ms`,
-                    transitionTimingFunction: theme.transitions.easing.easeIn,
                     transform: 'none',
                 },
+                ".ProjectImageMask": {
+                    transitionDuration: "inherit", transitionTimingFunction: "inherit",
+                    position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center",
+                    top: 0, bottom: 0, left: 0, right: 0,
+                    backgroundColor: "rgba(0,0,0,.5)", color: "white",
+                    zIndex: 1, opacity: 0,
+                }
             },
             '&:hover': {
                 boxShadow: theme.shadows[10],
-                'img': {
-                    transform: 'scale(1.2)',
-                },
+                'img': { transform: 'scale(1.2)' },
+                ".ProjectImageMask": { opacity: 0.35 }
             }
         })),
         []
@@ -215,7 +224,7 @@ function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps
 
     return (
         <FadeSlide>
-            <HoverScalingBox position='relative' overflow="hidden" onClick={handleNavigation(href)}>
+            <HoverScalingBox onClick={handleNavigation(href)}>
                 <img src={ImageFullPath(imgSrc)} alt={imgSrc} />
                 <SquareChip label={chipText}
                     sx={{
@@ -223,13 +232,20 @@ function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps
                         right: (chipOnRight ? "1rem" : undefined), left: (chipOnRight ? undefined : "1rem"), top: "1rem",
                         backgroundColor: 'rgba(255, 255, 255, .7)', color: 'black',
                     }} />
+                {(!href) &&
+                    <Box className="ProjectImageMask">
+                        <Typography variant='h2' textAlign="center">
+                            Under Construction
+                        </Typography>
+                    </Box>
+                }
             </HoverScalingBox>
         </FadeSlide>
     )
 }
 
 interface ProjectInfoProps {
-    href: string,
+    href?: string,
     tags: Array<string>,
     title: string,
     introText: string,
