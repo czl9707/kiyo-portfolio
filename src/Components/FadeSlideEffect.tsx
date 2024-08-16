@@ -72,7 +72,7 @@ function getReactNodeRef(element: React.ReactNode): React.Ref<any> | null {
 
     return Object.prototype.propertyIsEnumerable.call(element.props, 'ref')
         ? element.props.ref
-        : element.ref;
+        : (element as unknown as { ref: null }).ref;
 }
 
 export default FadeSlide;

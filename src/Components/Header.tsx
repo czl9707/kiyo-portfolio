@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem, Link } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Brightness4Icon from '@mui/icons-material/Brightness4Outlined';
 import Brightness7Icon from '@mui/icons-material/Brightness7Outlined';
@@ -83,7 +83,7 @@ function Header() {
                 <MenuItem
                   onClick={() => {
                     handleCloseNavMenu();
-                    handleNavigation(item.uri, item.external)();
+                    handleNavigation(item.uri, item.external)!();
                   }}
                   key={item.name}
                   dense={true}
