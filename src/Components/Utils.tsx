@@ -8,8 +8,7 @@ function handleNavigation(uri?: string, external: boolean = false): (() => void)
     const navigate = useNavigate();
 
     return () => {
-        navigate(uri, {});
-        window.scrollTo(0, 0)
+        navigate(uri, { preventScrollReset: true });
     }
 }
 

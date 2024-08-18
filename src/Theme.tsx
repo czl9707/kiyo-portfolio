@@ -1,5 +1,21 @@
-import { createTheme, TypographyVariantsOptions, TransitionsOptions, Shadows, BreakpointsOptions } from '@mui/material/styles';
+import { createTheme, TypographyVariantsOptions, TransitionsOptions, Shadows, BreakpointsOptions, ThemeProvider } from '@mui/material/styles';
 import { grey, common } from '@mui/material/colors'
+import * as React from 'react';
+
+const IsDarkContext = React.createContext<{ isDark: boolean, setIsDark: (isDark: boolean) => void }>(
+    { isDark: false, setIsDark: () => { } }
+)
+
+function IsDarkContextProvider({ children }: { children: React.ReactNode }) {
+    const [isDark, setIsDark] = React.useState<boolean>(false);
+    return (
+        <IsDarkContext.Provider value={{ isDark: isDark, setIsDark: setIsDark }}>
+            <ThemeProvider theme={isDark ? APPDARKTHEME : APPLIGHTTHEME} >
+                {children}
+            </ThemeProvider>
+        </IsDarkContext.Provider>
+    )
+}
 
 const APPTYPOGRAPHY: TypographyVariantsOptions = {
     fontFamily: "Lato",
@@ -104,6 +120,11 @@ const APPDARKTHEME = createTheme(
                 dark: common.black,
                 contrastText: common.white,
             },
+            background:
+            {
+                paper: common.black,
+                default: common.black
+            }
         },
         breakpoints: APPBREAKPOINTS,
         typography: APPTYPOGRAPHY,
@@ -113,5 +134,5 @@ const APPDARKTHEME = createTheme(
         shadows: APPSHADOWS(true),
     });
 
-// eslint-disable-next-line react-refresh/only-export-components
-export { APPLIGHTTHEME, APPDARKTHEME }
+export default IsDarkContextProvider;
+export { IsDarkContext };

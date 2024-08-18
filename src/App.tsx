@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Routes, Route, BrowserRouter, Navigate, Outlet, useLocation } from "react-router-dom";
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import { CssBaseline } from '@mui/material';
 
 import './App.css';
 
-import { APPLIGHTTHEME, APPDARKTHEME } from './Theme.tsx';
+import IsDarkContextProvider from './Theme.tsx';
+import CatagoriesContextProvider from './Components/Catagory.tsx'
 import { Home } from './Home/Home.js';
 import { Header } from './Components/Header.tsx';
 import { Footer } from './Components/Footer.tsx';
@@ -13,34 +13,31 @@ import AnisePatient from './Works/AnisePatient.tsx';
 import EdgemereFarm from './Works/EdgemereFarm.tsx';
 import AboutMe from './Home/AboutMe.tsx';
 
-
-const IsDarkContext = React.createContext<{ isDark: boolean, setIsDark: (isDark: boolean) => void }>(
-  { isDark: false, setIsDark: () => { } }
-)
-
 function Layout() {
-  const location = useLocation();
+  const { pathname, hash } = useLocation();
 
   React.useEffect(() => {
-    if (location.hash) {
-      const element = document.getElementById(location.hash.substring(1))
+    if (hash) {
+      const element = document.getElementById(hash.substring(1))
       if (element) {
-        window.scrollTo({ top: element.getBoundingClientRect().top, behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   });
 
-  const [isDark, setIsDark] = React.useState<boolean>(false)
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
-    <ThemeProvider theme={isDark ? APPDARKTHEME : APPLIGHTTHEME} >
-      <IsDarkContext.Provider value={{ isDark: isDark, setIsDark: setIsDark }}>
-        <CssBaseline />
+    <IsDarkContextProvider>
+      <CssBaseline />
+      <CatagoriesContextProvider>
         <Header />
         <Outlet />
         <Footer />
-      </IsDarkContext.Provider>
-    </ThemeProvider >
+      </CatagoriesContextProvider>
+    </IsDarkContextProvider>
   );
 }
 
@@ -68,5 +65,4 @@ function App() {
   );
 }
 
-export { IsDarkContext }
 export default App;

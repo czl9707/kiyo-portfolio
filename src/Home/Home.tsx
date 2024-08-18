@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import Section, { Spacer } from '../Components/Section.tsx';
 
 import { Box, Stack, Typography, Grid, styled, useTheme, createTheme, ThemeProvider } from '@mui/material';
@@ -94,8 +93,8 @@ const projects = [
     },
 ]
 
+const totalHeight = '16rem'
 function Welcome() {
-    const totalHeight = '16rem'
     return (
         <>
             <Spacer size="xl" />
@@ -141,6 +140,7 @@ function Welcome() {
         </>
     )
 }
+
 
 
 function Works() {
@@ -193,35 +193,6 @@ interface ProjectImageProps {
 }
 
 function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps) {
-    const HoverScalingBox = useMemo(
-        () => styled(Box)(({ theme }) => ({
-            '&': {
-                boxShadow: "none",
-                position: 'relative', overflow: "hidden",
-                transitionDuration: `${theme.transitions.duration.complex}ms`,
-                transitionTimingFunction: theme.transitions.easing.easeIn,
-                'img': {
-                    transitionDuration: "inherit", transitionTimingFunction: "inherit",
-                    display: "block", width: "100%", height: "100%", objectFit: "fill",
-                    transform: 'none',
-                },
-                ".ProjectImageMask": {
-                    transitionDuration: "inherit", transitionTimingFunction: "inherit",
-                    position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center",
-                    top: 0, bottom: 0, left: 0, right: 0,
-                    backgroundColor: "rgba(0,0,0,.5)", color: "white",
-                    zIndex: 1, opacity: 0,
-                }
-            },
-            '&:hover': {
-                boxShadow: theme.shadows[10],
-                'img': { transform: 'scale(1.2)' },
-                ".ProjectImageMask": { opacity: 0.35 }
-            }
-        })),
-        []
-    )
-
     return (
         <FadeSlide>
             <HoverScalingBox onClick={handleNavigation(href)}>
@@ -277,5 +248,31 @@ function ProjectInfo({ href, tags, title, introText, buttonText }: ProjectInfoPr
         </Stack>
     )
 }
+
+const HoverScalingBox = styled(Box)(({ theme }) => ({
+    '&': {
+        boxShadow: "none",
+        position: 'relative', overflow: "hidden",
+        "*": {
+            transitionDuration: `${theme.transitions.duration.complex}ms`,
+            transitionTimingFunction: theme.transitions.easing.easeIn,
+        },
+        'img': {
+            display: "block", width: "100%", height: "100%", objectFit: "fill",
+            transform: 'none',
+        },
+        ".ProjectImageMask": {
+            position: "absolute", display: "flex", flexDirection: "column", justifyContent: "center",
+            top: 0, bottom: 0, left: 0, right: 0,
+            backgroundColor: "rgba(0,0,0,.5)", color: "white",
+            zIndex: 1, opacity: 0,
+        }
+    },
+    '&:hover': {
+        boxShadow: theme.shadows[10],
+        'img': { transform: 'scale(1.2)' },
+        ".ProjectImageMask": { opacity: 0.35 }
+    }
+}));
 
 export { Home };

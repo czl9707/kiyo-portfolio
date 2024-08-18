@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Brightness4Icon from '@mui/icons-material/Brightness4Outlined';
-import Brightness7Icon from '@mui/icons-material/Brightness7Outlined';
+// import Brightness4Icon from '@mui/icons-material/Brightness4Outlined';
+// import Brightness7Icon from '@mui/icons-material/Brightness7Outlined';
 
 import Section from './Section.tsx'
 import { handleNavigation } from './Utils.tsx';
-import { IsDarkContext } from '../App.tsx';
+// import { IsDarkContext } from '../Theme.tsx';
 
 
 const pages = [
@@ -22,13 +22,13 @@ const pages = [
   },
   {
     name: 'Resume',
-    uri: `https://drive.google.com/file/d/1fRxv_PRcMMl88VN4TpWCalqxGoVQfd5n/view?usp=drive_link`,
+    uri: `https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link`,
     external: true,
   }
 ];
 
 function Header() {
-  const { isDark, setIsDark } = React.useContext(IsDarkContext);
+  // const { isDark, setIsDark } = React.useContext(IsDarkContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -40,7 +40,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="sticky" color='info' sx={{ boxShadow: 3 }} elevation={0} enableColorOnDark>
+    <AppBar position="sticky" color='info' elevation={3} enableColorOnDark>
       <Section disableGutters>
         <Toolbar disableGutters>
           <Typography noWrap variant='button' color="inherit" fontSize="1.5rem"
@@ -64,15 +64,9 @@ function Header() {
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left', }}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left', }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
@@ -109,13 +103,13 @@ function Header() {
             ))}
           </Box>
 
-          <IconButton
+          {/* <IconButton
             size="small"
             onClick={() => setIsDark(!isDark)}
             color="inherit"
           >
             {isDark ? <Brightness4Icon /> : <Brightness7Icon />}
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
       </Section>
     </AppBar>
