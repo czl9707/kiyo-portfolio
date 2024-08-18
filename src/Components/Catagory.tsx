@@ -205,7 +205,7 @@ function Catagory() {
 function CatagoryItem({ item, depth = 1, maxDepth }: { item: CatagoryEntry | CatagoryGroupEntry, maxDepth: number, depth?: number }) {
     return (
         <>
-            <Box className="CatagoryContainer" sx={{ opacity: item.active ? "0.8 !important" : undefined }}
+            <Box className="CatagoryContainer" sx={{ opacity: item.active ? "0.8 !important" : undefined, cursor: "pointer" }}
                 onClick={item.active ? undefined : handleNavigation(`#${item.id}`)}>
                 <Box className="CatagoryPlaceholder" width={`${(maxDepth - depth + 1) * 1.2}rem`} />
                 <Typography component="p" className="CatagoryContent" sx={{ paddingLeft: `${depth * 2}rem` }} variant="button">

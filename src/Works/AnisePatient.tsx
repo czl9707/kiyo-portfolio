@@ -107,7 +107,7 @@ function AnisePatient() {
                 </Catagorize>
 
                 <Catagorize id="round2-design-impact" catagoryName="Impact">
-                    <Section color="success"> <Round2Result /> </Section>
+                    <Section color="success"> <Round2Impact /> </Section>
                 </Catagorize>
             </CatagorizeGroup>
 
@@ -967,7 +967,7 @@ function DesignIteration2() {
     </>);
 }
 
-const round2ResultContent = [
+const round2ImpactContent = [
     {
         title: "Improved User Education",
         content: "5/5 test participants reported high satisfaction with their understanding of service details and upcoming steps before subscribing.",
@@ -982,21 +982,16 @@ const round2ResultContent = [
     },
 ]
 
-function Round2Result() {
+function Round2Impact() {
     return (<>
         <FadeSlide>
             <Grid container columns={3}>
                 <Grid item xs={1}>
-                    <Typography variant="h3">Round 2 Result</Typography>
+                    <Typography variant="h3">Round 2 Impact</Typography>
                 </Grid>
                 <Grid item xs={2}>
                     <Typography variant="body1" component="span">
                         The iterated design was launched after I left AnHealth. To measure its impact, I personally conducted user testing with 5 participants:
-                        <ul>
-                            <li>5/5 participants reported high satisfaction with their understanding of service details and upcoming steps before subscribing. </li>
-                            <li>4/5 participants completed each step of the process without assistance. </li>
-                            <li>5/5 participants reported knowing what to do if the trial didn't work well. </li>
-                        </ul>
                     </Typography>
                 </Grid>
             </Grid>
@@ -1006,7 +1001,7 @@ function Round2Result() {
         <FadeSlide>
             <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" spacing={3}>
                 {
-                    round2ResultContent.map((item, i) => (
+                    round2ImpactContent.map((item, i) => (
                         <Grid item xs={1} key={i}>
                             <InfoContentCard {...item} />
                         </Grid>

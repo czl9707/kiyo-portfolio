@@ -251,7 +251,7 @@ function ProjectInfo({ href, tags, title, introText, buttonText }: ProjectInfoPr
 
 const HoverScalingBox = styled(Box)(({ theme }) => ({
     '&': {
-        boxShadow: "none",
+        boxShadow: "none", cursor: "pointer",
         position: 'relative', overflow: "hidden",
         "*": {
             transitionDuration: `${theme.transitions.duration.complex}ms`,
