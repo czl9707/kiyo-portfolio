@@ -1,12 +1,14 @@
-import Section, { Spacer } from '../Components/Section.tsx';
-
+import React from 'react';
+import { common } from '@mui/material/colors';
 import { Box, Stack, Typography, Grid, styled, useTheme, createTheme, ThemeProvider } from '@mui/material';
+
+import Section, { Spacer } from '../Components/Section.tsx';
 import { SquareChip } from '../Components/SquareChip.tsx';
 import FadeSlide from '../Components/FadeSlideEffect.tsx';
 import SliderButton from './Components/SliderButton.tsx';
-import React from 'react';
+import Background from './Components/Background.tsx';
 import { handleNavigation } from '../Components/Utils.tsx';
-import { common } from '@mui/material/colors';
+
 
 const ImageFullPath = (p: string) => `/Home/${p}`;
 
@@ -27,6 +29,7 @@ function Home() {
 
     return (
         <ThemeProvider theme={localTheme}>
+            <Background />
             <Welcome />
             <Works />
         </ThemeProvider>
@@ -75,6 +78,7 @@ const projects = [
     },
     {
         href: "https://www.figma.com/proto/tAGAEa0Fvk0mFnT5TXys1T/KFJ-Web-Design-_-Kiyo?page-id=2%3A2&node-id=2528-23279&viewport=3182%2C-5385%2C0.3&t=ZjuksPYBreaQNDx0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2528%3A23279",
+        external: true,
         imgSrc: "CoverKaiFineJewelry.png",
         tags: ["Website", "Fashion", "Shopify"],
         title: "Jewelry E-Commerce",
@@ -100,11 +104,11 @@ function Welcome() {
             <Spacer size="xl" />
             <Section>
                 <FadeSlide>
-                    <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='0'
+                    <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
                         sx={{ float: "left", mr: "-2rem" }} />
                 </FadeSlide>
 
-                <Stack height={totalHeight} useFlexGap zIndex='1'
+                <Stack height={totalHeight} useFlexGap zIndex='2'
                     justifyContent="space-between" alignItems="stretch"
                     sx={{ float: "left" }} >
                     <FadeSlide delay={150}>
@@ -128,7 +132,7 @@ function Welcome() {
                     <FadeSlide delay={450}>
                         <Box sx={{ ml: "6rem" }}>
                             <SliderButton text='RESUME' externalLink
-                                href='https://drive.google.com/file/d/1fRxv_PRcMMl88VN4TpWCalqxGoVQfd5n/view?usp=drive_link' />
+                                href="https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link" />
                             <SliderButton text="LET'S CONNECT" externalLink
                                 href='' />
                         </Box>
@@ -189,13 +193,14 @@ interface ProjectImageProps {
     href?: string,
     imgSrc: string,
     chipText: string,
-    chipOnRight?: boolean
+    chipOnRight?: boolean,
+    external?: boolean
 }
 
-function ProjectImage({ href, imgSrc, chipText, chipOnRight }: ProjectImageProps) {
+function ProjectImage({ href, imgSrc, chipText, chipOnRight, external }: ProjectImageProps) {
     return (
         <FadeSlide>
-            <HoverScalingBox onClick={handleNavigation(href)}>
+            <HoverScalingBox onClick={handleNavigation(href, external)}>
                 <img src={ImageFullPath(imgSrc)} alt={imgSrc} />
                 <SquareChip label={chipText}
                     sx={{
@@ -221,9 +226,10 @@ interface ProjectInfoProps {
     title: string,
     introText: string,
     buttonText: string,
+    external?: boolean,
 }
 
-function ProjectInfo({ href, tags, title, introText, buttonText }: ProjectInfoProps) {
+function ProjectInfo({ href, tags, title, introText, buttonText, external }: ProjectInfoProps) {
     return (
         <Stack spacing={2} alignItems="start">
             <FadeSlide>
@@ -243,7 +249,7 @@ function ProjectInfo({ href, tags, title, introText, buttonText }: ProjectInfoPr
             <Spacer size='sm' />
 
             <FadeSlide delay={450}>
-                <Box><SliderButton href={href} text={buttonText} /></Box>
+                <Box><SliderButton href={href} text={buttonText} externalLink={external} /></Box>
             </FadeSlide>
         </Stack>
     )
