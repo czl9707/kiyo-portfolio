@@ -40,7 +40,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="sticky" color='info' elevation={3} enableColorOnDark>
+    <AppBar position="sticky" color='transparent' elevation={0} enableColorOnDark>
       <Section disableGutters>
         <Toolbar disableGutters>
           <Typography noWrap variant='button' color="inherit" fontSize="1.5rem"

@@ -20,7 +20,7 @@ function Layout() {
     if (hash) {
       const element = document.getElementById(hash.substring(1))
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: "end" });
       }
     }
   });

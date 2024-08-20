@@ -8,7 +8,7 @@ const channelWidth = 16;
 function Background() {
     return (
         <Box component="section" id="background" sx={{
-            width: "100%", px: '4rem', position: "fixed", height: "100vh"
+            width: "100%", px: '4rem', position: "fixed", height: "100vh", top: "-5vh"
         }}>
             <Container maxWidth="md" disableGutters sx={{ height: "100%", display: "flex", zindex: -1, opacity: ".2" }}>
                 <Channel />
@@ -36,7 +36,7 @@ function Channel() {
 
     return (
         <div style={{ overflow: "invisible" }}>
-            <svg height="100vh" width={`${channelWidth}px`} xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }}>
+            <svg height="110vh" width={`${channelWidth}px`} xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }}>
                 <line x1={channelWidth / 2} y1={0} x2={channelWidth / 2} y2="100%"
                     style={{ stroke: "grey", strokeWidth: 2, strokeDasharray: "2,5" }} />
                 {elements.map((item, i) => <ChannelItemFragment item={item} key={i} />)}

@@ -43,7 +43,7 @@ const featuredProjects = [
         tags: ["Web App", "End to End",],
         title: "Improve Healthcare Startup's CVR",
         introText: "Enhancing early start-up's client acquisition by removing friction and building trust.",
-        buttonText: "VIEW CASE STUDY 🔒",
+        buttonText: "VIEW CASE STUDY",
         chipText: 'Shipped in 2023',
     },
     {
@@ -74,7 +74,7 @@ const projects = [
         title: "Digital Strategy Optimization",
         introText: "Refining Montana Historical Society's digital strategy through web analytics and SEO evaluation.",
         buttonText: "VIEW CASE STUDY",
-        chipText: "Shipped in 2024",
+        chipText: "Shipped in 2023",
     },
     {
         href: "https://www.figma.com/proto/tAGAEa0Fvk0mFnT5TXys1T/KFJ-Web-Design-_-Kiyo?page-id=2%3A2&node-id=2528-23279&viewport=3182%2C-5385%2C0.3&t=ZjuksPYBreaQNDx0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2528%3A23279",
@@ -84,7 +84,7 @@ const projects = [
         title: "Jewelry E-Commerce",
         introText: "Improving online store revenue by revamping website within 4 days.",
         buttonText: "VIEW PROTOTYPES 🔗",
-        chipText: "Shipped in 2023",
+        chipText: "Shipped in 2024",
     },
     {
         // href: "/Works/DesignChallenge",

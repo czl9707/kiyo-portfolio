@@ -49,5 +49,6 @@ function Spacer({ size = 'md' }: SpacerProperties) {
     );
 }
 
+export type { SectionProperties };
 export default Section;
 export { Spacer, };
