@@ -1,4 +1,4 @@
-import { Box, Button, createTheme, Grid, Link, Stack, ThemeProvider, Typography, TypographyProps, useTheme } from "@mui/material";
+import { Box, Button, createTheme, Grid, Link, Stack, ThemeProvider, Typography, TypographyProps, Paper, useTheme } from "@mui/material";
 import { common } from "@mui/material/colors";
 import * as React from "react";
 import ProjectHeader from "./Components/ProjectHeader";
@@ -634,10 +634,10 @@ const FinalDesign = React.forwardRef<HTMLDivElement, { id?: string }>(
                     <React.Fragment key={i}>
                         <Spacer />
                         <FadeSlide>
-                            <ThemedPaper color="info" sx={{ p: "1.5rem" }} elevation={0}>
+                            <Paper sx={{ p: "1.5rem" }} elevation={0}>
                                 <PrimaryTypography variant="h3">{item.title}</PrimaryTypography>
                                 <Typography variant="body1">{item.text}</Typography>
-                            </ThemedPaper>
+                            </Paper>
                         </FadeSlide>
 
                         <FadeSlide>
@@ -649,12 +649,12 @@ const FinalDesign = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <Spacer />
             <FadeSlide>
-                <ThemedPaper color="info" sx={{ p: "1.5rem" }} elevation={0}>
+                <Paper sx={{ p: "1.5rem" }} elevation={0}>
                     <Stack alignItems="center">
                         <Typography variant="h4">To learn more about other pages...</Typography>
                         <PrototypleButton />
                     </Stack>
-                </ThemedPaper>
+                </Paper>
             </FadeSlide>
         </Section>);
     }

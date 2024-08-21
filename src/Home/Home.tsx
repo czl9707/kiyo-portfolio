@@ -134,7 +134,7 @@ function Welcome() {
                             <SliderButton text='RESUME' externalLink
                                 href="https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link" />
                             <SliderButton text="LET'S CONNECT" externalLink
-                                href='' />
+                                href='https://www.linkedin.com/in/kiyo-yang-46b12a23b/' />
                         </Box>
                     </FadeSlide>
                 </Stack>

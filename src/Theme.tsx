@@ -1,5 +1,5 @@
 import { createTheme, TypographyVariantsOptions, TransitionsOptions, Shadows, BreakpointsOptions, ThemeProvider } from '@mui/material/styles';
-import { grey, common } from '@mui/material/colors'
+import { common } from '@mui/material/colors'
 import * as React from 'react';
 
 const IsDarkContext = React.createContext<{ isDark: boolean, setIsDark: (isDark: boolean) => void }>(
@@ -40,7 +40,7 @@ const APPTRANSITION: TransitionsOptions = {
         easeIn: "cubic-bezier(0, 0, 0.15, 1)",
     },
     duration: {
-        enteringScreen: 2000,
+        enteringScreen: 1500,
         leavingScreen: 1000,
     }
 }
@@ -95,12 +95,6 @@ const APPSHADOWS = (dark: boolean): Shadows => {
 const APPLIGHTTHEME = createTheme({
     palette: {
         mode: "light",
-        info: {
-            main: common.white,
-            light: common.white,
-            dark: grey[50],
-            contrastText: common.black,
-        }
     },
     breakpoints: APPBREAKPOINTS,
     typography: APPTYPOGRAPHY,
@@ -114,12 +108,6 @@ const APPDARKTHEME = createTheme(
     {
         palette: {
             mode: "dark",
-            info: {
-                main: common.black,
-                light: grey[900],
-                dark: common.black,
-                contrastText: common.white,
-            },
             background:
             {
                 paper: common.black,

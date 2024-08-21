@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
+import { Paper, Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -137,6 +137,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
     }
 );
 
+
 const Problems = React.forwardRef<HTMLDivElement, { id?: string }>(
     function Problems(props, ref) {
         return (<Section {...props} ref={ref}>
@@ -172,6 +173,7 @@ const Problems = React.forwardRef<HTMLDivElement, { id?: string }>(
     }
 );
 
+
 const BussinessGoal = React.forwardRef<HTMLDivElement, { id?: string }>(
     function BussinessGoal(props, ref) {
         return (<Section {...props} ref={ref} color="success">
@@ -195,6 +197,7 @@ const BussinessGoal = React.forwardRef<HTMLDivElement, { id?: string }>(
         </Section >)
     }
 );
+
 
 const Process = React.forwardRef<HTMLDivElement, { id?: string }>(
     function Process(props, ref) {
@@ -639,7 +642,6 @@ const Design3 = React.forwardRef<HTMLDivElement, { id?: string }>(
 );
 
 
-
 const Round1Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
     function Round1Impact(props, ref) {
         return (<Section {...props} ref={ref} color="success">
@@ -774,6 +776,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
     }
 );
 
+
 const DesignIteration1 = React.forwardRef<HTMLDivElement, { id?: string }>(
     function DesignIteration1(props, ref) {
         return (<Section {...props} ref={ref} color="secondary">
@@ -868,6 +871,7 @@ const DesignIteration1 = React.forwardRef<HTMLDivElement, { id?: string }>(
         </Section>);
     }
 );
+
 
 const DesignIteration2 = React.forwardRef<HTMLDivElement, { id?: string }>(
     function DesignIteration2(props, ref) {
@@ -987,6 +991,7 @@ const Round2Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
     }
 );
 
+
 const FinalThoughts = React.forwardRef<HTMLDivElement, { id?: string }>(
     function FinalThoughts(props, ref) {
         return (<Section {...props} ref={ref} color="primary">
@@ -994,6 +999,7 @@ const FinalThoughts = React.forwardRef<HTMLDivElement, { id?: string }>(
         </Section >);
     }
 );
+
 
 const Learnings = React.forwardRef<HTMLDivElement, { id?: string }>(
     function Learnings(props, ref) {
@@ -1056,11 +1062,11 @@ const TextImagePair = ({ content, imgSrc, annotation, reverse = false, centerAli
 )
 
 const InfoContentCard = ({ title, content }: { title: string, content: string }) => (
-    <ThemedPaper variant="outlined" color="info"
+    <Paper variant="outlined"
         sx={{ p: "2rem", height: "100%" }}>
         <Typography variant="h5">{title}</Typography>
         <Typography variant="body1">{content}</Typography>
-    </ThemedPaper>
+    </Paper>
 );
 
 
