@@ -59,7 +59,7 @@ const featuredProjects = [
 
 const projects = [
     {
-        // href: "/Works/Knowunity",
+        href: "/Works/Knowunity",
         imgSrc: "CoverKnowunity.png",
         tags: ["User Research", "K-12 Education",],
         title: "Learning Community Growth",
@@ -125,7 +125,7 @@ function Welcome() {
                             sx={{ ml: "6rem", whiteSpace: "wrap" }}
                         >
                             A Product Desiner with 3 YOE based in NYC <br />
-                            Solving complex Business problems with solid research and empathy
+                            Solving complex business problems with solid research and empathy
                         </Typography>
                     </FadeSlide>
 

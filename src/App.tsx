@@ -11,6 +11,8 @@ import { Header } from './Components/Header.tsx';
 import { Footer } from './Components/Footer.tsx';
 import AnisePatient from './Works/AnisePatient.tsx';
 import EdgemereFarm from './Works/EdgemereFarm.tsx';
+import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.tsx'
+import Knowunity from './Works/Knowunity.tsx'
 import AboutMe from './Home/AboutMe.tsx';
 
 function Layout() {
@@ -50,8 +52,8 @@ function App() {
           <Route path='AboutMe' element={<AboutMe />} />
           <Route path='Works'>
             <Route path='AnisePatient' element={<AnisePatient />} />
-            {/* <Route path='MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} /> */}
-            {/* <Route path='Knowunity' element={<Knowunity />} /> */}
+            <Route path='MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
+            <Route path='Knowunity' element={<Knowunity />} />
             <Route path='EdgemereFarm' element={<EdgemereFarm />} />
             {/* <Route path='DesignChallenge' element={<DesignChallenge />} /> */}
             <Route path="*" element={<Navigate to=".." />} />

@@ -1,4 +1,4 @@
-import { Box, Button, createTheme, Grid, Link, Stack, ThemeProvider, Typography, TypographyProps, Paper, useTheme } from "@mui/material";
+import { Box, Button, createTheme, Grid, Link, Stack, ThemeProvider, Typography, TypographyProps, useTheme } from "@mui/material";
 import { common } from "@mui/material/colors";
 import * as React from "react";
 import ProjectHeader from "./Components/ProjectHeader";
@@ -116,16 +116,14 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
 
                     <Grid item xs={1}>
                         <PrimaryTypography variant="h5">My Contribution</PrimaryTypography>
-                        <Typography variant="body1">
+                        <Typography component="span" variant="body1">
                             As a UX Designer, I: <br />
-                        </Typography>
-                        <ul>
-                            <Typography variant="body1">
+                            <ul>
                                 <li>Led the exploratory research (ecosystem map, social media audit, competitive analysis and user interview)</li>
                                 <li>Proposed the design concept</li>
                                 <li>Led the wireframe sketch and design iteration</li>
-                            </Typography>
-                        </ul>
+                            </ul>
+                        </Typography>
                     </Grid>
                 </Grid>
             </FadeSlide>
@@ -162,7 +160,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                     {
                         overviewGoals.map((item, i) => (
                             <Grid item xs={1} key={i}>
-                                <ThemedPaper color="secondary" sx={{ p: "1.5rem", height: "100%" }} elevation={0}>
+                                <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                                     <Typography variant="h5">{item.title}</Typography>
                                     <Typography variant="body1">{item.text}</Typography>
                                 </ThemedPaper>
@@ -247,7 +245,7 @@ const FinalDelivery = React.forwardRef<HTMLDivElement, { id?: string }>(
                                 <li>Content strategy guidance</li>
                                 <li>
                                     A full documentation of research with meta-data and insights
-                                    <Link color="primary" onClick={handleNavigation(DOCLINK, true)}>(Link)</Link>
+                                    <Link color="primary" href={DOCLINK} target="_blank">(Link)</Link>
                                 </li>
                             </Typography>
                         </ul>
@@ -339,8 +337,7 @@ const ResearchOverview = React.forwardRef<HTMLDivElement, { id?: string }>(
                     {
                         researchOverviewMetrics.map((item, i) => (
                             <Grid item xs={1} key={i}>
-                                <ThemedPaper color="secondary" elevation={0}
-                                    sx={{ height: "100%", p: "1.5rem" }}>
+                                <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                                     <Typography variant="h2" textAlign="center">{item.number}</Typography>
                                     <Typography variant="h5" textAlign="center">{item.title}</Typography>
                                     <Typography variant="body1" textAlign="center">
@@ -361,7 +358,7 @@ const ResearchOverview = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Typography variant="body2">
                     <br />
                     *Find the full documentation of research process, meta-data and insights
-                    <Link color="primary" onClick={handleNavigation(DOCLINK, true)}> here</Link>.
+                    <Link color="primary" href={DOCLINK} target="_blank"> here</Link>.
                 </Typography>
             </FadeSlide>
         </Section>);
@@ -440,7 +437,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" rowSpacing={3}>
                     <Grid item xs={2}>
-                        <ThemedPaper color="secondary" elevation={0} sx={{ p: "1.5rem", height: "100%" }}>
+                        <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                             <Stack direction="row" spacing={2} alignItems="center">
                                 <Box component="img" src={ImageFullPath("Stars.png")} alt="Stars.png" width="7em" />
                                 <Typography variant="h4">
@@ -456,7 +453,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
                         </ThemedPaper>
                     </Grid>
                     <Grid item xs={1}>
-                        <ThemedPaper color="success" elevation={0} sx={{ p: "1.5rem", height: "100%" }}>
+                        <ThemedPaper color="success" sx={{ height: "100%" }}>
                             <Typography variant="h4">
                                 Design Strategy 1
                             </Typography>
@@ -467,7 +464,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
                         </ThemedPaper>
                     </Grid>
                     <Grid item xs={2}>
-                        <ThemedPaper color="secondary" elevation={0} sx={{ p: "1.5rem", height: "100%" }}>
+                        <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                             <Stack direction="row" spacing={2} alignItems="center">
                                 <Box component="img" src={ImageFullPath("Friends.png")} alt="Friends.png" width="7em" />
                                 <Typography variant="h4">
@@ -483,7 +480,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
                         </ThemedPaper>
                     </Grid>
                     <Grid item xs={1}>
-                        <ThemedPaper color="success" elevation={0} sx={{ p: "1.5rem", height: "100%" }}>
+                        <ThemedPaper color="success" sx={{ height: "100%" }}>
                             <Typography variant="h4">
                                 Design Strategy 2
                             </Typography>
@@ -569,7 +566,7 @@ const DesignSketchAndUserTesting = React.forwardRef<HTMLDivElement, { id?: strin
                     annotation={
                         <>
                             Low-fi Wireframs & Feedback from Usability Testing <br />
-                            <Link color="primary" onClick={handleNavigation(TESTINGDOC, true)}><b>(View Details)</b></Link>
+                            <Link color="primary" href={TESTINGDOC} target="_blank"><b>(View Details)</b></Link>
                         </>
                     } />
             </FadeSlide>
@@ -613,7 +610,7 @@ const FinalDesign = React.forwardRef<HTMLDivElement, { id?: string }>(
                         <PrototypleButton />
                     </Grid>
                     <Grid item xs={2}>
-                        <Typography variant="body1">
+                        <Typography component="span" variant="body1">
                             We iterated the wireframes into hi-fi prototypes corresponding to the insights we gained from the user testing. Feel free to explore the clickable prototypes to see the full scope of our design work :)
                             <br /><br />
                             <b>
@@ -634,10 +631,10 @@ const FinalDesign = React.forwardRef<HTMLDivElement, { id?: string }>(
                     <React.Fragment key={i}>
                         <Spacer />
                         <FadeSlide>
-                            <Paper sx={{ p: "1.5rem" }} elevation={0}>
+                            <ThemedPaper>
                                 <PrimaryTypography variant="h3">{item.title}</PrimaryTypography>
                                 <Typography variant="body1">{item.text}</Typography>
-                            </Paper>
+                            </ThemedPaper>
                         </FadeSlide>
 
                         <FadeSlide>
@@ -649,12 +646,12 @@ const FinalDesign = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <Spacer />
             <FadeSlide>
-                <Paper sx={{ p: "1.5rem" }} elevation={0}>
+                <ThemedPaper>
                     <Stack alignItems="center">
                         <Typography variant="h4">To learn more about other pages...</Typography>
                         <PrototypleButton />
                     </Stack>
-                </Paper>
+                </ThemedPaper>
             </FadeSlide>
         </Section>);
     }
@@ -708,9 +705,11 @@ const Reflections = React.forwardRef<HTMLDivElement, { id?: string }>(
 );
 
 const Quote = React.forwardRef<HTMLSpanElement, TypographyProps>(
-    function Quote(props, ref) {
+    function Quote({ children, ...props }, ref) {
         return <Typography {...props} variant="body2" color="grey" ref={ref}
-            sx={(theme) => ({ borderLeft: `5px solid ${theme.palette.primary.main}`, pl: "1rem" })} />
+            sx={(theme) => ({ borderLeft: `5px solid ${theme.palette.primary.main}`, pl: "1rem" })}>
+            <i>{children}</i>
+        </Typography>
     }
 );
 

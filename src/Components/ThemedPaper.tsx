@@ -30,11 +30,12 @@ const ThemedPaper = React.forwardRef<HTMLDivElement, ThemedPaperProperties & Pap
             backgroundColor: color ? theme.palette[color].main : undefined,
             color: color ? theme.palette[color].contrastText : undefined,
             borderColor: color ? addAlpha(theme.palette[color].contrastText, 15) : undefined,
+            padding: "1.5rem",
         })),
         [color]
     );
 
-    return <ThemedPaper ref={ref} {...other} />
+    return <ThemedPaper ref={ref} elevation={0} {...other} />
 }
 )
 

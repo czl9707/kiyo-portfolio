@@ -58,7 +58,7 @@ const APPCOMPONENTS = {
         defaultProps: {
             spacing: 6
         }
-    }
+    },
 }
 const APPSHAPE = { borderRadius: 0 };
 const APPSHADOWS = (dark: boolean): Shadows => {
@@ -95,6 +95,11 @@ const APPSHADOWS = (dark: boolean): Shadows => {
 const APPLIGHTTHEME = createTheme({
     palette: {
         mode: "light",
+        background:
+        {
+            paper: common.white,
+            default: common.white
+        }
     },
     breakpoints: APPBREAKPOINTS,
     typography: APPTYPOGRAPHY,
