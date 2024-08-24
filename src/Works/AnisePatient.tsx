@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Paper, Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
+import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -495,7 +495,7 @@ const Design2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                         Problems: <br />
                         The current Beta's insufficient clarity and poor transparency hinder users' confidence and decision-making in moving to the next steps.
                     </Typography>
-                    <Typography variant="body1" component="span">
+                    <Typography variant="body1" component="span" sx={{ lineHeight: "2rem" }}>
                         <ol>
                             <li><b>Insufficient info in therapist profiles:</b> Participants needed more details about therapist profiles to ensure a good fit.</li>
                             <li><b>Lack of clear guidance on the therapist-selection page:</b> 5/7 participants needed prompts to complete the flow.</li>
@@ -1062,11 +1062,11 @@ const TextImagePair = ({ content, imgSrc, annotation, reverse = false, centerAli
 )
 
 const InfoContentCard = ({ title, content }: { title: string, content: string }) => (
-    <Paper variant="outlined"
-        sx={{ p: "2rem", height: "100%" }}>
+    <ThemedPaper variant="outlined"
+        sx={{ height: "100%" }}>
         <Typography variant="h5">{title}</Typography>
         <Typography variant="body1">{content}</Typography>
-    </Paper>
+    </ThemedPaper>
 );
 
 

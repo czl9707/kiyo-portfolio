@@ -1,56 +1,106 @@
-// import * as React from "react";
+import * as React from "react";
+import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Link } from "@mui/material";
+import { common } from '@mui/material/colors'
 
-// const ImageFullPath = (p) => `/Works/MontanaHistoricalSociety/${p}`;
+import ProjectHeader from "./Components/ProjectHeader.tsx";
+import Section, { Spacer } from "../Components/Section.tsx";
+import { SuccessTypography } from "./Components/Typography.tsx";
+import FadeSlide from "../Components/FadeSlideEffect.tsx";
+// import ImageWithAnnotation from "./Components/ImageWithAnnotation.tsx";
+// import ThemedPaper from "../Components/ThemedPaper.tsx";
+import { Catagorize, CatagorizeGroup } from "../Components/Catagory.tsx";
+// import { handleNavigation } from "../Components/Utils.tsx";
 
 
-// const COLOR = {
-//     jade: "#567582",
-//     cream: "#FFF4DA",
-//     skin: "#F7F7F1",
-//     juice: "#F7DDA4",
-// }
+const ImageFullPath = (p: string) => `/Works/MontanaHistoricalSociety/${p}`;
 
-// function MontanaHistoricalSociety() {
-//     return (
-//         <>
-//             <WorksHeader
-//                 title="Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy"
-//                 tags={["Web Analytics", "SEO Audit", "Data Visualization",]}
-//                 color={COLOR.skin} />
-//             <Overview
-//                 backgroundColor={COLOR.jade}
-//                 titleColor={COLOR.cream}
-//                 img={ImageFullPath("Intro.png")}
-//                 imgOverflow={true}
-//                 content={<>
-//                     <p className="title-section" style={{ color: "white" }}>
-//                         Revamp experience within sessions and out of sessions.
-//                         <br /><br />
-//                     </p>
-//                     <p className="text-text" style={{ color: "white" }}>
-//                         The <u>Montana Historical Society (MHS)</u> is a state agency and nonprofit org dedicated to preserving and promoting the history of Montana State. While its core audience is local, MHS aims to boost traffic by expanding its audience beyond local visitors and tailoring content for a diverse audience, both in and outside Montana.
-//                         <br /><br />
-//                         Our team of four digital analysts evaluated the MHS's web analytics data to <b>compare the behaviors of local and non-local audiences</b>, and <b>audited SEO performance</b> to provide improvement suggestions. Furthermore, we developed a dashboard to visually represent the data for ongoing tracking purposes.
-//                     </p>
-//                 </>}
-//             />
-//             <Intro />
-//             <ResearchQuestion />
-//             <Methods />
-//             <FindingsAndRecommendations />
-//             <Findings1 />
-//             <Recommendation1 />
-//             <Findings2 />
-//             <Recommendation2 />
-//             <Findings3 />
-//             <Recommendation3 />
-//             <Findings4 />
-//             <Recommendation4 />
-//             <FinalThoughts />
-//             <TakeAways />
-//         </>
-//     )
-// }
+
+function MontanaHistoricalSociety() {
+    const globalTheme = useTheme();
+    const localTheme = React.useMemo(() => createTheme(globalTheme,
+        {
+            palette: {
+                primary: {
+                    main: "#455A64",
+                    light: "#455A64",
+                    dark: "#455A64",
+                    contrastText: common.white,
+                },
+                secondary: {
+                    main: "#F7F7F1",
+                    light: "#F7F7F1",
+                    dark: "#F7F7F1",
+                    contrastText: common.black,
+                },
+                success: {
+                    main: "#FFF4DA",
+                    light: "#FFF4DA",
+                    dark: "#FFF4DA",
+                    contrastText: common.black,
+                }
+            }
+        }
+    ), [globalTheme]);
+
+    return (
+        <ThemeProvider theme={localTheme}>
+            <ProjectHeader
+                title={"Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy"}
+                chips={["Web Analytics", "SEO Audit", "Data Visualization",]} />
+
+            <Catagorize id="overview" catagoryName="Overview"><Overview /></Catagorize>
+            <Spacer />
+
+            <CatagorizeGroup catagoryName="Research">
+                <></>
+            </CatagorizeGroup>
+
+            {/* <Intro /> */}
+            {/* <ResearchQuestion /> */}
+            {/* <Methods /> */}
+            {/* <FindingsAndRecommendations /> */}
+            {/* <Findings1 /> */}
+            {/* <Recommendation1 /> */}
+            {/* <Findings2 /> */}
+            {/* <Recommendation2 /> */}
+            {/* <Findings3 /> */}
+            {/* <Recommendation3 /> */}
+            {/* <Findings4 /> */}
+            {/* <Recommendation4 /> */}
+            {/* <FinalThoughts /> */}
+            {/* <TakeAways /> */}
+
+        </ThemeProvider>
+    )
+}
+
+
+const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Overview(props, ref) {
+        return (<Section {...props} ref={ref} color="primary">
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <SuccessTypography variant="h5">Overview</SuccessTypography>
+                        <Typography variant="h3">
+                            Montana Historical Society
+                        </Typography>
+                        <Typography variant="body1">
+                            The <Link variant="body1" color="inherit" href="https://mhs.mt.gov/" target="_blank">Montana Historical Society (MHS)</Link> is a state agency and nonprofit org dedicated to preserving and promoting the history of Montana State. While its core audience is local, MHS aims to boost traffic by expanding its audience beyond local visitors and tailoring content for a diverse audience, both in and outside Montana.
+                            <br /><br />
+                            Our team of four digital analysts evaluated the MHS's web analytics data to compare the behaviors of local and non-local audiences, and audited SEO performance to provide improvement suggestions. Furthermore, we developed a dashboard to visually represent the data for ongoing tracking purposes.
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={1}>
+                        <Box component="img" src={ImageFullPath('Intro.png')}
+                            minHeight="100%" maxWidth="200%" sx={{ ml: 10 }} />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section >)
+    }
+);
 
 
 // function Intro() {
@@ -620,4 +670,4 @@
 //     );
 // }
 
-// export default MontanaHistoricalSociety;
+export default MontanaHistoricalSociety;

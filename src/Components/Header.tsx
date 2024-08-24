@@ -43,7 +43,7 @@ function Header() {
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      <AppBar position="sticky" color="default" elevation={1} enableColorOnDark>
+      <AppBar position="sticky" color="inherit" elevation={3} enableColorOnDark>
         <Section disableGutters>
           <Toolbar disableGutters>
             <Typography noWrap variant='button' color="inherit" fontSize="1.5rem"
