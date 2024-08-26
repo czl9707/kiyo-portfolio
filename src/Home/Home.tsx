@@ -155,7 +155,7 @@ function Works() {
                     (proj, i) => (
                         <React.Fragment key={i}>
                             <Grid container direction={(i % 2) ? "row" : "row-reverse"} columns={3}
-                                rowSpacing={12} alignItems="center">
+                                rowSpacing={12} alignItems="center" justifyContent={(i % 2) ? "flex-start" : "flex-end"}>
 
                                 <Grid item md={3} lg={2}>
                                     {ProjectImage({ ...proj, chipOnRight: !(i % 2) })}
