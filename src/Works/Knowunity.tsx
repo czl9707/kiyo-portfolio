@@ -55,18 +55,42 @@ function Knowunity() {
 
             <CatagorizeGroup catagoryName="Finding & Recommendations">
                 <Catagorize id="finding-and-recommendations-overview" catagoryName="Overview"><FindingAndRecommendations /></Catagorize>
-                <Catagorize id="finding1" catagoryName="F&R 1"><Findings1 /></Catagorize>
-                <Recommendation1 />
-                <Catagorize id="finding2" catagoryName="F&R 2"><Findings2 /></Catagorize>
-                <Recommendation2 />
-                <Catagorize id="finding3" catagoryName="F&R 3"><Findings3 /></Catagorize>
-                <Recommendation3 />
-                <Catagorize id="finding4" catagoryName="F&R 4"><Findings4 /></Catagorize>
-                <Recommendation4 />
-                <Catagorize id="finding5" catagoryName="F&R 5"><Findings5 /></Catagorize>
-                <Recommendation5 />
-                <Catagorize id="finding6" catagoryName="F&R 6"><Findings6 /></Catagorize>
-                <Recommendation6 />
+                <Catagorize id="finding1" catagoryName="F&R 1">
+                    <div>
+                        <Findings1 />
+                        <Recommendation1 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="finding2" catagoryName="F&R 2">
+                    <div>
+                        <Findings2 />
+                        <Recommendation2 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="finding3" catagoryName="F&R 3">
+                    <div>
+                        <Findings3 />
+                        <Recommendation3 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="finding4" catagoryName="F&R 4">
+                    <div>
+                        <Findings4 />
+                        <Recommendation4 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="finding5" catagoryName="F&R 5">
+                    <div>
+                        <Findings5 />
+                        <Recommendation5 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="finding6" catagoryName="F&R 6">
+                    <div>
+                        <Findings6 />
+                        <Recommendation6 />
+                    </div>
+                </Catagorize>
             </CatagorizeGroup>
 
             <FinalThoughts />

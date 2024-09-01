@@ -13,7 +13,7 @@ import AnisePatient from './Works/AnisePatient.tsx';
 import EdgemereFarm from './Works/EdgemereFarm.tsx';
 import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.tsx'
 import Knowunity from './Works/Knowunity.tsx'
-import AboutMe from './Home/AboutMe.tsx';
+// import AboutMe from './Home/AboutMe.tsx';
 
 function Layout() {
   const { pathname, hash } = useLocation();
@@ -49,7 +49,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path='Home' element={<Home />} />
-          <Route path='AboutMe' element={<AboutMe />} />
+          {/* <Route path='AboutMe' element={<AboutMe />} /> */}
           <Route path='Works'>
             <Route path='AnisePatient' element={<AnisePatient />} />
             <Route path='MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />

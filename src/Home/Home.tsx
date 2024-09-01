@@ -68,7 +68,7 @@ const projects = [
         chipText: "Shipped in 2023",
     },
     {
-        // href: "/Works/MontanaHistoricalSociety",
+        href: "/Works/MontanaHistoricalSociety",
         imgSrc: "CoverMontanaHistoricalSociety.png",
         tags: ["Web Analytics", "SEO", "Dashboard"],
         title: "Digital Strategy Optimization",
@@ -76,25 +76,25 @@ const projects = [
         buttonText: "VIEW CASE STUDY",
         chipText: "Shipped in 2023",
     },
-    {
-        href: "https://www.figma.com/proto/tAGAEa0Fvk0mFnT5TXys1T/KFJ-Web-Design-_-Kiyo?page-id=2%3A2&node-id=2528-23279&viewport=3182%2C-5385%2C0.3&t=ZjuksPYBreaQNDx0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2528%3A23279",
-        external: true,
-        imgSrc: "CoverKaiFineJewelry.png",
-        tags: ["Website", "Fashion", "Shopify"],
-        title: "Jewelry E-Commerce",
-        introText: "Improving online store revenue by revamping website within 4 days.",
-        buttonText: "VIEW PROTOTYPES 🔗",
-        chipText: "Shipped in 2024",
-    },
-    {
-        // href: "/Works/DesignChallenge",
-        imgSrc: "Cover100DesignChallenge.png",
-        tags: ["UI Design Practice"],
-        title: "100-day UI Design Practice",
-        introText: "Ongoing practices on UI and visual design.",
-        buttonText: "VIEW MORE",
-        chipText: "Ongoing",
-    },
+    // {
+    //     href: "https://www.figma.com/proto/tAGAEa0Fvk0mFnT5TXys1T/KFJ-Web-Design-_-Kiyo?page-id=2%3A2&node-id=2528-23279&viewport=3182%2C-5385%2C0.3&t=ZjuksPYBreaQNDx0-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2528%3A23279",
+    //     external: true,
+    //     imgSrc: "CoverKaiFineJewelry.png",
+    //     tags: ["Website", "Fashion", "Shopify"],
+    //     title: "Jewelry E-Commerce",
+    //     introText: "Improving online store revenue by revamping website within 4 days.",
+    //     buttonText: "VIEW PROTOTYPES 🔗",
+    //     chipText: "Shipped in 2024",
+    // },
+    // {
+    //     href: "/Works/DesignChallenge",
+    //     imgSrc: "Cover100DesignChallenge.png",
+    //     tags: ["UI Design Practice"],
+    //     title: "100-day UI Design Practice",
+    //     introText: "Ongoing practices on UI and visual design.",
+    //     buttonText: "VIEW MORE",
+    //     chipText: "Ongoing",
+    // },
 ]
 
 const totalHeight = '16rem'

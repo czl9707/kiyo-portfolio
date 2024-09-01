@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem, useScrollTrigger, Slide } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Toolbar, Typography, useScrollTrigger, Slide } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
 // import Brightness4Icon from '@mui/icons-material/Brightness4Outlined';
 // import Brightness7Icon from '@mui/icons-material/Brightness7Outlined';
 
@@ -9,41 +9,41 @@ import { handleNavigation } from './Utils.tsx';
 // import { IsDarkContext } from '../Theme.tsx';
 
 
-const pages = [
-  {
-    name: 'Projects',
-    uri: '/Home#Works',
-    external: false,
-  },
-  {
-    name: 'About',
-    uri: '/AboutMe',
-    external: false,
-  },
-  {
-    name: 'Resume',
-    uri: `https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link`,
-    external: true,
-  }
-];
+// const pages = [
+//   {
+//     name: 'Projects',
+//     uri: '/Home#Works',
+//     external: false,
+//   },
+//   {
+//     name: 'About',
+//     uri: '/AboutMe',
+//     external: false,
+//   },
+//   {
+//     name: 'Resume',
+//     uri: `https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link`,
+//     external: true,
+//   }
+// ];
 
 function Header() {
   // const { isDark, setIsDark } = React.useContext(IsDarkContext);
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+
+  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
+
+  // const handleCloseNavMenu = () => {
+  //   setAnchorElNav(null);
+  // };
 
   const trigger = useScrollTrigger();
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      <AppBar position="sticky" color="inherit" elevation={3} enableColorOnDark>
+      <AppBar position="sticky" color="transparent" elevation={0} enableColorOnDark>
         <Section disableGutters>
           <Toolbar disableGutters>
             <Typography noWrap variant='button' color="inherit" fontSize="1.5rem"
@@ -54,7 +54,7 @@ function Header() {
 
             <Box sx={{ flexGrow: 1 }} />
 
-            <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+            {/* <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -105,7 +105,7 @@ function Header() {
                   {item.name}
                 </Button>
               ))}
-            </Box>
+            </Box> */}
 
             {/* <IconButton
             size="small"

@@ -1,18 +1,19 @@
 import * as React from "react";
-import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Link } from "@mui/material";
+import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Link, Stack } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
 import Section, { Spacer } from "../Components/Section.tsx";
-import { SuccessTypography } from "./Components/Typography.tsx";
+import { SuccessTypography, PrimaryTypography } from "./Components/Typography.tsx";
 import FadeSlide from "../Components/FadeSlideEffect.tsx";
-// import ImageWithAnnotation from "./Components/ImageWithAnnotation.tsx";
-// import ThemedPaper from "../Components/ThemedPaper.tsx";
+import ImageWithAnnotation from "./Components/ImageWithAnnotation.tsx";
+import ThemedPaper from "../Components/ThemedPaper.tsx";
 import { Catagorize, CatagorizeGroup } from "../Components/Catagory.tsx";
-// import { handleNavigation } from "../Components/Utils.tsx";
 
 
 const ImageFullPath = (p: string) => `/Works/MontanaHistoricalSociety/${p}`;
+
+const PRESENTATIONLINK = "https://www.figma.com/proto/RM4q8G8HKw7fwTLDHo1wnj/Montana-Historic-Museum?type=design&node-id=84-1587&t=rilYH0JpqNKBWdW0-0&scaling=contain&page-id=9%3A4045"
 
 
 function MontanaHistoricalSociety() {
@@ -49,26 +50,41 @@ function MontanaHistoricalSociety() {
                 chips={["Web Analytics", "SEO Audit", "Data Visualization",]} />
 
             <Catagorize id="overview" catagoryName="Overview"><Overview /></Catagorize>
-            <Spacer />
+            <Catagorize id="organization-goal" catagoryName="Organization Goal"><Intro /></Catagorize>
+            <Catagorize id="research-question" catagoryName="Research Question"><ResearchQuestion /></Catagorize>
+            <Catagorize id="research-methods" catagoryName="Research Methods"><Methods /></Catagorize>
 
-            <CatagorizeGroup catagoryName="Research">
-                <></>
+
+            <CatagorizeGroup catagoryName="Findings & Recommendations">
+                <Catagorize id="findings-and-recommendations-overview" catagoryName="Overview"><FindingsAndRecommendations /></Catagorize>
+                <Catagorize id="findings-and-recommendations-1" catagoryName="F&R 1">
+                    <div>
+                        <Findings1 />
+                        <Recommendation1 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="findings-and-recommendations-2" catagoryName="F&R 2">
+                    <div>
+                        <Findings2 />
+                        <Recommendation2 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="findings-and-recommendations-3" catagoryName="F&R 3">
+                    <div>
+                        <Findings3 />
+                        <Recommendation3 />
+                    </div>
+                </Catagorize>
+                <Catagorize id="findings-and-recommendations-4" catagoryName="F&R 4">
+                    <div>
+                        <Findings4 />
+                        <Recommendation4 />
+                    </div>
+                </Catagorize>
             </CatagorizeGroup>
 
-            {/* <Intro /> */}
-            {/* <ResearchQuestion /> */}
-            {/* <Methods /> */}
-            {/* <FindingsAndRecommendations /> */}
-            {/* <Findings1 /> */}
-            {/* <Recommendation1 /> */}
-            {/* <Findings2 /> */}
-            {/* <Recommendation2 /> */}
-            {/* <Findings3 /> */}
-            {/* <Recommendation3 /> */}
-            {/* <Findings4 /> */}
-            {/* <Recommendation4 /> */}
-            {/* <FinalThoughts /> */}
-            {/* <TakeAways /> */}
+            <FinalThoughts />
+            <Catagorize id="takeaways" catagoryName="Final Thoughts"><TakeAways /></Catagorize>
 
         </ThemeProvider>
     )
@@ -103,571 +119,541 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
 );
 
 
-// function Intro() {
-//     return (
-//         <>
-//             <SectionGrid gridMinColumn={1} gridMaxColumn={2}
-//                 gridColumnGap={2} gridRowGap={2}
-//                 verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GridCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Duration<br />
-//                     </p>
-//                     <p className="text-text">
-//                         Nov 2023 - Dec 2023 (4 weeks)
-//                     </p>
-//                     <br /><br />
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Tool<br />
-//                     </p>
-//                     <p className="text-text">
-//                         Google Analytics, Google Looker Studio, Woorank, Screamingfrog, Google Lighthouse
-//                     </p>
-//                 </GridCell>
-//                 <GridCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Team<br />
-//                     </p>
-//                     <p className="text-text">
-//                         4 digital analyst
-//                     </p>
-//                     <br /><br />
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         My Contribution<br />
-//                     </p>
-//                     <p className="text-text">
-//                         Drafted research plan; identified web analytics findings,
-//                         assessed the SEO of the website, created dashboard,
-//                         developed finding and recommendation.
-//                     </p>
-//                 </GridCell>
-//             </SectionGrid>
-//             <SectionGrid gridMinColumn={1} gridMaxColumn={2}
-//                 gridColumnGap={2} gridRowGap={2}
-//                 alignItem="center">
-//                 <GridCell takeWholeLine={true}>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Organizational Goal<br />
-//                     </p>
-//                     <p className="title-section">
-//                         Increase traffic by reaching a broader, more diverse audience, both local and non-local.
-//                     </p>
-//                 </GridCell>
-//                 <GridCell>
-//                     <p className="text-text">
-//                         <br />
-//                         The Montana Historical Society (MHS) operates as both a state agency and nonprofit organization, dedicated to preserving and promoting Montana's historical narrative.
-//                         <br /><br />
-//                         While its primary audience consists of local Montana visitors, MHS strives to expand its reach to include a more diverse audience, including those from outside the state. Furthermore, MHS seeks to understand audience preferences to customize its content for a wider reach.
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("OrganizationalGoal.png")} />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
-//         </>
-//     );
-// }
+const Intro = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Intro(props, ref) {
+        return (<Section {...props} ref={ref}>
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <PrimaryTypography variant="h5">Duration</PrimaryTypography>
+                        <Typography variant="body1">Nov 2023 - Dec 2023 (4 weeks)</Typography>
+                        <br />
+                        <PrimaryTypography variant="h5">Tool</PrimaryTypography>
+                        <Typography variant="body1">Google Analytics, Google Looker Studio, Woorank, Screamingfrog, Google Lighthouse</Typography>
+                    </Grid>
+
+                    <Grid item xs={1}>
+                        <PrimaryTypography variant="h5">Team</PrimaryTypography>
+                        <Typography variant="body1">4 digital analyst</Typography>
+                        <br />
+                        <PrimaryTypography variant="h5">My Contribution</PrimaryTypography>
+                        <Typography variant="body1">
+                            Drafted research plan; identified web analytics findings, <br />
+                            assessed the SEO of the website, created dashboard, <br />
+                            developed finding and recommendation. <br />
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+
+            <Spacer />
+
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Organizational Goal</PrimaryTypography>
+                    <Typography variant="h3">
+                        Increase traffic by reaching a broader, more diverse audience, both local and non-local.
+                    </Typography>
+
+                    <Grid container columns={2} alignItems="center">
+                        <Grid item xs={1}>
+                            <Typography variant="body1">
+                                The Montana Historical Society (MHS) operates as both a state agency and nonprofit organization, dedicated to preserving and promoting Montana's historical narrative.
+                                <br /><br />
+                                While its primary audience consists of local Montana visitors, MHS strives to expand its reach to include a more diverse audience, including those from outside the state. Furthermore, MHS seeks to understand audience preferences to customize its content for a wider reach.
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={1}>
+                            <ImageWithAnnotation imgSrc={ImageFullPath("OrganizationalGoal.png")} />
+                        </Grid>
+                    </Grid>
+                </Box>
+            </FadeSlide>
+        </Section>)
+    }
+);
 
 
-// function ResearchQuestion() {
-//     function Card({ num, text }) {
-//         return (
-//             <CardCell height="100%">
-//                 <p className="text-brief" style={{ color: COLOR.jade }}>
-//                     {num}<br />
-//                 </p>
-//                 <br />
-//                 <p className="text-text">
-//                     {text}
-//                 </p>
-//             </CardCell>
-//         );
-//     }
+const researchQuestionContent = [
+    {
+        num: "01",
+        text: "How do the behavior of local vs non-local audiences compare?",
+    },
+    {
+        num: "02",
+        text: "What types of content are audiences viewing?",
+    },
+    {
+        num: "03",
+        text: "How is the current SEO performing?",
+    },
+]
 
-//     return (
-//         <>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
-//             <NotFullWidthSection backgroundColor={COLOR.skin}>
-//                 <GrowSectionCell>
-//                     <p className="title-section">
-//                         Research questions<br />
-//                     </p>
-//                     <br />
-//                     <p className="text-text">
-//                         We interviewed the stakeholders of MHS to discuss the project scope and objectives around their website. <br />
-//                         We used three research questions to drive our analysis:
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid backgroundColor={COLOR.skin}
-//                 gridMaxColumn={3} gridMinColumn={3}
-//                 verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <Card num="01" text="How do the behavior of local vs non-local audiences compare?" />
-//                 <Card num="02" text="What types of content are audiences viewing?" />
-//                 <Card num="03" text="How is the current SEO performing?" />
-//             </SectionGrid>
-//         </>
-//     );
-// }
+const ResearchQuestion = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function ResearchQuestion(props, ref) {
+        return (<Section {...props} ref={ref} color="secondary">
+            <FadeSlide>
+                <Box>
+                    <Typography variant="h3">Research questions</Typography>
+                    <Typography variant="body1">
+                        We interviewed the stakeholders of MHS to discuss the project scope and objectives around their website. <br />
+                        We used three research questions to drive our analysis:
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+            <FadeSlide>
+                <Grid container columns={{ sm: 1, md: 3 }} alignItems="stretch" justifyContent="stretch">
+                    {
+                        researchQuestionContent.map((item, i) => (
+                            <Grid item xs={1} key={i}>
+                                <ThemedPaper variant="outlined">
+                                    <PrimaryTypography variant="h4">{item.num}</PrimaryTypography>
+                                    <Typography variant="body1">{item.text}</Typography>
+                                </ThemedPaper>
+                            </Grid>
+                        ))
+                    }
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
 
 
-// function Methods() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Methods
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         We evaluated MHS website's performance with web analytics and SEO audit.
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={4} gridRowGap={4}
-//                 alignItem="center">
-//                 <GridCell>
-//                     <p className="text-text">
-//                         We analyzed the MHS's Google Analytics data on key metrics from <b>Sep 1st, 2023 (the starting time of their GA set-up) to present</b> for understanding how users are interacting with the web. <br />
-//                         Furthermore, we created segments for non-local users and <b>Montana local users</b> to compare their behaviors and preferences. <br />
-//                         <br />
-//                         The primary metrics includes: <br />
-//                         <ul>
-//                             <li><b>Sessions</b>: Avg. session duration, Pages / Session, Number of sessions</li>
-//                             <li><b>Traffic funnel</b>: Source, Medium</li>
-//                             <li><b>Users</b>: Region, New & Returning, Device category</li>
-//                             <li><b>Behaviors</b>: Bounce rate, Avg. time on page, Engagement rate, Pageviews, Page path</li>
-//                         </ul>
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("Method1.png")}
-//                     annotation="New user source (data in MHS Google Analytics)"
-//                     shadow={false} />
-//                 <GridCell>
-//                     <p className="text-text">
-//                         Since we realized the major traffic come from organic search, our team also conducted a <b>search engine optimization</b> audit to drive insights on making the site appealing to both users and search engines.
-//                         <br /><br />
-//                         {"The on-page SEO audit is a process of evaluating the website's current search engine performance by using a rubric to examine specific criteria that determines its passability."}
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("Method2.png")}
-//                     annotation="MHS SEO audit"
-//                     shadow={false} />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
-//         </>
-//     );
-// }
+const Methods = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Methods(props, ref) {
+        return (<Section {...props} ref={ref}>
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Methods</PrimaryTypography>
+                    <Typography variant="h3">
+                        We evaluated MHS website's performance with web analytics and SEO audit.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+            <FadeSlide>
+                <Grid container columns={{ sm: 1, md: 2 }} alignItems="center">
+                    <Grid item xs={1}>
+                        <Typography variant="body1">
+                            We analyzed the MHS's Google Analytics data on key metrics from <b>Sep 1st, 2023 (the starting time of their GA set-up) to present</b> for understanding how users are interacting with the web. <br />
+                            Furthermore, we created segments for non-local users and <b>Montana local users</b> to compare their behaviors and preferences. <br />
+                            <br />
+                            The primary metrics includes: <br />
+                            <ul>
+                                <li><b>Sessions</b>: Avg. session duration, Pages / Session, Number of sessions</li>
+                                <li><b>Traffic funnel</b>: Source, Medium</li>
+                                <li><b>Users</b>: Region, New & Returning, Device category</li>
+                                <li><b>Behaviors</b>: Bounce rate, Avg. time on page, Engagement rate, Pageviews, Page path</li>
+                            </ul>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation imgSrc={ImageFullPath("Method1.png")} annotation="New user source (data in MHS Google Analytics)" />
+                    </Grid>
 
-// function FindingsAndRecommendations() {
-//     const GAP_WIDTH = "10%";
-//     const SIDE_WIDTH = "45%";
-//     function Row({ findings, recommendation }) {
-//         return (
-//             <FullWidthSection verticalPadding={SECTION_PADDING.MINOR}
-//                 fadedIn={false} stretch={true}>
-//                 <CardCell width={SIDE_WIDTH} padding={CELL_PADDING.NORMAL}>
-//                     <p className="text-bond" style={{ fontSize: "1em" }}>{findings}</p>
-//                 </CardCell>
-//                 <FixedSectionCell width={GAP_WIDTH}>
-//                     <div style={{
-//                         width: "100%", height: "100%",
-//                         display: "inline-flex", alignItems: "center"
-//                     }}>
-//                         <div style={{
-//                             minWidth: "100%", height: "2px",
-//                             backgroundColor: COLOR.juice,
-//                         }} />
-//                         <div style={{
-//                             width: "0px", height: "0px", backgroundColor: COLOR.juice, zIndex: 1,
-//                             borderRadius: "6px", border: `6px ${COLOR.juice} solid`,
-//                             transform: "translateX(-50%)"
-//                         }} />
-//                     </div>
-//                 </FixedSectionCell>
-//                 <CardCell width={SIDE_WIDTH} padding={CELL_PADDING.NORMAL}
-//                     backgroundColor={COLOR.cream}>
-//                     <p className="text-bond" style={{ fontSize: "1em" }}>{recommendation}</p>
-//                 </CardCell>
-//             </FullWidthSection>
-//         );
-//     }
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}
-//                 backgroundColor={COLOR.jade}>
-//                 <GrowSectionCell>
-//                     <p className="title-section" style={{ color: "white" }}>
-//                         Findings & Recommendations
-//                     </p>
-//                     <br />
-//                     <p className="text-text" style={{ color: "white" }}>
-//                         Overall, we found local and non-local users have different preference on contents and device categories: <br />
-//                         Local users predominantly used desktop devices during weekdays, while non-local users, who discovered the site mostly through organic search, showed a preference for mobile devices. <br />
-//                         Furthermore, our SEO research led us to believe that addressing some shortcomings such as inadequate meta descriptions and sitemap issues could help users discover MHS easier when searching for keywords.
-//                     </p>
-//                     <br />
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <NotFullWidthSection backgroundColor={COLOR.jade}>
-//                 <GrowSectionCell>
-//                     <FullWidthSection verticalPadding={SECTION_PADDING.MINOR}>
-//                         <FixedSectionCell width={SIDE_WIDTH}>
-//                             <p className="text-brief" style={{ color: "white" }}>Findings</p>
-//                         </FixedSectionCell>
-//                         <FixedSectionCell width={GAP_WIDTH} />
-//                         <FixedSectionCell width={SIDE_WIDTH}>
-//                             <p className="text-brief" style={{ color: COLOR.cream }}>Recomandation</p>
-//                         </FixedSectionCell>
-//                     </FullWidthSection>
-//                     <Row findings="Non-local users favor mobile devices for accessing the web compared to local users."
-//                         recommendation="Improve mobile responsiveness, prioritizing specific pages." />
-//                     <Row findings="Local users prioritize education resources."
-//                         recommendation="Increasing presence in education sector by optimizing page slugs." />
-//                     <Row findings="Lack of meta description in critical pages resulted in low traffic."
-//                         recommendation="Increasing presence in education sector." />
-//                     <Row findings="Accessibility failed in image URLs."
-//                         recommendation="Fill missing Alt text in image URLs with concise content under 100 characters." />
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.jade} />
+                    <Grid item xs={1}>
+                        <Typography variant="body1">
+                            Since we realized the major traffic come from organic search, our team also conducted a <b>search engine optimization</b> audit to drive insights on making the site appealing to both users and search engines.
+                            <br /><br />
+                            {"The on-page SEO audit is a process of evaluating the website's current search engine performance by using a rubric to examine specific criteria that determines its passability."}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation imgSrc={ImageFullPath("Method2.png")} annotation="MHS SEO audit" />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
 
-//         </>
-//     );
-// }
 
-// function Findings1() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Findings1
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Non-local users favor mobile devices for accessing the web compared to Montana locals.
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={4} gridRowGap={4}
-//                 alignItem="center">
-//                 <GridCell>
-//                     <p className="text-text">
-//                         The MHS website attracts a majority of desktop users (72.7%), with local users showing a strong preference for desktops (89.7%). In contrast, <b>non-local users lean towards mobile devices (45.6%), almost evenly split with desktop usage (52.3%)</b>. (fig 1.1-1.3)
-//                         <br /><br />
-//                         Even though mobile devices are popular among non-local users, desktop users tend to spend more time on the website. However, <b>mobile users experience a 8.43% higher bounce rate(41.41%) than desktop users (32.98%)</b>, possibly indicating a suboptimal mobile experience. (fig. 1.4)
-//                     </p>
-//                 </GridCell>
-//                 <GridCell>
-//                     <FullWidthSection>
-//                         <CardImageCell img={ImageFullPath("Findings1_Graph1.png")}
-//                             shadow={false} width="40%"
-//                             annotation="Fig.1.1 Device category All users" />
-//                         <FixedSectionCell width="30%" />
-//                         <CardImageCell img={ImageFullPath("Findings1_Legend.png")}
-//                             shadow={false} width="18%" />
-//                     </FullWidthSection>
-//                     <FullWidthSection height={SECTION_PADDING.DEFAULT} />
-//                     <FullWidthSection>
-//                         <CardImageCell img={ImageFullPath("Findings1_Graph2.png")}
-//                             shadow={false} width="40%"
-//                             annotation="Fig.1.2 Device category Montana local users" />
-//                         <FixedSectionCell width="20%" />
-//                         <CardImageCell img={ImageFullPath("Findings1_Graph3.png")}
-//                             shadow={false} width="40%"
-//                             annotation="Fig.1.3 Device category Non-local users" />
-//                     </FullWidthSection>
-//                 </GridCell>
-//             </SectionGrid>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <CardImageCell img={ImageFullPath("Findings1_Breakdown.png")}
-//                     shadow={false}
-//                     annotation="Fig.1.4 Users Device Usage Breakdown" />
-//             </NotFullWidthSection>
-//         </>
-//     );
-// }
 
-// function Recommendation1() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Recommandation1
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Improve mobile responsiveness, prioritizing specific pages.
-//                         <br /><br />
-//                     </p>
-//                     <p className="text-text">
-//                         The current mobile web navigation is challenging: the hamburger menu is positioned at the bottom left, separate from the main CTA buttons. This non-standard alignment may make it difficult for users to navigate through pages.
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={2}
-//                 gridColumnGap={2}
-//                 alignItem="center" backgroundColor={COLOR.skin}
-//                 verticalPadding={SECTION_PADDING.MINOR}>
-//                 <CardImageCell img={ImageFullPath("Recomandation1_1.png")} shadow={false} />
-//                 <CardImageCell img={ImageFullPath("Recomandation1_2.png")} shadow={false} />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
-//         </>
-//     );
-// }
+const findingsAndRecommendationsContent = [
+    {
+        finding: "Non-local users favor mobile devices for accessing the web compared to local users.",
+        recommendation: "Improve mobile responsiveness, prioritizing specific pages.",
+    },
+    {
+        finding: "Local users prioritize education resources.",
+        recommendation: "Increasing presence in education sector by optimizing page slugs.",
+    },
+    {
+        finding: "Lack of meta description in critical pages resulted in low traffic.",
+        recommendation: "Increasing presence in education sector.",
+    },
+    {
+        finding: "Accessibility failed in image URLs.",
+        recommendation: "Fill missing Alt text in image URLs with concise content under 100 characters.",
+    },
+];
 
-// function Findings2() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Findings2
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Local users prioritize education resources.
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={2} gridRowGap={4}>
-//                 <div style={{ height: "100%", width: "100%", display: "flex", flexDirection: "column" }}>
-//                     <p className="text-text">
-//                         Compared to non-local users, local users frequently use the website for education-related content. (Fig.2.2) Also, education-related pages show a higher engagement rate (80%+) than other pages.
-//                         <br /><br />
-//                         A major source of traffic for mths.mt.gov is <b>classroom.google.com</b>, which refers 86% of users to “Stories of the Land” (fig. 2.1)
-//                         <br /><br />
-//                     </p>
-//                     <div style={{ flex: "1 1" }}></div>
-//                     <CardImageCell img={ImageFullPath("Findings2_1.png")} shadow={false}
-//                         annotation="Fig. 2.1: Breakdown of traffic by source" />
-//                 </div>
-//                 <CardImageCell img={ImageFullPath("Findings2_2.png")} shadow={false}
-//                     annotation="Fig. 2.2: Breakdown of traffic by source" />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
-//         </>
-//     );
-// }
+const FindingsAndRecommendations = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function FindingsAndRecommendations(props, ref) {
+        return (<Section {...props} ref={ref} color="primary">
+            <FadeSlide>
+                <Box>
+                    <Typography variant="h3">Findings & Recommendations</Typography>
+                    <Typography variant="body1">
+                        Overall, we found local and non-local users have different preference on contents and device categories: <br />
+                        Local users predominantly used desktop devices during weekdays, while non-local users, who discovered the site mostly through organic search, showed a preference for mobile devices. <br />
+                        Furthermore, our SEO research led us to believe that addressing some shortcomings such as inadequate meta descriptions and sitemap issues could help users discover MHS easier when searching for keywords.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+            <FadeSlide>
+                <Grid container columns={2} alignItems="stretch" rowSpacing={3}>
+                    <Grid item xs={1}>
+                        <Typography variant="h5">Findings</Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <SuccessTypography variant="h5">Recommendations</SuccessTypography>
+                    </Grid>
+                    {
+                        findingsAndRecommendationsContent.map((item, i) => (
+                            <React.Fragment key={i}>
+                                <Grid item xs={1}>
+                                    <ThemedPaper sx={{ height: "100%" }}>
+                                        <Typography variant="body1">
+                                            {item.finding}
+                                        </Typography>
+                                    </ThemedPaper>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <ThemedPaper color="success" sx={{ height: "100%" }}>
+                                        <Typography variant="body1">
+                                            {item.recommendation}
+                                        </Typography>
+                                    </ThemedPaper>
+                                </Grid>
+                            </React.Fragment>
+                        ))
+                    }
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
 
-// function Recommendation2() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Recommandation2
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Increase presence in education sector by optimizing page slugs.
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={2} gridRowGap={4}
-//                 alignItem="center" backgroundColor={COLOR.skin}
-//                 verticalPadding={SECTION_PADDING.MINOR}>
-//                 <GridCell>
-//                     <p className="text-text">
-//                         Optimize web page discoverability by ensuring all page slugs are relevant, and sitemap XML is structured properly. For example: the page path for Stories of the Land page is currently set to index4 and Museum Tours is under education.
-//                         <br /><br />
-//                         Additionally, we recommend seeking partnership with Education Officials, such as the State Superintendent, to make Stories of the Land the predominant free education resource for Montana-based schools.
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("Recomandation2_1.png")} shadow={false} />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
-//         </>
-//     );
-// }
 
-// function Findings3() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Findings3
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Lack of meta description in critical pages led to a lower traffic reach.
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={2} gridRowGap={4}
-//                 alignItem="center">
-//                 <CardImageCell img={ImageFullPath("Findings3_1.png")} shadow={false}
-//                     annotation="Fig.3.1  Top Page views: Local users" />
-//                 <CardImageCell img={ImageFullPath("Findings3_2.png")} shadow={false}
-//                     annotation="Fig.3.2  Top Page views: Local users" />
-//                 <GridCell>
-//                     <p className="text-text">
-//                         "Montana The Magazine of Western History" ranks among the top three landing pages for non-local users in contrast to local users. (Fig.3.1-3.2)
-//                         <br /><br />
-//                         However, this page lacks a meta description, relegating it to a lower information level compared to an unrelated page that does have a meta description. (Fig. 3.3)
-//                         <br /><br />
-//                         Beyond the "Montana The Magazine of Western History" page, a total of 70 sites still lack meta descriptions.
-//                     </p>
-//                 </GridCell>
+const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Findings1(props, ref) {
+        return (<Section {...props} ref={ref}>
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Findings 1</PrimaryTypography>
+                    <Typography variant="h3">
+                        Non-local users favor mobile devices for accessing the web compared to Montana locals.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
 
-//                 <CardImageCell img={ImageFullPath("Findings3_3.png")} shadow={false}
-//                     annotation="Fig.3.3  Comparison of Magazine page (without meta description) and a unrelated page with meta descriptions." />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
-//         </>
-//     );
-// }
+            <FadeSlide>
+                <Grid container columns={{ md: 3, sm: 1 }} alignItems="center">
+                    <Grid item xs={2}>
+                        <Typography variant="body1">
+                            The MHS website attracts a majority of desktop users (72.7%), with local users showing a strong preference for desktops (89.7%). In contrast, <b>non-local users lean towards mobile devices (45.6%), almost evenly split with desktop usage (52.3%)</b>. (fig 1.1-1.3)
+                            <br /><br />
+                            Even though mobile devices are popular among non-local users, desktop users tend to spend more time on the website. However, <b>mobile users experience a 8.43% higher bounce rate(41.41%) than desktop users (32.98%)</b>, possibly indicating a suboptimal mobile experience. (fig. 1.4)
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <Grid container columns={{ md: 2, sm: 4 }} spacing={3}>
+                            <Grid item xs={1}>
+                                <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph1.png")} annotation="Fig.1.1 Device category All users" />
+                            </Grid>
+                            <Grid item xs={1}>
+                                <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph2.png")} annotation="Fig.1.2 Device category Montana local users" />
+                            </Grid>
+                            <Grid item xs={1}>
+                                <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph3.png")} annotation="Fig.1.3 Device category Non-local users" />
+                            </Grid>
+                            <Grid item xs={1}>
+                                <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Legend.png")} sx={{ width: "60%", ml: "20%" }} />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+            <Spacer />
+            <FadeSlide>
+                <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Breakdown.png")} annotation="Fig.1.4 Users Device Usage Breakdown" />
+            </FadeSlide>
+        </Section>)
+    }
+);
 
-// function Recommendation3() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Recommandation3
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Ensure important pages have meta descriptions
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={2} gridRowGap={4}
-//                 alignItem="center" backgroundColor={COLOR.skin}
-//                 verticalPadding={SECTION_PADDING.MINOR}>
-//                 <GridCell>
-//                     <p className="text-text">
-//                         Ensure important pages with high reach have meta descriptions, prioritizing the “Montana The Magazine of Western History”  page.
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("Recomandation3_1.png")} shadow={false} />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
-//         </>
-//     );
-// }
 
-// function Findings4() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Findings4
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Accessibility failed in image URLs
-//                     </p>
-//                 </GrowSectionCell>
-//             </NotFullWidthSection>
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={2} gridRowGap={4}
-//                 alignItem="center"
-//                 verticalPadding={SECTION_PADDING.MINOR}>
-//                 <GridCell>
-//                     <p className="text-text">
-//                         The development and enhancement of image accessibility including the necessary improvements for the required URLs are currently not satisfactory:
-//                         <ul>
-//                             <li>37 image URLs are missing Alt text</li>
-//                             <li>32 image URLs are missing size attribute</li>
-//                             <li>2 image URLs Alt text are over 100 characters</li>
-//                         </ul>
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("Findings4_1.png")} shadow={false}
-//                     annotation="Fig.4 SEO analysis by Screaming Frog under Image Sector" />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
-//         </>
-//     );
-// }
 
-// function Recommendation4() {
-//     return (
-//         <>
-//             <NotFullWidthSection verticalPadding={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin}>
-//                 <GrowSectionCell>
-//                     <p className="text-brief" style={{ color: COLOR.jade }}>
-//                         Recommandation4
-//                         <br />
-//                     </p>
-//                     <p className="title-section">
-//                         Fill missing Alt text in image URLs with concise content under 100 characters.
-//                     </p>
-//                 </GrowSectionCell >
-//             </NotFullWidthSection >
-//             <SectionGrid
-//                 gridMaxColumn={2} gridMinColumn={1}
-//                 gridColumnGap={2} gridRowGap={4}
-//                 alignItem="center" backgroundColor={COLOR.skin}
-//                 verticalPadding={SECTION_PADDING.MINOR}>
-//                 <GridCell>
-//                     <p className="text-text">
-//                         Ensuring each image URLs contains useful alt text and keep the length of alt text below 100 characters to enhance the overall quality and efficiency of online experiences for users of screen readers, and other special accommodations.
-//                     </p>
-//                 </GridCell>
-//                 <CardImageCell img={ImageFullPath("Recomandation4_1.png")} shadow={false} />
-//             </SectionGrid>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} backgroundColor={COLOR.skin} />
-//         </>
-//     );
-// }
+const Recommendation1 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Recommendation1(props, ref) {
+        return (<Section {...props} ref={ref} color="secondary">
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Recommandation 1</PrimaryTypography>
+                    <Typography variant="h3">
+                        Improve mobile responsiveness, prioritizing specific pages.
+                    </Typography>
+                    <br />
+                    <Typography variant="body1">
+                        The current mobile web navigation is challenging: the hamburger menu is positioned at the bottom left, separate from the main CTA buttons. This non-standard alignment may make it difficult for users to navigate through pages.
+                    </Typography>
+                </Box>
+            </FadeSlide>
 
-// function FinalThoughts() {
-//     return (
-//         <NotFullWidthSection
-//             verticalPadding={SECTION_PADDING.DEFAULT}
-//             backgroundColor={COLOR.jade} >
-//             <GrowSectionCell>
-//                 <p className="title-section" style={{ color: "white", textAlign: "center" }}>Final Thoughts</p>
-//             </GrowSectionCell >
-//         </NotFullWidthSection >
-//     );
-// }
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation1_1.png")} />
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation1_2.png")} />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
 
-// function TakeAways() {
-//     return (
-//         <>
-//             <NotFullWidthSection height={SECTION_PADDING.DEFAULT} />
-//             <SectionGrid
-//                 gridMaxColumn={3} gridMinColumn={2}
-//                 gridColumnGap={2}
-//                 verticalPadding={SECTION_PADDING.DEFAULT}>
-//                 <GridCell>
-//                     <p className="title-section">Takeaways</p>
-//                 </GridCell>
-//                 <GridCell startPosition="span 2">
-//                     <p className="text-text">
-//                         My team and I successfully presented our research report to the client, receiving positive feedback on our work. Additionally, we supplied them with a SEO appendix and a dashboard for future data tracking.
-//                         <br /><br />
-//                         Personally, delving into the integration of digital analytics into website audits and user behavior research, complete with quantitative data, proved fascinating. Prior to this, my experience was mainly in collaboration with data analysts. Analyzing the analytics data independently for the first time was truly inspiring, offering me a better understanding of how web analytics metrics and KPIs align with organizational goals.
-//                         <br /><br />
-//                         Our project was constrained by incomplete web analytics settings for user demographics. If I were to continue this project, I would prioritize optimizing Google Analytics settings and exploring user behaviors through an age dimension. This approach would provide deeper insights into how we can extend our audience reach to a younger demographic.
-//                     </p>
-//                 </GridCell>
-//             </SectionGrid>
-//         </>
-//     );
-// }
+
+
+const Findings2 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Findings2(props, ref) {
+        return (<Section {...props} ref={ref}>
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Findings 2</PrimaryTypography>
+                    <Typography variant="h3">
+                        Local users prioritize education resources.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+
+            <FadeSlide>
+                <Grid container columns={{ md: 2, sm: 1 }} alignItems="stretch">
+                    <Grid item xs={1}>
+                        <Stack height="100%" justifyContent="space-between" >
+                            <Typography variant="body1">
+                                Compared to non-local users, local users frequently use the website for education-related content. (Fig.2.2) Also, education-related pages show a higher engagement rate (80%+) than other pages.
+                                <br /><br />
+                                A major source of traffic for mths.mt.gov is classroom.google.com, which refers 86% of users to “Stories of the Land” (fig. 2.1)
+                            </Typography>
+                            <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings2_2.png")} annotation="Fig. 2.2: Breakdown of traffic by source" />
+                        </Stack>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings2_1.png")} annotation="Fig. 2.1: Breakdown of traffic by source" />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+const Recommendation2 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Recommendation2(props, ref) {
+        return (<Section {...props} ref={ref} color="secondary">
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Recommandation 2</PrimaryTypography>
+                    <Typography variant="h3">
+                        Increase presence in education sector by optimizing page slugs.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+
+            <FadeSlide>
+                <Grid container columns={2} alignItems="stretch">
+                    <Grid item xs={1}>
+                        <Typography variant="body1">
+                            Optimize web page discoverability by ensuring all page slugs are relevant, and sitemap XML is structured properly. For example: the page path for Stories of the Land page is currently set to index4 and Museum Tours is under education.
+                            <br /><br />
+                            Additionally, we recommend seeking partnership with Education Officials, such as the State Superintendent, to make Stories of the Land the predominant free education resource for Montana-based schools.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation2_1.png")} />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+
+const Findings3 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Findings3(props, ref) {
+        return (<Section {...props} ref={ref}>
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Findings 3</PrimaryTypography>
+                    <Typography variant="h3">
+                        Lack of meta description in critical pages led to a lower traffic reach.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings3_1.png")} annotation="Fig.3.1  Top Page views: Local users" />
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings3_2.png")} annotation="Fig.3.2  Top Page views: Local users" />
+                    </Grid>
+                    <Grid item xs={1}>
+                        <Typography variant="body1">
+                            "Montana The Magazine of Western History" ranks among the top three landing pages for non-local users in contrast to local users. (Fig.3.1-3.2)
+                            <br /><br />
+                            However, this page lacks a meta description, relegating it to a lower information level compared to an unrelated page that does have a meta description. (Fig. 3.3)
+                            <br /><br />
+                            Beyond the "Montana The Magazine of Western History" page, a total of 70 sites still lack meta descriptions.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings3_3.png")} annotation="Fig.3.3  Comparison of Magazine page (without meta description) and a unrelated page with meta descriptions." />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+const Recommendation3 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Recommendation3(props, ref) {
+        return (<Section {...props} ref={ref} color="secondary">
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Recommandation 3</PrimaryTypography>
+                    <Typography variant="h3">
+                        Ensure important pages have meta descriptions
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <Typography variant="body1">
+                            Ensure important pages with high reach have meta descriptions, prioritizing the "Montana The Magazine of Western History"  page.                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation3_1.png")} />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+const Findings4 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Findings4(props, ref) {
+        return (<Section {...props} ref={ref} >
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Findings 4</PrimaryTypography>
+                    <Typography variant="h3">
+                        Accessibility failed in image URLs
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <Typography variant="body1" component="span">
+                            The development and enhancement of image accessibility including the necessary improvements for the required URLs are currently not satisfactory:
+                            <ul>
+                                <li>37 image URLs are missing Alt text</li>
+                                <li>32 image URLs are missing size attribute</li>
+                                <li>2 image URLs Alt text are over 100 characters</li>
+                            </ul>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings4_1.png")} annotation="Fig.4 SEO analysis by Screaming Frog under Image Sector" />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+const Recommendation4 = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Recommendation4(props, ref) {
+        return (<Section {...props} ref={ref} color="secondary">
+            <FadeSlide>
+                <Box>
+                    <PrimaryTypography variant="h5">Recommandation 4</PrimaryTypography>
+                    <Typography variant="h3">
+                        Fill missing Alt text in image URLs with concise content under 100 characters.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <Spacer />
+
+            <FadeSlide>
+                <Grid container columns={2} alignItems="center">
+                    <Grid item xs={1}>
+                        <Typography variant="body1">
+                            Ensuring each image URLs contains useful alt text and keep the length of alt text below 100 characters to enhance the overall quality and efficiency of online experiences for users of screen readers, and other special accommodations.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation4_1.png")} />
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+const FinalThoughts = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function FinalThoughts(props, ref) {
+        return (<Section {...props} ref={ref} color="primary">
+            <Typography variant="h3" textAlign="center">Final Thoughts</Typography>
+        </Section>)
+    }
+);
+
+
+const TakeAways = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function TakeAways(props, ref) {
+        return (<Section {...props} ref={ref}>
+            <FadeSlide>
+                <Grid container columns={{ sm: 1, md: 3 }}>
+                    <Grid item xs={1}>
+                        <Typography variant="h3">Takeaways</Typography>
+                    </Grid>
+
+                    <Grid item xs={2}>
+                        <Typography variant="body1">
+                            My team and I successfully <Link color="primary" href={PRESENTATIONLINK} target="_blank"><b>presented</b></Link> our research report to the client, receiving positive feedback on our work. Additionally, we supplied them with a SEO appendix and a dashboard for future data tracking.
+                            <br /><br />
+                            Personally, delving into the integration of digital analytics into website audits and user behavior research, complete with quantitative data, proved fascinating. Prior to this, my experience was mainly in collaboration with data analysts. Analyzing the analytics data independently for the first time was truly inspiring, offering me a better understanding of how web analytics metrics and KPIs align with organizational goals.
+                            <br /><br />
+                            Our project was constrained by incomplete web analytics settings for user demographics. If I were to continue this project, I would prioritize optimizing Google Analytics settings and exploring user behaviors through an age dimension. This approach would provide deeper insights into how we can extend our audience reach to a younger demographic.
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
 
 export default MontanaHistoricalSociety;
