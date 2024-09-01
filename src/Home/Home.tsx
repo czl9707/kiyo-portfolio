@@ -1,6 +1,6 @@
 import React from 'react';
 import { common } from '@mui/material/colors';
-import { Box, Stack, Typography, Grid, styled, useTheme, createTheme, ThemeProvider } from '@mui/material';
+import { Box, Stack, Typography, Unstable_Grid2 as Grid, styled, useTheme, createTheme, ThemeProvider } from '@mui/material';
 
 import Section, { Spacer } from '../Components/Section.tsx';
 import { SquareChip } from '../Components/SquareChip.tsx';
@@ -41,7 +41,7 @@ const featuredProjects = [
         href: "/Works/AnisePatient",
         imgSrc: 'CoverAnisePatientPortal.png',
         tags: ["Web App", "End to End",],
-        title: "Improve Healthcare Startup's CVR",
+        title: "Improving Mental Healthcare Patient Portal CVR",
         introText: "Enhancing early start-up's client acquisition by removing friction and building trust.",
         buttonText: "VIEW CASE STUDY",
         chipText: 'Shipped in 2023',
@@ -50,10 +50,18 @@ const featuredProjects = [
         href: "/Works/EdgemereFarm",
         imgSrc: 'CoverEdgemereFarm.png',
         tags: ["Website", "NGO", "0 to 1",],
-        title: "Boost NGO User Engagement and People Awareness",
+        title: "Boosting NGO User Engagement and Satisfication",
         introText: "Boosting NGO engagement and increase audience awareness from new user to active supporter.",
         buttonText: "VIEW CASE STUDY",
         chipText: 'Shipped in 2023',
+    },
+    {
+        imgSrc: 'CoverRobotVacuum.png',
+        tags: ["Ethnographic Research", "Recruitment", "In-home Interview", "Concept Testing"],
+        title: "Uncovering US Household Cleaning Needs for Asian Appliance Giant",
+        introText: "How I operated enthographic research for an Asian robot vacuum company to uncover US users' household cleaning needs in as a research operations specialist.",
+        buttonText: "VIEW CASE STUDY",
+        chipText: 'Conducted in 2024',
     },
 ]
 
@@ -61,7 +69,7 @@ const projects = [
     {
         href: "/Works/Knowunity",
         imgSrc: "CoverKnowunity.png",
-        tags: ["User Research", "K-12 Education",],
+        tags: ["User Research", "K-12 Education", "Mobile App",],
         title: "Learning Community Growth",
         introText: "Expanding KnowUnity's creator pool by enhancing creator-audience connections.",
         buttonText: "VIEW CASE STUDY",
@@ -70,7 +78,7 @@ const projects = [
     {
         href: "/Works/MontanaHistoricalSociety",
         imgSrc: "CoverMontanaHistoricalSociety.png",
-        tags: ["Web Analytics", "SEO", "Dashboard"],
+        tags: ["Web Analytics", "SEO", "Dashboard", "Data Visualization",],
         title: "Digital Strategy Optimization",
         introText: "Refining Montana Historical Society's digital strategy through web analytics and SEO evaluation.",
         buttonText: "VIEW CASE STUDY",
@@ -124,8 +132,8 @@ function Welcome() {
                         <Typography variant="body1"
                             sx={{ ml: "6rem", whiteSpace: "wrap" }}
                         >
-                            A Product Desiner with 3 YOE based in NYC <br />
-                            Solving complex business problems with solid research and empathy
+                            Product/UX Desiner <br />
+                            Solving User Problems and Business problems with solid research and empathy
                         </Typography>
                     </FadeSlide>
 
@@ -157,11 +165,11 @@ function Works() {
                             <Grid container direction={(i % 2) ? "row" : "row-reverse"} columns={3}
                                 rowSpacing={12} alignItems="center" justifyContent={(i % 2) ? "flex-start" : "flex-end"}>
 
-                                <Grid item md={3} lg={2}>
+                                <Grid md={3} lg={2}>
                                     {ProjectImage({ ...proj, chipOnRight: !(i % 2) })}
                                 </Grid>
 
-                                <Grid item md={3} lg={1}>
+                                <Grid md={3} lg={1}>
                                     {ProjectInfo(proj)}
                                 </Grid>
 
@@ -175,7 +183,7 @@ function Works() {
                 {
                     projects.map(
                         (proj, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <Stack spacing={3}>
                                     {ProjectImage(proj)}
                                     {ProjectInfo(proj)}
@@ -233,9 +241,12 @@ function ProjectInfo({ href, tags, title, introText, buttonText, external }: Pro
     return (
         <Stack spacing={2} alignItems="start">
             <FadeSlide>
-                <Stack direction="row" spacing={1}>
-                    {tags.map((tag) => (<SquareChip label={tag} color="primary" key={tag} />))}
-                </Stack>
+                <Box>
+                    {tags.map((tag) =>
+                    (<SquareChip label={tag} color="primary" key={tag}
+                        sx={{ m: .5 }} />)
+                    )}
+                </Box>
             </FadeSlide>
 
             <FadeSlide delay={150}>

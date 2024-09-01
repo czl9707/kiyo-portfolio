@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Link, Stack } from "@mui/material";
+import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Link, Stack } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -57,6 +57,7 @@ function MontanaHistoricalSociety() {
 
             <CatagorizeGroup catagoryName="Findings & Recommendations">
                 <Catagorize id="findings-and-recommendations-overview" catagoryName="Overview"><FindingsAndRecommendations /></Catagorize>
+                <Catagorize id="findings-and-recommendations-dashboard" catagoryName="Dashboard"><Dashboard /></Catagorize>
                 <Catagorize id="findings-and-recommendations-1" catagoryName="F&R 1">
                     <div>
                         <Findings1 />
@@ -96,7 +97,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="primary">
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <SuccessTypography variant="h5">Overview</SuccessTypography>
                         <Typography variant="h3">
                             Montana Historical Society
@@ -108,7 +109,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Box component="img" src={ImageFullPath('Intro.png')}
                             minHeight="100%" maxWidth="200%" sx={{ ml: 10 }} />
                     </Grid>
@@ -124,7 +125,7 @@ const Intro = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Duration</PrimaryTypography>
                         <Typography variant="body1">Nov 2023 - Dec 2023 (4 weeks)</Typography>
                         <br />
@@ -132,7 +133,7 @@ const Intro = React.forwardRef<HTMLDivElement, { id?: string }>(
                         <Typography variant="body1">Google Analytics, Google Looker Studio, Woorank, Screamingfrog, Google Lighthouse</Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Team</PrimaryTypography>
                         <Typography variant="body1">4 digital analyst</Typography>
                         <br />
@@ -156,14 +157,14 @@ const Intro = React.forwardRef<HTMLDivElement, { id?: string }>(
                     </Typography>
 
                     <Grid container columns={2} alignItems="center">
-                        <Grid item xs={1}>
+                        <Grid xs={1}>
                             <Typography variant="body1">
                                 The Montana Historical Society (MHS) operates as both a state agency and nonprofit organization, dedicated to preserving and promoting Montana's historical narrative.
                                 <br /><br />
                                 While its primary audience consists of local Montana visitors, MHS strives to expand its reach to include a more diverse audience, including those from outside the state. Furthermore, MHS seeks to understand audience preferences to customize its content for a wider reach.
                             </Typography>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid xs={1}>
                             <ImageWithAnnotation imgSrc={ImageFullPath("OrganizationalGoal.png")} />
                         </Grid>
                     </Grid>
@@ -206,7 +207,7 @@ const ResearchQuestion = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ sm: 1, md: 3 }} alignItems="stretch" justifyContent="stretch">
                     {
                         researchQuestionContent.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <ThemedPaper variant="outlined">
                                     <PrimaryTypography variant="h4">{item.num}</PrimaryTypography>
                                     <Typography variant="body1">{item.text}</Typography>
@@ -235,7 +236,7 @@ const Methods = React.forwardRef<HTMLDivElement, { id?: string }>(
             <Spacer />
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 2 }} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             We analyzed the MHS's Google Analytics data on key metrics from <b>Sep 1st, 2023 (the starting time of their GA set-up) to present</b> for understanding how users are interacting with the web. <br />
                             Furthermore, we created segments for non-local users and <b>Montana local users</b> to compare their behaviors and preferences. <br />
@@ -249,18 +250,18 @@ const Methods = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </ul>
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("Method1.png")} annotation="New user source (data in MHS Google Analytics)" />
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             Since we realized the major traffic come from organic search, our team also conducted a <b>search engine optimization</b> audit to drive insights on making the site appealing to both users and search engines.
                             <br /><br />
                             {"The on-page SEO audit is a process of evaluating the website's current search engine performance by using a rubric to examine specific criteria that determines its passability."}
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("Method2.png")} annotation="MHS SEO audit" />
                     </Grid>
                 </Grid>
@@ -306,23 +307,23 @@ const FindingsAndRecommendations = React.forwardRef<HTMLDivElement, { id?: strin
             <Spacer />
             <FadeSlide>
                 <Grid container columns={2} alignItems="stretch" rowSpacing={3}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h5">Findings</Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <SuccessTypography variant="h5">Recommendations</SuccessTypography>
                     </Grid>
                     {
                         findingsAndRecommendationsContent.map((item, i) => (
                             <React.Fragment key={i}>
-                                <Grid item xs={1}>
+                                <Grid xs={1}>
                                     <ThemedPaper sx={{ height: "100%" }}>
                                         <Typography variant="body1">
                                             {item.finding}
                                         </Typography>
                                     </ThemedPaper>
                                 </Grid>
-                                <Grid item xs={1}>
+                                <Grid xs={1}>
                                     <ThemedPaper color="success" sx={{ height: "100%" }}>
                                         <Typography variant="body1">
                                             {item.recommendation}
@@ -333,6 +334,25 @@ const FindingsAndRecommendations = React.forwardRef<HTMLDivElement, { id?: strin
                         ))
                     }
                 </Grid>
+            </FadeSlide>
+        </Section>)
+    }
+);
+
+
+const Dashboard = React.forwardRef<HTMLDivElement, { id?: string }>(
+    function Dashboard(props, ref) {
+        return (<Section {...props} ref={ref} color="primary">
+            <FadeSlide>
+                <Box>
+                    <Typography variant="h3">Dashboard</Typography>
+                    <Typography variant="body1">
+                        We developed a dashboard in Looker Studio to visually represent the data for ongoing tracking purposes.
+                    </Typography>
+                </Box>
+            </FadeSlide>
+            <FadeSlide>
+                <ImageWithAnnotation imgSrc={ImageFullPath("Dashboard.png")} />
             </FadeSlide>
         </Section>)
     }
@@ -354,25 +374,25 @@ const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="center">
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             The MHS website attracts a majority of desktop users (72.7%), with local users showing a strong preference for desktops (89.7%). In contrast, <b>non-local users lean towards mobile devices (45.6%), almost evenly split with desktop usage (52.3%)</b>. (fig 1.1-1.3)
                             <br /><br />
                             Even though mobile devices are popular among non-local users, desktop users tend to spend more time on the website. However, <b>mobile users experience a 8.43% higher bounce rate(41.41%) than desktop users (32.98%)</b>, possibly indicating a suboptimal mobile experience. (fig. 1.4)
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Grid container columns={{ md: 2, sm: 4 }} spacing={3}>
-                            <Grid item xs={1}>
+                            <Grid xs={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph1.png")} annotation="Fig.1.1 Device category All users" />
                             </Grid>
-                            <Grid item xs={1}>
+                            <Grid xs={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph2.png")} annotation="Fig.1.2 Device category Montana local users" />
                             </Grid>
-                            <Grid item xs={1}>
+                            <Grid xs={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph3.png")} annotation="Fig.1.3 Device category Non-local users" />
                             </Grid>
-                            <Grid item xs={1}>
+                            <Grid xs={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Legend.png")} sx={{ width: "60%", ml: "20%" }} />
                             </Grid>
                         </Grid>
@@ -407,10 +427,10 @@ const Recommendation1 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation1_1.png")} />
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation1_2.png")} />
                     </Grid>
                 </Grid>
@@ -436,7 +456,7 @@ const Findings2 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} alignItems="stretch">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Stack height="100%" justifyContent="space-between" >
                             <Typography variant="body1">
                                 Compared to non-local users, local users frequently use the website for education-related content. (Fig.2.2) Also, education-related pages show a higher engagement rate (80%+) than other pages.
@@ -446,7 +466,7 @@ const Findings2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings2_2.png")} annotation="Fig. 2.2: Breakdown of traffic by source" />
                         </Stack>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings2_1.png")} annotation="Fig. 2.1: Breakdown of traffic by source" />
                     </Grid>
                 </Grid>
@@ -471,14 +491,14 @@ const Recommendation2 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="stretch">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             Optimize web page discoverability by ensuring all page slugs are relevant, and sitemap XML is structured properly. For example: the page path for Stories of the Land page is currently set to index4 and Museum Tours is under education.
                             <br /><br />
                             Additionally, we recommend seeking partnership with Education Officials, such as the State Superintendent, to make Stories of the Land the predominant free education resource for Montana-based schools.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation2_1.png")} />
                     </Grid>
                 </Grid>
@@ -504,13 +524,13 @@ const Findings3 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings3_1.png")} annotation="Fig.3.1  Top Page views: Local users" />
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings3_2.png")} annotation="Fig.3.2  Top Page views: Local users" />
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             "Montana The Magazine of Western History" ranks among the top three landing pages for non-local users in contrast to local users. (Fig.3.1-3.2)
                             <br /><br />
@@ -519,7 +539,7 @@ const Findings3 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             Beyond the "Montana The Magazine of Western History" page, a total of 70 sites still lack meta descriptions.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings3_3.png")} annotation="Fig.3.3  Comparison of Magazine page (without meta description) and a unrelated page with meta descriptions." />
                     </Grid>
                 </Grid>
@@ -544,11 +564,11 @@ const Recommendation3 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             Ensure important pages with high reach have meta descriptions, prioritizing the "Montana The Magazine of Western History"  page.                        </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation3_1.png")} />
                     </Grid>
                 </Grid>
@@ -573,7 +593,7 @@ const Findings4 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1" component="span">
                             The development and enhancement of image accessibility including the necessary improvements for the required URLs are currently not satisfactory:
                             <ul>
@@ -583,7 +603,7 @@ const Findings4 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </ul>
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings4_1.png")} annotation="Fig.4 SEO analysis by Screaming Frog under Image Sector" />
                     </Grid>
                 </Grid>
@@ -608,12 +628,12 @@ const Recommendation4 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             Ensuring each image URLs contains useful alt text and keep the length of alt text below 100 characters to enhance the overall quality and efficiency of online experiences for users of screen readers, and other special accommodations.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Recomandation4_1.png")} />
                     </Grid>
                 </Grid>
@@ -637,11 +657,11 @@ const TakeAways = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 3 }}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Takeaways</Typography>
                     </Grid>
 
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             My team and I successfully <Link color="primary" href={PRESENTATIONLINK} target="_blank"><b>presented</b></Link> our research report to the client, receiving positive feedback on our work. Additionally, we supplied them with a SEO appendix and a dashboard for future data tracking.
                             <br /><br />

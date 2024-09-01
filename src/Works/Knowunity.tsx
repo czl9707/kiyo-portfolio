@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Stack, TypographyProps } from "@mui/material";
+import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Stack, TypographyProps } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -104,7 +104,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="secondary">
             <FadeSlide>
                 <Grid container columns={2}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Overview</PrimaryTypography>
                         <Typography variant="h3">
                             Knowunity
@@ -116,7 +116,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Box component="img" src={ImageFullPath('Intro.png')} width="100%" />
                     </Grid>
                 </Grid>
@@ -131,7 +131,7 @@ const Intro = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Duration</PrimaryTypography>
                         <Typography variant="body1">Nov 2023 - Dec 2023 (6 weeks)</Typography>
                         <br />
@@ -139,7 +139,7 @@ const Intro = React.forwardRef<HTMLDivElement, { id?: string }>(
                         <Typography variant="body1">4 user researchers</Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">My Contribution</PrimaryTypography>
                         <Typography variant="body1">
                             Drafted research plan protocol.<br />
@@ -211,7 +211,7 @@ const Context = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ md: 3, sm: 1 }} columnSpacing={3}>
                     {
                         contextCardsContent.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <ThemedPaper sx={{ height: "100%" }}>
                                     <Stack alignItems="center">
                                         <Box component="img" src={ImageFullPath(item.imgSrc)} width="3rem" />
@@ -267,7 +267,7 @@ const ResearchQuestions = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={11} alignItems="center" columnSpacing={1} rowSpacing={1}>
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                         {
                             [
                                 "What motivates engagement?",
@@ -281,11 +281,11 @@ const ResearchQuestions = React.forwardRef<HTMLDivElement, { id?: string }>(
                         }
                     </Grid>
 
-                    <Grid item xs={3}>
+                    <Grid xs={3}>
                         <Box component="img" src={ImageFullPath("QuestionSpider.png")} width="100%" />
                     </Grid>
 
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                         {
                             [
                                 "What motivates connection with content creators?",
@@ -299,14 +299,14 @@ const ResearchQuestions = React.forwardRef<HTMLDivElement, { id?: string }>(
                         }
                     </Grid>
 
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                         <PrimaryTypography variant="h5" textAlign="center">Creater</PrimaryTypography>
                     </Grid>
 
-                    <Grid item xs={3}>
+                    <Grid xs={3}>
                     </Grid>
 
-                    <Grid item xs={4}>
+                    <Grid xs={4}>
                         <PrimaryTypography variant="h5" textAlign="center">Reqular Users</PrimaryTypography>
                     </Grid>
                 </Grid>
@@ -332,13 +332,13 @@ const AudienceRecruitment = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             We sent out screeners via email to both two group of users from the data we got from Knowunity team. After collecting the data from our screener questionnaire, based on people's activeness, we decided to target people who meet the following requirements. We recruited 10 participants (5 for creators and 5 for regular users) from the screener respondents.
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath('InterviewRecruitment.png')} width="100%" annotation="Interview with regular users" />
                     </Grid>
                 </Grid>
@@ -348,7 +348,7 @@ const AudienceRecruitment = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Stack direction="row" spacing={3} alignItems="center">
                             <GirlProfileImg set="Happy" />
                             <PrimaryTypography variant="body1"><b>Creators</b></PrimaryTypography>
@@ -361,7 +361,7 @@ const AudienceRecruitment = React.forwardRef<HTMLDivElement, { id?: string }>(
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Stack direction="row" spacing={3} alignItems="center">
                             <BoyProfileImg set="Happy" />
                             <PrimaryTypography variant="body1"><b>Regular users</b></PrimaryTypography>
@@ -423,7 +423,7 @@ const FindingAndRecommendations = React.forwardRef<HTMLDivElement, { id?: string
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 2 }} spacing={3} alignItems="stretch">
                     {findingAndRecommendationsContent.map((item, i) => (
-                        <Grid item xs={1} key={i}>
+                        <Grid xs={1} key={i}>
                             <ThemedPaper sx={{ height: "100%" }}>
                                 <Typography variant="h5">{item.title}</Typography>
                                 <Typography variant="body1">
@@ -458,7 +458,7 @@ const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 2 }} alignItems="center" justifyContent="space-between">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             Lighthouse values authenticity and building connections with people , and don't identify themselves as influencer, or experts, or someone with a huge following.
                         </Typography>
@@ -478,7 +478,7 @@ const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             - Lighthouse creator 4
                         </Quote>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Stack alignItems="center">
                             <GirlProfileImg set="Happy" size="big" />
                         </Stack>
@@ -828,11 +828,11 @@ const TakeAways = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 3 }}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Takeaways</Typography>
                     </Grid>
 
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             My team and I delivered our presentation to Knowunity stakeholders and they were very impressed by our work as they gained a better understanding of <b>what lighthouse creators value </b>and<b> how regular users interact with creators</b>. Our recommendation 1 particularly led to their reconsideration about strategy on lighthouse creators' criteria.
                         </Typography>
@@ -910,10 +910,10 @@ function FindingsSection({ title, subtitle, children, imgSrc, annotation }: {
 
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 3 }} alignItems="center" spacing={12}>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         {children}
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath(imgSrc)} annotation={annotation} />
                     </Grid>
                 </Grid>
@@ -942,7 +942,7 @@ function RecommendationSection({ title, subtitle, children, imgSrc, annotation }
 
             <FadeSlide>
                 <Grid container columns={{ sm: 1, md: 2 }} alignItems="center" spacing={12}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath(imgSrc)}
                             annotation={
                                 <>
@@ -951,7 +951,7 @@ function RecommendationSection({ title, subtitle, children, imgSrc, annotation }
                                 </>
                             } />
                     </Grid>
-                    <Grid item xs={1}>{children}</Grid>
+                    <Grid xs={1}>{children}</Grid>
                 </Grid>
             </FadeSlide>
         </>

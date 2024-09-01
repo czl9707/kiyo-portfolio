@@ -1,4 +1,4 @@
-import { Box, Button, createTheme, Grid, Link, Stack, ThemeProvider, Typography, TypographyProps, useTheme } from "@mui/material";
+import { Box, Button, createTheme, Unstable_Grid2 as Grid, Link, Stack, ThemeProvider, Typography, TypographyProps, useTheme } from "@mui/material";
 import { common } from "@mui/material/colors";
 import * as React from "react";
 import ProjectHeader from "./Components/ProjectHeader";
@@ -102,7 +102,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
             <Spacer />
             <FadeSlide>
                 <Grid container columns={2}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Duration</PrimaryTypography>
                         <Typography variant="body1">
                             Sep 2023 - Dec 2023 (14 weeks)
@@ -114,7 +114,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">My Contribution</PrimaryTypography>
                         <Typography component="span" variant="body1">
                             As a UX Designer, I: <br />
@@ -151,7 +151,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} justifyContent={"stretch"}>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <PrimaryTypography variant="h5">Organizational Goal</PrimaryTypography>
                         <Typography variant="body1">
                             As we redesigned the website, we focused on these four organizational goals:
@@ -159,7 +159,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                     </Grid>
                     {
                         overviewGoals.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                                     <Typography variant="h5">{item.title}</Typography>
                                     <Typography variant="body1">{item.text}</Typography>
@@ -174,7 +174,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Why redesigning?</PrimaryTypography>
                         <Typography variant="body1">
                             The current website with unstructured information and absent navigation showed
@@ -182,7 +182,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                             , making it difficulty for users to locate key information and get a quick understanding of contents at a glance.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("CurrentWebsite.gif")} annotation="Current Website" />
                     </Grid>
                 </Grid>
@@ -228,11 +228,11 @@ const FinalDelivery = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Final Delivery</Typography>
                     </Grid>
 
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             By implementing a user-centric approach, my team successfully enhanced the website's usability, accessibility and aesthetics.
                             <br /><br />
@@ -336,7 +336,7 @@ const ResearchOverview = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ sm: 4, xs: 2 }} spacing={2}>
                     {
                         researchOverviewMetrics.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                                     <Typography variant="h2" textAlign="center">{item.number}</Typography>
                                     <Typography variant="h5" textAlign="center">{item.title}</Typography>
@@ -381,7 +381,7 @@ const EcosystemMapAndTargetAudience = React.forwardRef<HTMLDivElement, { id?: st
 
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="body1">
                             I created an ecosystem map to analyze the participants in both online and on-site interactions and their relationships with the farm. EF primarily caters to local residents, supplemented by a mix of distant visitors and individuals engaging with us online.
                             <br /><br />
@@ -398,7 +398,7 @@ const EcosystemMapAndTargetAudience = React.forwardRef<HTMLDivElement, { id?: st
                             </b>
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("EcosystemMap.png")}
                             annotation="Ecosystem Map: How do stakeholders work together" />
                     </Grid>
@@ -422,12 +422,12 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
 
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="center">
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             We conducted 5 Zoom interviews with various engagers at the farm contributing as volunteers, customers or business partners. These discussions provided insights into local residents' motivation to get engaged. Corresponding to these two motivations, we broke down our design goals into two design strategies.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("UserInterview.png")}
                             annotation="User interview with a volunteer" />
                     </Grid>
@@ -436,7 +436,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
             <Spacer />
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" rowSpacing={3}>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                             <Stack direction="row" spacing={2} alignItems="center">
                                 <Box component="img" src={ImageFullPath("Stars.png")} alt="Stars.png" width="7em" />
@@ -452,7 +452,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
                             </Quote>
                         </ThemedPaper>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ThemedPaper color="success" sx={{ height: "100%" }}>
                             <Typography variant="h4">
                                 Design Strategy 1
@@ -463,7 +463,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
                             </Typography>
                         </ThemedPaper>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <ThemedPaper color="secondary" sx={{ height: "100%" }}>
                             <Stack direction="row" spacing={2} alignItems="center">
                                 <Box component="img" src={ImageFullPath("Friends.png")} alt="Friends.png" width="7em" />
@@ -479,7 +479,7 @@ const KeyInsightsAndDesignStrategy = React.forwardRef<HTMLDivElement, { id?: str
                             </Quote>
                         </ThemedPaper>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ThemedPaper color="success" sx={{ height: "100%" }}>
                             <Typography variant="h4">
                                 Design Strategy 2
@@ -522,17 +522,17 @@ const UserJourney = React.forwardRef<HTMLDivElement, { id?: string }>(
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} columnSpacing={12}
                     justifyContent="center" alignItems="center">
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             The information spectrum reflects how we've organized content—from informative elements like EF's mission, story, and daily services to engaging aspects that encourage users to become part of the community.
                             <br /><br />
                             Newcomers initially prioritize information gathering. As they familiarize themselves with EF, their focus shifts toward active participation in daily activities. Increased engagement deepens their understanding of EF's efforts and strengthens their connections with the community, motivating them to become more involved and supportive.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("FromANewcomerToActiveSupporter_2.png")} />
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("FromANewcomerToActiveSupporter_3.png")} />
                     </Grid>
                 </Grid>
@@ -546,10 +546,10 @@ const DesignSketchAndUserTesting = React.forwardRef<HTMLDivElement, { id?: strin
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Design Sketch & User Testing</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             My team and I developed 16 new pages following our newly proposed information architecture.
                             <br />
@@ -605,11 +605,11 @@ const FinalDesign = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="secondary">
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} >
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Hi-fi Design</Typography>
                         <PrototypleButton />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography component="span" variant="body1">
                             We iterated the wireframes into hi-fi prototypes corresponding to the insights we gained from the user testing. Feel free to explore the clickable prototypes to see the full scope of our design work :)
                             <br /><br />
@@ -671,10 +671,10 @@ const Reflections = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={{ md: 3, sm: 1 }} >
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Reflections</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             My team and I delivered a <Link color="primary"><b>presentation</b></Link> to the founder of Edgemere Farm and received enthusiastic feedback and high praise. Our client mentioned that our research inspired a new perspective on how they view themselves, motivating both their audience and their team.
                             <br /><br /><br />

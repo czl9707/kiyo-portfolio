@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
+import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -99,7 +99,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Duration</PrimaryTypography>
                         <Typography variant="body1">
                             4 months (Round 1) + 2 months (Round 2)
@@ -116,7 +116,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <PrimaryTypography variant="h5">Role & Contribution</PrimaryTypography>
                         <Typography variant="body1" component="span">
                             As a UX Designer, I: <br />
@@ -143,7 +143,7 @@ const Problems = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={1} alignItems="center">
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Box>
                             <PrimaryTypography variant="h5">Problems</PrimaryTypography>
                             <Typography variant="h3">
@@ -151,7 +151,7 @@ const Problems = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Box component={PNGInvertOnTheme} src={ImageFullPath("Dropoff.png")} width="100%" />
                     </Grid>
                 </Grid>
@@ -204,16 +204,16 @@ const Process = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="secondary">
             <FadeSlide>
                 <Grid container columns={3}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Progress</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body2">
                             We enhanced the client onboarding experience <b>in 2 rounds of design</b>.<br />
                             In the 1st Round, we simplified the user flow, enhanced transparency and improved overall usability. In the 2nd Round, we mainly focused on further user education and trust-building.
                         </Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid xs={3}>
                         <Box component='img' src={ImageFullPath("Process.png")} width="100%" />
                     </Grid>
                 </Grid>
@@ -313,10 +313,10 @@ const Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="success">
             <FadeSlide>
                 <Grid container columns={3}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Impact</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             The Round 1 Designs, launched in April 2023, significantly improved user satisfication, conversion and renewal rate. The Round 2 designs were released after my tenure, with the team consistently tracking user satisfaction and CVR.
                         </Typography>
@@ -332,7 +332,7 @@ const Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ md: 4, sm: 2 }} alignItems="stretch" spacing={3}>
                     {
                         impactRound1Content.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <InfoContentCard {...item} key={i} />
                             </Grid>
                         ))
@@ -348,7 +348,7 @@ const Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" spacing={3}>
                     {
                         impactRound2Content.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <InfoContentCard {...item} />
                             </Grid>
                         ))
@@ -647,10 +647,10 @@ const Round1Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="success">
             <FadeSlide>
                 <Grid container columns={3}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Round 1 Impact</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             The Beta 2.0 were launched at April 2023 and received possitive impact within 2 months of launching.
                             <br /> <br />
@@ -664,7 +664,7 @@ const Round1Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ md: 4, sm: 2 }} alignItems="stretch" spacing={3}>
                     {
                         impactRound1Content.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <InfoContentCard {...item} key={i} />
                             </Grid>
                         ))
@@ -698,14 +698,14 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} justifyItems="stretch">
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <PrimaryTypography variant="h5">Usability Testing & Interviews</PrimaryTypography>
                         <Typography variant="h3">Understand the remaining issues and the factors encourage users to adopt our services.</Typography>
                         <Typography variant="body1">
                             To comprehensively understand the strengths and weaknesses of our new onboarding process, we decided to gain feedbacks with 2 research methods:
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <SecondaryPaper>
                             <Typography variant="h4">Interview with Exisiting Clients</Typography>
                             <Typography variant="body1">
@@ -713,7 +713,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </Typography>
                         </SecondaryPaper>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <SecondaryPaper>
                             <Typography variant="h4">Usability Testing with Novice Users</Typography>
                             <Typography variant="body1">
@@ -726,14 +726,14 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
             <Spacer />
             <FadeSlide>
                 <Grid container columns={{ md: 2, sm: 1 }} justifyItems="stretch">
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <PrimaryTypography variant="h5">Insight</PrimaryTypography>
                         <Typography variant="h3">Varying information Needs for two user groups</Typography>
                         <Typography variant="body1">
                             After synthesizing data from two research methods, we identified two user types with different information needs.
                         </Typography>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <SecondaryPaper>
                             <Box component="img" src={ImageFullPath("Round2InsightFigure1.png")} width="6rem" />
                             <Typography variant="h4">Quick Deision-maker</Typography>
@@ -751,7 +751,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </Typography>
                         </SecondaryPaper>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <SecondaryPaper>
                             <Box component="img" src={ImageFullPath("Round2InsightFigure2.png")} width="6rem" />
                             <Typography variant="h4">Detailed Deision-maker</Typography>
@@ -858,11 +858,11 @@ const DesignIteration1 = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("DesignIteration1Solution3.png")}
                             annotation={"In-depth Info about Our Care Model (Round 2 Design)"} />
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("DesignIteration1Solution4.png")}
                             annotation={"In-depth Info about Care Plans & Pricing (Round 2 Design)"} />
                     </Grid>
@@ -964,10 +964,10 @@ const Round2Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref} color="success">
             <FadeSlide>
                 <Grid container columns={3}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Round 2 Impact</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1" component="span">
                             The iterated design was launched after I left AnHealth. To measure its impact, I personally conducted user testing with 5 participants:
                         </Typography>
@@ -980,7 +980,7 @@ const Round2Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" spacing={3}>
                     {
                         round2ImpactContent.map((item, i) => (
-                            <Grid item xs={1} key={i}>
+                            <Grid xs={1} key={i}>
                                 <InfoContentCard {...item} />
                             </Grid>
                         ))
@@ -1006,10 +1006,10 @@ const Learnings = React.forwardRef<HTMLDivElement, { id?: string }>(
         return (<Section {...props} ref={ref}>
             <FadeSlide>
                 <Grid container columns={3}>
-                    <Grid item xs={1}>
+                    <Grid xs={1}>
                         <Typography variant="h3">Learnings</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid xs={2}>
                         <Typography variant="body1">
                             <b>Collaborating with Cross-Functional Teams:</b> <br />
                             In this project, close collaboration with the cross-functional team was essential. Making design decisions from multiple perspectives and communicating with other teams about development challenges, resource needs, business phases, and marketing strategies helped inform our design choices. I learned the importance of the designer's role in a product team and how to work effectively to benefit both the team and the users.
@@ -1051,10 +1051,10 @@ const TextImagePair = ({ content, imgSrc, annotation, reverse = false, centerAli
 ) => (
     <FadeSlide>
         <Grid container columns={5} direction={reverse ? "row-reverse" : "row"} alignItems={centerAligned ? "center" : undefined}>
-            <Grid item md={2} sm={5}>
+            <Grid md={2} sm={5}>
                 {content}
             </Grid>
-            <Grid item md={3} sm={5}>
+            <Grid md={3} sm={5}>
                 <ImageWithAnnotation imgSrc={imgSrc} annotation={annotation} noShadow={noShadow} />
             </Grid>
         </Grid>

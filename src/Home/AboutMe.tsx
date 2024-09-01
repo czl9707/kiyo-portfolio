@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Section, { Spacer } from '../Components/Section';
-import { createSvgIcon, Grid, Stack, styled, Typography } from '@mui/material';
+import { createSvgIcon, Unstable_Grid2 as Grid, Stack, styled, Typography } from '@mui/material';
 import { Mail } from '@mui/icons-material';
 import ImageWithAnnotation from '../Works/Components/ImageWithAnnotation';
 import FadeSlide from '../Components/FadeSlideEffect';
@@ -20,10 +20,10 @@ function AboutMe() {
 
                 <FadeSlide>
                     <Grid container columns={{ md: 2, sm: 1 }}>
-                        <Grid item xs={1}>
+                        <Grid xs={1}>
                             <ImageWithAnnotation imgSrc="Home/AboutMe.jpg" />
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid xs={1}>
                             <Typography variant='h3'>
                                 Hi, I'm Kiyo.<br />
                                 Nice to meet you:)
@@ -51,7 +51,7 @@ function AboutMe() {
 
                 <FadeSlide>
                     <Grid container columns={{ md: 2, sm: 1 }}>
-                        <Grid item xs={1}>
+                        <Grid xs={1}>
                             <Typography variant='h3'>
                                 Let's connect!
                             </Typography>
@@ -60,7 +60,7 @@ function AboutMe() {
                                 <Mail htmlColor="#3947BE" fontSize="large" />
                             </Stack>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid xs={1}>
                             <Typography variant='body2'>
                                 Thanks for coming over!
                                 Please feel free to email me at <HighLight>kiyoyangqing@gmail.com</HighLight> if you are interested in learning more about my work, giving feedback or working on an exciting project together!

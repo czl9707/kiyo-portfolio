@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Routes, Route, BrowserRouter, Navigate, Outlet, useLocation } from "react-router-dom";
 import { CssBaseline } from '@mui/material';
 
-import './App.css';
-
 import IsDarkContextProvider from './Theme.tsx';
 import CatagoriesContextProvider from './Components/Catagory.tsx'
 import { Home } from './Home/Home.js';

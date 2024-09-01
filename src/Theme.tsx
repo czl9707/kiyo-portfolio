@@ -54,7 +54,7 @@ const APPBREAKPOINTS: BreakpointsOptions = {
     }
 }
 const APPCOMPONENTS = {
-    MuiGrid: {
+    MuiGrid2: {
         defaultProps: {
             spacing: 6
         }
