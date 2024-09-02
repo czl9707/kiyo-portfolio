@@ -132,7 +132,7 @@ function Welcome() {
                         <Typography variant="body1"
                             sx={{ ml: "6rem", whiteSpace: "wrap" }}
                         >
-                            Product/UX Desiner <br />
+                            Product/UX Designer <br />
                             Solving user problems and business problems with solid research and empathy
                         </Typography>
                     </FadeSlide>

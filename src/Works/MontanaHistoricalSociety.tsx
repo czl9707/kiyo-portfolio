@@ -349,8 +349,10 @@ const Dashboard = React.forwardRef<HTMLDivElement, { id?: string }>(
                     <Typography variant="body1">
                         We developed a dashboard in Looker Studio to visually represent the data for ongoing tracking purposes.
                     </Typography>
+                    <br />
                 </Box>
             </FadeSlide>
+
             <FadeSlide>
                 <ImageWithAnnotation imgSrc={ImageFullPath("Dashboard.png")} />
             </FadeSlide>
@@ -422,6 +424,7 @@ const Recommendation1 = React.forwardRef<HTMLDivElement, { id?: string }>(
                     <Typography variant="body1">
                         The current mobile web navigation is challenging: the hamburger menu is positioned at the bottom left, separate from the main CTA buttons. This non-standard alignment may make it difficult for users to navigate through pages.
                     </Typography>
+                    <br />
                 </Box>
             </FadeSlide>
 
