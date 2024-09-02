@@ -59,7 +59,7 @@ const featuredProjects = [
         imgSrc: 'CoverRobotVacuum.png',
         tags: ["Ethnographic Research", "Recruitment", "In-home Interview", "Concept Testing"],
         title: "Uncovering US Household Cleaning Needs for Asian Appliance Giant",
-        introText: "How I operated enthographic research for an Asian robot vacuum company to uncover US users' household cleaning needs in as a research operations specialist.",
+        introText: "How I conducted enthographic research for an Asian robot vacuum company to uncover US users' household cleaning needs in as a user researcher.",
         buttonText: "VIEW CASE STUDY",
         chipText: 'Conducted in 2024',
     },
@@ -133,7 +133,7 @@ function Welcome() {
                             sx={{ ml: "6rem", whiteSpace: "wrap" }}
                         >
                             Product/UX Desiner <br />
-                            Solving User Problems and Business problems with solid research and empathy
+                            Solving user problems and business problems with solid research and empathy
                         </Typography>
                     </FadeSlide>
 
