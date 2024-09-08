@@ -56,6 +56,15 @@ const featuredProjects = [
         chipText: 'Shipped in 2023',
     },
     {
+        // href: "/Works/ShopStylla",
+        imgSrc: 'CoverShopStylla.png',
+        tags: ["Mobile App", "0 to 1", "SMB",],
+        title: "Empowering Fashion Small Business Owners with AIGC",
+        introText: "AI E-Commerse Creative Studio: Instantly batch generate high-quality model images at fractional costs.",
+        buttonText: "VIEW CASE STUDY",
+        chipText: 'Shipped in 2024',
+    },
+    {
         imgSrc: 'CoverRobotVacuum.png',
         tags: ["Ethnographic Research", "Recruitment", "In-home Interview", "Concept Testing"],
         title: "Uncovering US Household Cleaning Needs for Asian Appliance Giant",
@@ -113,7 +122,7 @@ function Welcome() {
             <Section>
                 <FadeSlide>
                     <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
-                        sx={{ float: "left", mr: "-2rem" }} />
+                        sx={{ float: "left", mr: "-2rem", mb: "2rem" }} />
                 </FadeSlide>
 
                 <Stack height={totalHeight} useFlexGap zIndex='2'
@@ -133,7 +142,7 @@ function Welcome() {
                             sx={{ ml: "6rem", whiteSpace: "wrap" }}
                         >
                             Product/UX Designer <br />
-                            Solving user problems and business problems with solid research and empathy
+                            Solving user problems and business problems with solid research and empathy.
                         </Typography>
                     </FadeSlide>
 
@@ -179,15 +188,14 @@ function Works() {
                     )
                 )
             }
-            <Grid container columns={{ sm: 1, md: 2 }} rowSpacing={12} alignItems="top">
+            <Grid container columns={2} rowSpacing={12} alignItems="top">
                 {
                     projects.map(
                         (proj, i) => (
-                            <Grid xs={1} key={i}>
-                                <Stack spacing={3}>
-                                    {ProjectImage(proj)}
-                                    {ProjectInfo(proj)}
-                                </Stack>
+                            <Grid sm={2} md={1} key={i}>
+                                {ProjectImage(proj)}
+                                <Spacer />
+                                {ProjectInfo(proj)}
                             </Grid>
                         )
                     )
