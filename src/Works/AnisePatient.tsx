@@ -329,7 +329,7 @@ const Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <PrimaryTypography variant="h5">Round 1</PrimaryTypography>
             </FadeSlide>
             <FadeSlide>
-                <Grid container columns={2} alignItems="stretch" spacing={3}>
+                <Grid container columns={4} alignItems="stretch" spacing={3}>
                     {
                         impactRound1Content.map((item, i) => (
                             <Grid sm={2} md={1} key={i}>
@@ -661,7 +661,7 @@ const Round1Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
             <Spacer />
             <FadeSlide>
-                <Grid container columns={2} alignItems="stretch" spacing={3}>
+                <Grid container columns={4} alignItems="stretch" spacing={3}>
                     {
                         impactRound1Content.map((item, i) => (
                             <Grid md={1} sm={2} key={i}>
