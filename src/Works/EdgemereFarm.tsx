@@ -151,7 +151,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
 
             <FadeSlide>
                 <Grid container columns={2} justifyContent={"stretch"}>
-                    <Grid md={1} sm={2}>
+                    <Grid xs={2}>
                         <PrimaryTypography variant="h5">Organizational Goal</PrimaryTypography>
                         <Typography variant="body1">
                             As we redesigned the website, we focused on these four organizational goals:
@@ -333,11 +333,11 @@ const ResearchOverview = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
 
             <FadeSlide>
-                <Grid container columns={2} spacing={2}>
+                <Grid container columns={4} spacing={2}>
                     {
                         researchOverviewMetrics.map((item, i) => (
                             <Grid md={1} sm={2} key={i}>
-                                <ThemedPaper color="secondary" sx={{ height: "100%" }}>
+                                <ThemedPaper color="secondary" sx={{ height: "100%", width: "100%" }}>
                                     <Typography variant="h2" textAlign="center">{item.number}</Typography>
                                     <Typography variant="h5" textAlign="center">{item.title}</Typography>
                                     <Typography variant="body1" textAlign="center">
