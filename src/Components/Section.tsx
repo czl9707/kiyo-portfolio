@@ -13,11 +13,11 @@ interface SectionProperties {
 const Section = React.forwardRef<HTMLDivElement, SectionProperties>(
     function Section({ children, id, color, disableGutters = false }, ref) {
         const ColoredBox = React.useMemo(() => styled(Box)(({ theme }) => ({
-            width: "100%", padding: '4rem', overflow: "hidden",
+            width: "100%", padding: '4rem', overflow: "hidden", zIndex: 1,
             paddingTop: disableGutters ? 0 : undefined,
             paddingBottom: disableGutters ? 0 : undefined,
             color: color ? theme.palette[color].contrastText : undefined,
-            backgroundColor: color ? theme.palette[color].main : undefined
+            backgroundColor: color ? theme.palette[color].main : undefined,
         })),
             [color, disableGutters]
         )

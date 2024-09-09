@@ -329,10 +329,10 @@ const Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <PrimaryTypography variant="h5">Round 1</PrimaryTypography>
             </FadeSlide>
             <FadeSlide>
-                <Grid container columns={{ md: 4, sm: 2 }} alignItems="stretch" spacing={3}>
+                <Grid container columns={4} alignItems="stretch" spacing={3}>
                     {
                         impactRound1Content.map((item, i) => (
-                            <Grid xs={1} key={i}>
+                            <Grid sm={2} md={1} key={i}>
                                 <InfoContentCard {...item} key={i} />
                             </Grid>
                         ))
@@ -345,10 +345,10 @@ const Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
                 <PrimaryTypography variant="h5">Round 2</PrimaryTypography>
             </FadeSlide>
             <FadeSlide>
-                <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" spacing={3}>
+                <Grid container columns={3} alignItems="stretch" spacing={3}>
                     {
                         impactRound2Content.map((item, i) => (
-                            <Grid xs={1} key={i}>
+                            <Grid md={1} sm={3} key={i}>
                                 <InfoContentCard {...item} />
                             </Grid>
                         ))
@@ -661,10 +661,10 @@ const Round1Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
             <Spacer />
             <FadeSlide>
-                <Grid container columns={{ md: 4, sm: 2 }} alignItems="stretch" spacing={3}>
+                <Grid container columns={4} alignItems="stretch" spacing={3}>
                     {
                         impactRound1Content.map((item, i) => (
-                            <Grid xs={1} key={i}>
+                            <Grid md={1} sm={2} key={i}>
                                 <InfoContentCard {...item} key={i} />
                             </Grid>
                         ))
@@ -697,7 +697,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
             <br />
 
             <FadeSlide>
-                <Grid container columns={{ md: 2, sm: 1 }} justifyItems="stretch">
+                <Grid container columns={2} justifyItems="stretch">
                     <Grid xs={2}>
                         <PrimaryTypography variant="h5">Usability Testing & Interviews</PrimaryTypography>
                         <Typography variant="h3">Understand the remaining issues and the factors encourage users to adopt our services.</Typography>
@@ -705,7 +705,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             To comprehensively understand the strengths and weaknesses of our new onboarding process, we decided to gain feedbacks with 2 research methods:
                         </Typography>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid md={1} sm={2}>
                         <SecondaryPaper>
                             <Typography variant="h4">Interview with Exisiting Clients</Typography>
                             <Typography variant="body1">
@@ -713,7 +713,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </Typography>
                         </SecondaryPaper>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid md={1} sm={2}>
                         <SecondaryPaper>
                             <Typography variant="h4">Usability Testing with Novice Users</Typography>
                             <Typography variant="body1">
@@ -725,7 +725,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
             <Spacer />
             <FadeSlide>
-                <Grid container columns={{ md: 2, sm: 1 }} justifyItems="stretch">
+                <Grid container columns={2} justifyItems="stretch">
                     <Grid xs={2}>
                         <PrimaryTypography variant="h5">Insight</PrimaryTypography>
                         <Typography variant="h3">Varying information Needs for two user groups</Typography>
@@ -733,7 +733,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             After synthesizing data from two research methods, we identified two user types with different information needs.
                         </Typography>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid md={1} sm={2}>
                         <SecondaryPaper>
                             <Box component="img" src={ImageFullPath("Round2InsightFigure1.png")} width="6rem" />
                             <Typography variant="h4">Quick Deision-maker</Typography>
@@ -751,7 +751,7 @@ const Round2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </Typography>
                         </SecondaryPaper>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid md={1} sm={2}>
                         <SecondaryPaper>
                             <Box component="img" src={ImageFullPath("Round2InsightFigure2.png")} width="6rem" />
                             <Typography variant="h4">Detailed Deision-maker</Typography>
@@ -977,10 +977,10 @@ const Round2Impact = React.forwardRef<HTMLDivElement, { id?: string }>(
             <br />
 
             <FadeSlide>
-                <Grid container columns={{ md: 3, sm: 1 }} alignItems="stretch" spacing={3}>
+                <Grid container columns={3} alignItems="stretch" spacing={3}>
                     {
                         round2ImpactContent.map((item, i) => (
-                            <Grid xs={1} key={i}>
+                            <Grid md={1} sm={3} key={i}>
                                 <InfoContentCard {...item} />
                             </Grid>
                         ))

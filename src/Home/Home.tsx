@@ -56,6 +56,15 @@ const featuredProjects = [
         chipText: 'Shipped in 2023',
     },
     {
+        // href: "/Works/ShopStylla",
+        imgSrc: 'CoverShopStylla.png',
+        tags: ["Mobile App", "0 to 1", "SMB",],
+        title: "Empowering Fashion Small Business Owners with AIGC",
+        introText: "AI E-Commerse Creative Studio: Instantly batch generate high-quality model images at fractional costs.",
+        buttonText: "VIEW CASE STUDY",
+        chipText: 'Shipped in 2024',
+    },
+    {
         imgSrc: 'CoverRobotVacuum.png',
         tags: ["Ethnographic Research", "Recruitment", "In-home Interview", "Concept Testing"],
         title: "Uncovering US Household Cleaning Needs for Asian Appliance Giant",
@@ -108,48 +117,50 @@ const projects = [
 const totalHeight = '16rem'
 function Welcome() {
     return (
-        <>
+        <Section>
             <Spacer size="xl" />
-            <Section>
-                <FadeSlide>
-                    <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
-                        sx={{ float: "left", mr: "-2rem" }} />
-                </FadeSlide>
-
-                <Stack height={totalHeight} useFlexGap zIndex='2'
-                    justifyContent="space-between" alignItems="stretch"
-                    sx={{ float: "left" }} >
-                    <FadeSlide delay={150}>
-                        <Typography variant="h2"
-                            sx={{ mt: "-.9rem" }} // let the text align at top
-                        >
-                            HELLO <br />
-                            I'M KIYO/QING
-                        </Typography>
+            <Grid container columns={6} columnSpacing={0}>
+                <Grid xs={6} sm={1}>
+                    <FadeSlide>
+                        <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
+                            sx={{ mr: "-2rem", mb: "2rem" }} />
                     </FadeSlide>
+                </Grid>
 
-                    <FadeSlide delay={300}>
-                        <Typography variant="body1"
-                            sx={{ ml: "6rem", whiteSpace: "wrap" }}
-                        >
-                            Product/UX Designer <br />
-                            Solving user problems and business problems with solid research and empathy
-                        </Typography>
-                    </FadeSlide>
+                <Grid xs={6} sm={5}>
+                    <Stack height={totalHeight} useFlexGap zIndex='2'
+                        justifyContent="space-between" alignItems="stretch">
+                        <FadeSlide delay={150}>
+                            <Typography variant="h2"
+                                sx={{ mt: "-.9rem" }} // let the text align at top
+                            >
+                                HELLO <br />
+                                I'M KIYO/QING
+                            </Typography>
+                        </FadeSlide>
 
-                    <FadeSlide delay={450}>
-                        <Box sx={{ ml: "6rem" }}>
-                            <SliderButton text='RESUME' externalLink
-                                href="https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link" />
-                            <SliderButton text="LET'S CONNECT" externalLink
-                                href='https://www.linkedin.com/in/kiyo-yang-46b12a23b/' />
-                        </Box>
-                    </FadeSlide>
-                </Stack>
-                <Box sx={{ clear: "left" }} />
-            </Section >
+                        <FadeSlide delay={300}>
+                            <Typography variant="body1"
+                                sx={{ ml: "6rem", whiteSpace: "wrap" }}
+                            >
+                                Product/UX Designer <br />
+                                Solving user problems and business problems with solid research and empathy.
+                            </Typography>
+                        </FadeSlide>
+
+                        <FadeSlide delay={450}>
+                            <Box sx={{ ml: "6rem" }}>
+                                <SliderButton text='RESUME' externalLink
+                                    href="https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link" />
+                                <SliderButton text="LET'S CONNECT" externalLink
+                                    href='https://www.linkedin.com/in/kiyo-yang-46b12a23b/' />
+                            </Box>
+                        </FadeSlide>
+                    </Stack>
+                </Grid>
+            </Grid >
             <Spacer size="xl" />
-        </>
+        </Section>
     )
 }
 
@@ -179,15 +190,14 @@ function Works() {
                     )
                 )
             }
-            <Grid container columns={{ sm: 1, md: 2 }} rowSpacing={12} alignItems="top">
+            <Grid container columns={2} rowSpacing={12} alignItems="top">
                 {
                     projects.map(
                         (proj, i) => (
-                            <Grid xs={1} key={i}>
-                                <Stack spacing={3}>
-                                    {ProjectImage(proj)}
-                                    {ProjectInfo(proj)}
-                                </Stack>
+                            <Grid sm={2} md={1} key={i}>
+                                {ProjectImage(proj)}
+                                <Spacer />
+                                {ProjectInfo(proj)}
                             </Grid>
                         )
                     )

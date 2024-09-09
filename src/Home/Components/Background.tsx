@@ -10,7 +10,7 @@ function Background() {
         <Box component="section" id="background" sx={{
             width: "100%", px: '4rem', position: "fixed", height: "100vh", top: "-5vh"
         }}>
-            <Container maxWidth="md" disableGutters sx={{ height: "100%", display: "flex", zindex: -1, opacity: ".2" }}>
+            <Container maxWidth="md" disableGutters sx={{ height: "100%", display: "flex", zIndex: -1, opacity: ".2" }}>
                 <Channel />
                 <div style={{ flex: "1 1" }} />
                 <Channel />
