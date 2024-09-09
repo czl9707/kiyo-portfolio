@@ -119,15 +119,15 @@ function Welcome() {
     return (
         <Section>
             <Spacer size="xl" />
-            <Grid container columns={4} columnSpacing={0}>
-                <Grid md={4} lg={1}>
+            <Grid container columns={6} columnSpacing={0}>
+                <Grid xs={6} sm={1}>
                     <FadeSlide>
                         <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
                             sx={{ mr: "-2rem", mb: "2rem" }} />
                     </FadeSlide>
                 </Grid>
 
-                <Grid md={4} lg={3}>
+                <Grid xs={6} sm={5}>
                     <Stack height={totalHeight} useFlexGap zIndex='2'
                         justifyContent="space-between" alignItems="stretch">
                         <FadeSlide delay={150}>
