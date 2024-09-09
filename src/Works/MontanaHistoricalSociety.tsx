@@ -204,10 +204,10 @@ const ResearchQuestion = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
             <Spacer />
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 3 }} alignItems="stretch" justifyContent="stretch">
+                <Grid container columns={3} alignItems="stretch" justifyContent="stretch">
                     {
                         researchQuestionContent.map((item, i) => (
-                            <Grid xs={1} key={i}>
+                            <Grid sm={3} md={1} key={i}>
                                 <ThemedPaper variant="outlined">
                                     <PrimaryTypography variant="h4">{item.num}</PrimaryTypography>
                                     <Typography variant="body1">{item.text}</Typography>
@@ -235,8 +235,8 @@ const Methods = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
             <Spacer />
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 2 }} alignItems="center">
-                    <Grid xs={1}>
+                <Grid container columns={2} alignItems="center">
+                    <Grid sm={2} md={1}>
                         <Typography variant="body1">
                             We analyzed the MHS's Google Analytics data on key metrics from <b>Sep 1st, 2023 (the starting time of their GA set-up) to present</b> for understanding how users are interacting with the web. <br />
                             Furthermore, we created segments for non-local users and <b>Montana local users</b> to compare their behaviors and preferences. <br />
@@ -250,18 +250,18 @@ const Methods = React.forwardRef<HTMLDivElement, { id?: string }>(
                             </ul>
                         </Typography>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid sm={2} md={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("Method1.png")} annotation="New user source (data in MHS Google Analytics)" />
                     </Grid>
 
-                    <Grid xs={1}>
+                    <Grid sm={2} md={1}>
                         <Typography variant="body1">
                             Since we realized the major traffic come from organic search, our team also conducted a <b>search engine optimization</b> audit to drive insights on making the site appealing to both users and search engines.
                             <br /><br />
                             {"The on-page SEO audit is a process of evaluating the website's current search engine performance by using a rubric to examine specific criteria that determines its passability."}
                         </Typography>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid sm={2} md={1}>
                         <ImageWithAnnotation imgSrc={ImageFullPath("Method2.png")} annotation="MHS SEO audit" />
                     </Grid>
                 </Grid>
@@ -375,26 +375,26 @@ const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
             <Spacer />
 
             <FadeSlide>
-                <Grid container columns={{ md: 3, sm: 1 }} alignItems="center">
-                    <Grid xs={2}>
+                <Grid container columns={3} alignItems="center">
+                    <Grid sm={3} md={2}>
                         <Typography variant="body1">
                             The MHS website attracts a majority of desktop users (72.7%), with local users showing a strong preference for desktops (89.7%). In contrast, <b>non-local users lean towards mobile devices (45.6%), almost evenly split with desktop usage (52.3%)</b>. (fig 1.1-1.3)
                             <br /><br />
                             Even though mobile devices are popular among non-local users, desktop users tend to spend more time on the website. However, <b>mobile users experience a 8.43% higher bounce rate(41.41%) than desktop users (32.98%)</b>, possibly indicating a suboptimal mobile experience. (fig. 1.4)
                         </Typography>
                     </Grid>
-                    <Grid xs={1}>
-                        <Grid container columns={{ md: 2, sm: 4 }} spacing={3}>
-                            <Grid xs={1}>
+                    <Grid sm={3} md={1}>
+                        <Grid container columns={2} spacing={3}>
+                            <Grid sm={2} md={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph1.png")} annotation="Fig.1.1 Device category All users" />
                             </Grid>
-                            <Grid xs={1}>
+                            <Grid sm={2} md={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph2.png")} annotation="Fig.1.2 Device category Montana local users" />
                             </Grid>
-                            <Grid xs={1}>
+                            <Grid sm={2} md={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Graph3.png")} annotation="Fig.1.3 Device category Non-local users" />
                             </Grid>
-                            <Grid xs={1}>
+                            <Grid sm={2} md={1}>
                                 <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings1_Legend.png")} sx={{ width: "60%", ml: "20%" }} />
                             </Grid>
                         </Grid>
@@ -458,8 +458,8 @@ const Findings2 = React.forwardRef<HTMLDivElement, { id?: string }>(
             <Spacer />
 
             <FadeSlide>
-                <Grid container columns={{ md: 2, sm: 1 }} alignItems="stretch">
-                    <Grid xs={1}>
+                <Grid container columns={2} alignItems="stretch">
+                    <Grid sm={2} md={1}>
                         <Stack height="100%" justifyContent="space-between" >
                             <Typography variant="body1">
                                 Compared to non-local users, local users frequently use the website for education-related content. (Fig.2.2) Also, education-related pages show a higher engagement rate (80%+) than other pages.
@@ -469,7 +469,7 @@ const Findings2 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings2_2.png")} annotation="Fig. 2.2: Breakdown of traffic by source" />
                         </Stack>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid sm={2} md={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath("Findings2_1.png")} annotation="Fig. 2.1: Breakdown of traffic by source" />
                     </Grid>
                 </Grid>
@@ -659,12 +659,12 @@ const TakeAways = React.forwardRef<HTMLDivElement, { id?: string }>(
     function TakeAways(props, ref) {
         return (<Section {...props} ref={ref}>
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 3 }}>
-                    <Grid xs={1}>
+                <Grid container columns={3}>
+                    <Grid sm={3} md={1}>
                         <Typography variant="h3">Takeaways</Typography>
                     </Grid>
 
-                    <Grid xs={2}>
+                    <Grid sm={3} md={2}>
                         <Typography variant="body1">
                             My team and I successfully <Link color="primary" href={PRESENTATIONLINK} target="_blank"><b>presented</b></Link> our research report to the client, receiving positive feedback on our work. Additionally, we supplied them with a SEO appendix and a dashboard for future data tracking.
                             <br /><br />

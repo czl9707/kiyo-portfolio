@@ -117,48 +117,50 @@ const projects = [
 const totalHeight = '16rem'
 function Welcome() {
     return (
-        <>
+        <Section>
             <Spacer size="xl" />
-            <Section>
-                <FadeSlide>
-                    <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
-                        sx={{ float: "left", mr: "-2rem", mb: "2rem" }} />
-                </FadeSlide>
-
-                <Stack height={totalHeight} useFlexGap zIndex='2'
-                    justifyContent="space-between" alignItems="stretch"
-                    sx={{ float: "left" }} >
-                    <FadeSlide delay={150}>
-                        <Typography variant="h2"
-                            sx={{ mt: "-.9rem" }} // let the text align at top
-                        >
-                            HELLO <br />
-                            I'M KIYO/QING
-                        </Typography>
+            <Grid container columns={4} columnSpacing={0}>
+                <Grid md={4} lg={1}>
+                    <FadeSlide>
+                        <Box component="img" src={ImageFullPath('K.svg')} height={totalHeight} zIndex='1'
+                            sx={{ mr: "-2rem", mb: "2rem" }} />
                     </FadeSlide>
+                </Grid>
 
-                    <FadeSlide delay={300}>
-                        <Typography variant="body1"
-                            sx={{ ml: "6rem", whiteSpace: "wrap" }}
-                        >
-                            Product/UX Designer <br />
-                            Solving user problems and business problems with solid research and empathy.
-                        </Typography>
-                    </FadeSlide>
+                <Grid md={4} lg={3}>
+                    <Stack height={totalHeight} useFlexGap zIndex='2'
+                        justifyContent="space-between" alignItems="stretch">
+                        <FadeSlide delay={150}>
+                            <Typography variant="h2"
+                                sx={{ mt: "-.9rem" }} // let the text align at top
+                            >
+                                HELLO <br />
+                                I'M KIYO/QING
+                            </Typography>
+                        </FadeSlide>
 
-                    <FadeSlide delay={450}>
-                        <Box sx={{ ml: "6rem" }}>
-                            <SliderButton text='RESUME' externalLink
-                                href="https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link" />
-                            <SliderButton text="LET'S CONNECT" externalLink
-                                href='https://www.linkedin.com/in/kiyo-yang-46b12a23b/' />
-                        </Box>
-                    </FadeSlide>
-                </Stack>
-                <Box sx={{ clear: "left" }} />
-            </Section >
+                        <FadeSlide delay={300}>
+                            <Typography variant="body1"
+                                sx={{ ml: "6rem", whiteSpace: "wrap" }}
+                            >
+                                Product/UX Designer <br />
+                                Solving user problems and business problems with solid research and empathy.
+                            </Typography>
+                        </FadeSlide>
+
+                        <FadeSlide delay={450}>
+                            <Box sx={{ ml: "6rem" }}>
+                                <SliderButton text='RESUME' externalLink
+                                    href="https://drive.google.com/file/d/1qmcdUPZFv4bVSLY4pBALD2pzfN6JnDwv/view?usp=drive_link" />
+                                <SliderButton text="LET'S CONNECT" externalLink
+                                    href='https://www.linkedin.com/in/kiyo-yang-46b12a23b/' />
+                            </Box>
+                        </FadeSlide>
+                    </Stack>
+                </Grid>
+            </Grid >
             <Spacer size="xl" />
-        </>
+        </Section>
     )
 }
 

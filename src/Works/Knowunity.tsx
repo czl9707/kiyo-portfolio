@@ -208,10 +208,10 @@ const Context = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
 
             <FadeSlide>
-                <Grid container columns={{ md: 3, sm: 1 }} columnSpacing={3}>
+                <Grid container columns={3} columnSpacing={3}>
                     {
                         contextCardsContent.map((item, i) => (
-                            <Grid xs={1} key={i}>
+                            <Grid sm={3} md={1} key={i}>
                                 <ThemedPaper sx={{ height: "100%" }}>
                                     <Stack alignItems="center">
                                         <Box component="img" src={ImageFullPath(item.imgSrc)} width="3rem" />
@@ -421,9 +421,9 @@ const FindingAndRecommendations = React.forwardRef<HTMLDivElement, { id?: string
             </FadeSlide>
 
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 2 }} spacing={3} alignItems="stretch">
+                <Grid container columns={2} spacing={3} alignItems="stretch">
                     {findingAndRecommendationsContent.map((item, i) => (
-                        <Grid xs={1} key={i}>
+                        <Grid sm={2} md={1} key={i}>
                             <ThemedPaper sx={{ height: "100%" }}>
                                 <Typography variant="h5">{item.title}</Typography>
                                 <Typography variant="body1">
@@ -457,8 +457,8 @@ const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
             </FadeSlide>
 
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 2 }} alignItems="center" justifyContent="space-between">
-                    <Grid xs={1}>
+                <Grid container columns={2} alignItems="center" justifyContent="space-between">
+                    <Grid sm={2} md={1}>
                         <Typography variant="body1">
                             Lighthouse values authenticity and building connections with people , and don't identify themselves as influencer, or experts, or someone with a huge following.
                         </Typography>
@@ -478,7 +478,7 @@ const Findings1 = React.forwardRef<HTMLDivElement, { id?: string }>(
                             - Lighthouse creator 4
                         </Quote>
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid sm={2} md={1}>
                         <Stack alignItems="center">
                             <GirlProfileImg set="Happy" size="big" />
                         </Stack>
@@ -827,12 +827,12 @@ const TakeAways = React.forwardRef<HTMLDivElement, { id?: string }>(
     function TakeAways(props, ref) {
         return (<Section {...props} ref={ref}>
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 3 }}>
-                    <Grid xs={1}>
+                <Grid container columns={3}>
+                    <Grid sm={3} md={1}>
                         <Typography variant="h3">Takeaways</Typography>
                     </Grid>
 
-                    <Grid xs={2}>
+                    <Grid sm={3} md={2}>
                         <Typography variant="body1">
                             My team and I delivered our presentation to Knowunity stakeholders and they were very impressed by our work as they gained a better understanding of <b>what lighthouse creators value </b>and<b> how regular users interact with creators</b>. Our recommendation 1 particularly led to their reconsideration about strategy on lighthouse creators' criteria.
                         </Typography>
@@ -909,11 +909,11 @@ function FindingsSection({ title, subtitle, children, imgSrc, annotation }: {
             </FadeSlide>
 
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 3 }} alignItems="center" spacing={12}>
-                    <Grid xs={2}>
+                <Grid container columns={3} alignItems="center" spacing={12}>
+                    <Grid sm={3} md={2}>
                         {children}
                     </Grid>
-                    <Grid xs={1}>
+                    <Grid sm={3} md={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath(imgSrc)} annotation={annotation} />
                     </Grid>
                 </Grid>
@@ -941,8 +941,8 @@ function RecommendationSection({ title, subtitle, children, imgSrc, annotation }
             </FadeSlide>
 
             <FadeSlide>
-                <Grid container columns={{ sm: 1, md: 2 }} alignItems="center" spacing={12}>
-                    <Grid xs={1}>
+                <Grid container columns={2} alignItems="center" spacing={12}>
+                    <Grid sm={2} md={1}>
                         <ImageWithAnnotation noShadow imgSrc={ImageFullPath(imgSrc)}
                             annotation={
                                 <>
@@ -951,7 +951,7 @@ function RecommendationSection({ title, subtitle, children, imgSrc, annotation }
                                 </>
                             } />
                     </Grid>
-                    <Grid xs={1}>{children}</Grid>
+                    <Grid sm={2} md={1}>{children}</Grid>
                 </Grid>
             </FadeSlide>
         </>
