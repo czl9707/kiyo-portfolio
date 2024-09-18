@@ -302,4 +302,4 @@ const HoverScalingBox = styled(Box)(({ theme }) => ({
     }
 }));
 
-export { Home };
+export default Home;
