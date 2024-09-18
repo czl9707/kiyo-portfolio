@@ -4,13 +4,9 @@ import { CssBaseline } from '@mui/material';
 
 import IsDarkContextProvider from './Theme.tsx';
 import CatagoriesContextProvider from './Components/Catagory.tsx'
-import { Home } from './Home/Home.js';
-import { Header } from './Components/Header.tsx';
-import { Footer } from './Components/Footer.tsx';
-import AnisePatient from './Works/AnisePatient.tsx';
-import EdgemereFarm from './Works/EdgemereFarm.tsx';
-import MontanaHistoricalSociety from './Works/MontanaHistoricalSociety.tsx'
-import Knowunity from './Works/Knowunity.tsx'
+import Home from './Home/Home.js';
+import Header from './Components/Header.tsx';
+import Footer from './Components/Footer.tsx';
 // import AboutMe from './Home/AboutMe.tsx';
 
 function Layout() {
@@ -42,25 +38,39 @@ function Layout() {
 }
 
 function App() {
+  const projects = [
+    'AnisePatient',
+    'MontanaHistoricalSociety',
+    'Knowunity',
+    'EdgemereFarm',
+  ]
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route path='Home' element={<Home />} />
-          {/* <Route path='AboutMe' element={<AboutMe />} /> */}
-          <Route path='Works'>
-            <Route path='AnisePatient' element={<AnisePatient />} />
-            <Route path='MontanaHistoricalSociety' element={<MontanaHistoricalSociety />} />
-            <Route path='Knowunity' element={<Knowunity />} />
-            <Route path='EdgemereFarm' element={<EdgemereFarm />} />
-            {/* <Route path='DesignChallenge' element={<DesignChallenge />} /> */}
-            <Route path="*" element={<Navigate to=".." />} />
-            <Route path="" element={<Navigate to=".." />} />
+      <React.Suspense>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path='Home' element={<Home />} />
+            {/* <Route path='AboutMe' element={<AboutMe />} /> */}
+
+            <Route path='Works'>
+              {
+                projects.map((p, i) => {
+                  const Component = React.lazy(() => import(`./Works/${p}.tsx`));
+                  return (
+                    <Route path={p} key={i} element={<Component />} />
+                  );
+                })
+              }
+              <Route path="*" element={<Navigate to=".." />} />
+              <Route path="" element={<Navigate to=".." />} />
+            </Route>
+
+            <Route path="*" element={<Navigate to="/Home" />} />
+            <Route path="/" element={<Navigate to="/Home" />} />
           </Route>
-          <Route path="*" element={<Navigate to="/Home" />} />
-          <Route path="/" element={<Navigate to="/Home" />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </React.Suspense>
     </BrowserRouter>
   );
 }

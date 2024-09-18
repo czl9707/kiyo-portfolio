@@ -3,10 +3,8 @@ import * as React from 'react';
 import { Spacer } from "./Section.tsx";
 
 
-function Footer() {
+export default function Footer() {
     return (
         <Spacer />
     );
 }
-
-export { Footer };

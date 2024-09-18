@@ -8,7 +8,7 @@ import { handleNavigation } from './Utils.tsx';
 // import { IsDarkContext } from '../Theme.tsx';
 
 
-function Header() {
+export default function Header() {
   // const { isDark, setIsDark } = React.useContext(IsDarkContext);
 
   const trigger = useScrollTrigger();
@@ -40,4 +40,3 @@ function Header() {
   );
 }
 
-export { Header };
