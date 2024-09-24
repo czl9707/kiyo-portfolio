@@ -37,14 +37,15 @@ function Layout() {
   );
 }
 
-function App() {
-  const projects = [
-    'AnisePatient',
-    'MontanaHistoricalSociety',
-    'Knowunity',
-    'EdgemereFarm',
-  ]
+const projects = [
+  'AnisePatient',
+  'MontanaHistoricalSociety',
+  'Knowunity',
+  'EdgemereFarm',
+  'RobotVacuum',
+]
 
+function App() {
   return (
     <BrowserRouter>
       <React.Suspense>

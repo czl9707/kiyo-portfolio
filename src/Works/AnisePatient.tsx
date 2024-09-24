@@ -90,7 +90,7 @@ const Overview = React.forwardRef<HTMLDivElement, { id?: string }>(
                         <br /><br />
                     </Typography>
                     <WarningTypography variant="body1">
-                        <b>*Due to NDA, I have modified the company name, logo, and theme colors, and omitted key business decision details.</b>
+                        *Due to NDA, I have modified the company name, logo, and theme colors, and omitted key business decision details.
                     </WarningTypography>
                 </Box>
             </FadeSlide>
