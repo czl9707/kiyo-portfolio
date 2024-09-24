@@ -65,6 +65,7 @@ const featuredProjects = [
         chipText: 'Shipped in 2024',
     },
     {
+        href: "/Works/RobotVacuum",
         imgSrc: 'CoverRobotVacuum.png',
         tags: ["Ethnographic Research", "Recruitment", "In-home Interview", "Concept Testing"],
         title: "Uncovering US Household Cleaning Needs for Asian Appliance Giant",
