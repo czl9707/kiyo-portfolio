@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled, Stack } from "@mui/material";
+import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Stack } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
