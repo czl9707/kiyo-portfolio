@@ -36,7 +36,8 @@ function RobotVacuum() {
     return (
         <ThemeProvider theme={localTheme}>
             <ProjectHeader
-                title={"Uncovering US Household Cleaning Needs for Asian Tech Giant"}
+                name={"Robot Vacuum Ethnographic Research"}
+                desc={"Uncovering US Household Cleaning Needs for Asian Tech Giant"}
                 chips={["Ethnographic Research", "In-home Visit", "Concept Testing", "Recruitment"]}
                 imgSrc={ImageFullPath("Intro.png")} />
             <Catagorize id="overview" catagoryName="Overview"><Overview /></Catagorize>
