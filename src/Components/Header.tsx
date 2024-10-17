@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      <AppBar position="sticky" color="transparent" elevation={0} enableColorOnDark>
+      <AppBar position="fixed" color="transparent" elevation={0} enableColorOnDark>
         <Section disableGutters>
           <Toolbar disableGutters>
             <Typography noWrap variant='button' color="inherit" fontSize="1.5rem"

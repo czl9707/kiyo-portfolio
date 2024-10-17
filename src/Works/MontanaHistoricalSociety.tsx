@@ -46,7 +46,8 @@ function MontanaHistoricalSociety() {
     return (
         <ThemeProvider theme={localTheme}>
             <ProjectHeader
-                title={"Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy"}
+                name={"Montana Historical Society"}
+                desc={"Evaluating Web analytics and SEO to refine Montana Historical Society's Digital Strategy"}
                 chips={["Web Analytics", "SEO Audit", "Data Visualization",]} />
 
             <Catagorize id="overview" catagoryName="Overview"><Overview /></Catagorize>

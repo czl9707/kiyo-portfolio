@@ -44,7 +44,8 @@ function Knowunity() {
     return (
         <ThemeProvider theme={localTheme}>
             <ProjectHeader
-                title="Expand lighthouse creator pool by connecting better with regular users"
+                name="Knowunity"
+                desc="Expand lighthouse creator pool by connecting better with regular users"
                 chips={["User Interview", "Usability Improvement", "App Community",]} />
 
             <Catagorize id="overview" catagoryName="Overview"><Overview /></Catagorize>

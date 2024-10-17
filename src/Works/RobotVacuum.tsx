@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, styled, Stack } from "@mui/material";
+import { Unstable_Grid2 as Grid, Box, Typography, createTheme, useTheme, ThemeProvider, Stack } from "@mui/material";
 import { common } from '@mui/material/colors'
 
 import ProjectHeader from "./Components/ProjectHeader.tsx";
@@ -36,7 +36,8 @@ function RobotVacuum() {
     return (
         <ThemeProvider theme={localTheme}>
             <ProjectHeader
-                title={"Uncovering US Household Cleaning Needs for Asian Tech Giant"}
+                name={"Robot Vacuum Ethnographic Research"}
+                desc={"Uncovering US Household Cleaning Needs for Asian Tech Giant"}
                 chips={["Ethnographic Research", "In-home Visit", "Concept Testing", "Recruitment"]}
                 imgSrc={ImageFullPath("Intro.png")} />
             <Catagorize id="overview" catagoryName="Overview"><Overview /></Catagorize>

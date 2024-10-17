@@ -49,7 +49,8 @@ function EdgemereFarm() {
     return (
         <ThemeProvider theme={localTheme}>
             <ProjectHeader
-                title={"Boost Edgemere Farm's community engagment in the digital landscape"}
+                name={"Edgemere Farm"}
+                desc={"Boost Edgemere Farm's community engagment in the digital landscape"}
                 chips={["0 to 1", "Website Design", "Information Architecture", "Visual Design"]}
                 imgSrc={ImageFullPath("Intro.png")} />
 
