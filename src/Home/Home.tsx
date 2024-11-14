@@ -47,6 +47,16 @@ const featuredProjects = [
         chipText: 'Shipped in 2023',
     },
     {
+        href: "https://www.figma.com/slides/B9E435rVXN1wq2bNNWorLG/Stylla-AI_Deck_Kiyo-Yang?node-id=198-337&t=PfY4SU3ECdvXtkCv-1",
+        imgSrc: 'CoverShopStylla.png',
+        tags: ["Mobile App", "0 to 1", "SMB",],
+        title: "Empowering Fashion Small Business Owners with AIGC",
+        introText: "AI E-Commerse Creative Studio: Instantly batch generate high-quality model images at fractional costs.",
+        buttonText: "VIEW CASE STUDY",
+        chipText: 'Shipped in 2024',
+        external: true,
+    },
+    {
         href: "/Works/EdgemereFarm",
         imgSrc: 'CoverEdgemereFarm.png',
         tags: ["Website", "NGO", "0 to 1",],
@@ -54,15 +64,6 @@ const featuredProjects = [
         introText: "Boosting NGO engagement and increase audience awareness from new user to active supporter.",
         buttonText: "VIEW CASE STUDY",
         chipText: 'Shipped in 2023',
-    },
-    {
-        // href: "/Works/ShopStylla",
-        imgSrc: 'CoverShopStylla.png',
-        tags: ["Mobile App", "0 to 1", "SMB",],
-        title: "Empowering Fashion Small Business Owners with AIGC",
-        introText: "AI E-Commerse Creative Studio: Instantly batch generate high-quality model images at fractional costs.",
-        buttonText: "VIEW CASE STUDY",
-        chipText: 'Shipped in 2024',
     },
     {
         href: "/Works/RobotVacuum",
