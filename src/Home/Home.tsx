@@ -47,7 +47,7 @@ const featuredProjects = [
         chipText: 'Shipped in 2023',
     },
     {
-        href: "https://www.figma.com/slides/B9E435rVXN1wq2bNNWorLG/Stylla-AI_Deck_Kiyo-Yang?node-id=198-337&t=PfY4SU3ECdvXtkCv-1",
+        href: "https://www.figma.com/deck/B9E435rVXN1wq2bNNWorLG/Stylla-AI_Deck_Kiyo-Yang?node-id=198-337&node-type=slide&viewport=-62%2C33%2C0.46&t=mTWeABbpnoJVhutW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
         imgSrc: 'CoverShopStylla.png',
         tags: ["Mobile App", "0 to 1", "SMB",],
         title: "Empowering Fashion Small Business Owners with AIGC",
