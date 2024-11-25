@@ -6,7 +6,7 @@ import Section, { Spacer } from '../Components/Section.tsx';
 import { SquareChip } from '../Components/SquareChip.tsx';
 import FadeSlide from '../Components/FadeSlideEffect.tsx';
 import SliderButton from './Components/SliderButton.tsx';
-import Background from './Components/Background.tsx';
+// import Background from './Components/Background.tsx';
 import { handleNavigation } from '../Components/Utils.tsx';
 
 
@@ -29,7 +29,7 @@ function Home() {
 
     return (
         <ThemeProvider theme={localTheme}>
-            <Background />
+            {/* <Background /> */}
             <Welcome />
             <Works />
         </ThemeProvider>
@@ -161,7 +161,7 @@ function Welcome() {
                     </Stack>
                 </Grid>
             </Grid >
-            <Spacer size="xl" />
+            <Spacer size="lg" />
         </Section>
     )
 }
