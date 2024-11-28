@@ -29,13 +29,14 @@ interface SliderButtonProps {
     href?: string,
     text: string,
     externalLink?: boolean
+    pwdProtected?: boolean
 }
 
-function SliderButton({ href, text, externalLink = false }: SliderButtonProps) {
+function SliderButton({ href, text, externalLink = false, pwdProtected = false }: SliderButtonProps) {
     return (
         <SliderButtonWrap
             disableRipple disableTouchRipple
-            onClick={handleNavigation(href, externalLink)}>
+            onClick={handleNavigation(href, externalLink, pwdProtected)}>
             <Typography variant='button' className='TypographyText'>
                 {text}
             </Typography>

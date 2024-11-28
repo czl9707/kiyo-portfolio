@@ -45,6 +45,7 @@ const featuredProjects = [
         introText: "How I enhanced a mental healthcare platform's new patient conversion rate by removing friction and building trust.",
         buttonText: "VIEW CASE STUDY",
         chipText: 'Shipped in 2023',
+        pwdProtected: true,
     },
     {
         href: "https://www.figma.com/deck/B9E435rVXN1wq2bNNWorLG/Stylla-AI_Deck_Kiyo-Yang?node-id=198-337&node-type=slide&viewport=-62%2C33%2C0.46&t=mTWeABbpnoJVhutW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
@@ -214,13 +215,14 @@ interface ProjectImageProps {
     imgSrc: string,
     chipText: string,
     chipOnRight?: boolean,
-    external?: boolean
+    external?: boolean,
+    pwdProtected?: boolean,
 }
 
-function ProjectImage({ href, imgSrc, chipText, chipOnRight, external }: ProjectImageProps) {
+function ProjectImage({ href, imgSrc, chipText, chipOnRight, external, pwdProtected }: ProjectImageProps) {
     return (
         <FadeSlide>
-            <HoverScalingBox onClick={handleNavigation(href, external)}>
+            <HoverScalingBox onClick={handleNavigation(href, external, pwdProtected)}>
                 <img src={ImageFullPath(imgSrc)} alt={imgSrc} />
                 <SquareChip label={chipText}
                     sx={{
@@ -247,9 +249,10 @@ interface ProjectInfoProps {
     introText: string,
     buttonText: string,
     external?: boolean,
+    pwdProtected?: boolean,
 }
 
-function ProjectInfo({ href, tags, title, introText, buttonText, external }: ProjectInfoProps) {
+function ProjectInfo({ href, tags, title, introText, buttonText, external, pwdProtected }: ProjectInfoProps) {
     return (
         <Stack spacing={2} alignItems="start">
             <FadeSlide>
@@ -272,7 +275,7 @@ function ProjectInfo({ href, tags, title, introText, buttonText, external }: Pro
             <Spacer size='sm' />
 
             <FadeSlide delay={450}>
-                <Box><SliderButton href={href} text={buttonText} externalLink={external} /></Box>
+                <Box><SliderButton href={href} text={buttonText} externalLink={external} pwdProtected={pwdProtected} /></Box>
             </FadeSlide>
         </Stack>
     )
