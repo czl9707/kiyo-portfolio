@@ -37,15 +37,15 @@ function Home() {
 }
 
 const featuredProjects = [
-    // {
-    //     href: "/Works/AnisePatient",
-    //     imgSrc: 'CoverAnisePatientPortal.png',
-    //     tags: ["Web App", "End to End", "B2C", "Conversion Rate"],
-    //     title: "Anise Health Patient Onboarding",
-    //     introText: "How I enhanced a mental healthcare platform's new patient conversion rate by removing friction and building trust.",
-    //     buttonText: "VIEW CASE STUDY",
-    //     chipText: 'Shipped in 2023',
-    // },
+    {
+        href: "/Works/AnisePatient",
+        imgSrc: 'CoverAnisePatientPortal.png',
+        tags: ["Web App", "End to End", "B2C", "Conversion Rate"],
+        title: "Anise Health Patient Onboarding",
+        introText: "How I enhanced a mental healthcare platform's new patient conversion rate by removing friction and building trust.",
+        buttonText: "VIEW CASE STUDY",
+        chipText: 'Shipped in 2023',
+    },
     {
         href: "https://www.figma.com/deck/B9E435rVXN1wq2bNNWorLG/Stylla-AI_Deck_Kiyo-Yang?node-id=198-337&node-type=slide&viewport=-62%2C33%2C0.46&t=mTWeABbpnoJVhutW-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
         imgSrc: 'CoverShopStylla.png',
